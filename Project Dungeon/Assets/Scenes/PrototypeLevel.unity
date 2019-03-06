@@ -132,7 +132,7 @@ PrefabInstance:
     - target: {fileID: 1055789316353519953, guid: a9ab31fd6cd3c464e9ba0354c5a2137a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.45
       objectReference: {fileID: 0}
     - target: {fileID: 1055789316353519953, guid: a9ab31fd6cd3c464e9ba0354c5a2137a,
         type: 3}
@@ -195,6 +195,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: abccbfa6da1bc33498169fa48dc2d323, type: 2}
+    - target: {fileID: 1055789316353519959, guid: a9ab31fd6cd3c464e9ba0354c5a2137a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9ab31fd6cd3c464e9ba0354c5a2137a, type: 3}
 --- !u!1 &317065765
@@ -246,7 +251,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: abccbfa6da1bc33498169fa48dc2d323, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
