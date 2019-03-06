@@ -1,0 +1,23 @@
+Sometimes when downloading a 2-D asset/sprite pack, there will be a single image that contains many small images inside of it.
+In order to split the images up into individuals, following the guidelines below:
+Click on the image/asset
+Figure out the size of the image and change the "Pixels Per Unit" to that size (i.e. a pixel character being 16x16 pixels should have a 
+  size of 16)
+Change "Sprite Mode" from "Single" to "Multiple" if trying to create multiple pictures
+Consider changing "Filter Mode" to "Point (no filter)"
+Based on the size of the image/asset, check the "Override" checkbox below and change the size. This should be selected by whatever is 
+  closest to the dimensions (i.e. an image is 900x400; select "1024." make sure to round up)
+Click "Apply" to save changes
+Now, click on the button that says "Sprite Editor," which opens a pop-up.
+Select "Slice" at the top and make the x and y the dimensions of each individual image dimensions, such as 16 for x and 16 for y.
+If the entire image/asset has a border, adjust the "padding" to the required size (i.e. border of 1 pixel should be a x and y padding of 1).
+If there are a lot of small images to slice, the slicing may take a little while.
+Make sure to click "Apply" at the top to save your changes. Then, exit out of the pop-up.
+That's it! If you see the image/asset below, now when you click the opening arrow, you will see a bunch of individual usable images.
+
+*Recommended!*
+Try changing the setting on the image/asset for "Filter Mode." Change it from "Bilinear" to "Point (no filter)," as this reduces how blurry
+  the individual images are.
+  
+  
+Overall Moral: KNOW THE PIXEL DIMENSIONS FOR EACH IMAGE IN THE IMAGE/ASSET SET
