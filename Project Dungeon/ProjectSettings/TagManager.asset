@@ -17,7 +17,7 @@ TagManager:
   - UI
   - 
   - 
-  - BlockingLayer
+  - 
   - 
   - 
   - 
@@ -45,12 +45,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Floor
+  - name: UnderGround
     uniqueID: 3131993583
     locked: 0
-  - name: Items
+  - name: Ground
     uniqueID: 1861650685
     locked: 0
-  - name: Units
+  - name: Player
     uniqueID: 3393972251
+    locked: 0
+  - name: WorldObjects
+    uniqueID: 3150994213
     locked: 0
