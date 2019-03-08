@@ -4,15 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class NewBehaviourScript : MonoBehaviour
+public class TitleScreenNav : MonoBehaviour
 {
     [SerializeField] string levelToLoad = "";
     [SerializeField] Button startButton;
+    [SerializeField] Button controlsButton;
+    [SerializeField] Button settingsButton;
 
     // Start is called before the first frame update
     void Start()
     {
-        startButton.onClick.AddListener(TaskOnClick);
+        startButton.onClick.AddListener(LoadLevel);
+        controlsButton.onClick.AddListener(MoveToControls);
+        settingsButton.onClick.AddListener(MoveToSettings);
     }
 
     // Update is called once per frame
@@ -21,8 +25,20 @@ public class NewBehaviourScript : MonoBehaviour
         
     }
 
-    void TaskOnClick()
+    void LoadLevel()
     {
         SceneManager.LoadScene(levelToLoad);
     }
+
+    void MoveToControls()
+    {
+        
+    }
+
+    void MoveToSettings()
+    {
+        
+    }
+
+
 }
