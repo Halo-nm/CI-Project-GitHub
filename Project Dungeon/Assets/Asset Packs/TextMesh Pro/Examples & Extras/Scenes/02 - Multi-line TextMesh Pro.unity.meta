@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b0385cb8adf4342da87514ad50837bda
+guid: 251716609f634449bfe8ce75c0ed78fe
 labels:
 - Mesh
 - Text
@@ -19,7 +19,6 @@ labels:
 - Atlas
 - Kerning
 DefaultImporter:
-  externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 

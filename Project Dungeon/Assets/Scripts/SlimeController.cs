@@ -67,4 +67,14 @@ public class SlimeController : MonoBehaviour
             }
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.name == "Player")
+        {
+            other.gameObject.SetActive(false); //deactivates the player; doesn't allow it to be moved
+            isReloading = true;
+            thePlayer = other.gameObject; //sets thePlayer to the current player in the script
+        }
+    }
 }
