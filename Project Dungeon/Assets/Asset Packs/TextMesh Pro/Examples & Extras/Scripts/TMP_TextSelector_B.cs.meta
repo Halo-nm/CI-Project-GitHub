@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: e3991186141454522b327ea0345979fe
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - TextPopup_Prefab_01: {fileID: 22450954, guid: b06f0e6c1dfa4356ac918da1bb32c603,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
