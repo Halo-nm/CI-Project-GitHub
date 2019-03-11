@@ -7,8 +7,10 @@ public class PressurePlate : MonoBehaviour
     [SerializeField] float triggerWaitTime = 1; //in seconds
     float timeSinceLastTrigger;
 
-    [SerializeField] bool spawnObject = true; //set to true if an object should be spawned on trigger
-    [SerializeField] Rigidbody2D objectPrefabToSpawn;
+    [SerializeField] GameObject objectToDespawn;
+
+    [SerializeField] bool spawnObject = false; //set to true if an object should be spawned on trigger
+    [SerializeField] GameObject objectPrefabToSpawn;
     [SerializeField] float objectMoveSpeed = 1.0f;
     [SerializeField] Transform startMarker;
     [SerializeField] Transform endMarker;
@@ -19,7 +21,7 @@ public class PressurePlate : MonoBehaviour
     private void Start()
     {
         startTime = Time.time;
-        journeyLength = Vector3.Distance(startMarker.position, endMarker.position);
+        //journeyLength = Vector3.Distance(startMarker.position, endMarker.position);
     }
 
     void Update()
@@ -38,10 +40,14 @@ public class PressurePlate : MonoBehaviour
             {
                 if (spawnObject)
                 {
-                    //Rigidbody2D objectInstance;
-                    Instantiate(objectPrefabToSpawn, startMarker.position, startMarker.rotation);
-                    objectPrefabToSpawn.transform.position = Vector3.Lerp(startMarker.transform.position, startMarker.transform.position, fracJourney);
-                    //objectInstance.AddForce(spawnLocation.forward * 50);
+                    //Rigidbody2D objectInstance; nope
+                    //Instantiate(objectPrefabToSpawn, startMarker.position, startMarker.rotation);
+                    //objectPrefabToSpawn.transform.position = Vector3.Lerp(startMarker.transform.position, startMarker.transform.position, fracJourney);
+                    //objectInstance.AddForce(spawnLocation.forward * 50); nope
+                }
+                else
+                {
+                    Destroy(objectToDespawn);
                 }
                 timeSinceLastTrigger = 0;
             }

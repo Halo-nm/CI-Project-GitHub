@@ -3487,6 +3487,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77a30eb945c9f942a519c904de31b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelToLoad: PrototypeLevel
+  startButton: {fileID: 601768696}
 --- !u!1 &1494950457
 GameObject:
   m_ObjectHideFlags: 0
