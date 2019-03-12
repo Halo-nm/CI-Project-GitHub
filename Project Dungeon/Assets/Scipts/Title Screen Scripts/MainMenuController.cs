@@ -7,18 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
-    [SerializeField] string levelToLoad = ""; //Nathan made this addition
-    [SerializeField] Button startButton; //Nathan made this addition
-
-    public void Start()
-    {
-        startButton.onClick.AddListener(PlayGame);
-    }
 
     public void PlayGame()
     {
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        SceneManager.LoadScene(levelToLoad); //Nathan made this change. Seeing if there is a difference
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void ExitGame ()

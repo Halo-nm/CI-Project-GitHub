@@ -169,7 +169,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7006124a25a8f418ba0966050e8ea5c6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4eedb296a6eba4e63acefc70b7355453, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1156,7 +1156,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 356174453}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a571d31c31fd4ae28600fbabc67d45d, type: 3}
+  m_Script: {fileID: 11500000, guid: d77a30eb945c9f942a519c904de31b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &379024375
@@ -2146,7 +2146,18 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1467705758}
+        m_MethodName: SetVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &666867834
@@ -3384,6 +3395,7 @@ GameObject:
   - component: {fileID: 1467705754}
   - component: {fileID: 1467705753}
   - component: {fileID: 1467705757}
+  - component: {fileID: 1467705758}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3487,8 +3499,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77a30eb945c9f942a519c904de31b4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: PrototypeLevel
-  startButton: {fileID: 601768696}
+--- !u!114 &1467705758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467705752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90f3a96a6130a23458aed56b663071e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1494950457
 GameObject:
   m_ObjectHideFlags: 0
