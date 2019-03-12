@@ -7,7 +7,6 @@ public class PlayerHealthManager : MonoBehaviour
     [SerializeField] int playerMaxHealth;
     [SerializeField] int playerCurrentHealth;
 
-    // Start is called before the first frame update
     void Start()
     {
         playerCurrentHealth = playerMaxHealth;
@@ -22,9 +21,9 @@ public class PlayerHealthManager : MonoBehaviour
         }
     }
 
-    public void HurtPlayer(int damageCaused)
+    public void HurtPlayer(int damageToDeal)
     {
-        playerCurrentHealth -= damageCaused;
+        playerCurrentHealth -= damageToDeal;
     }
 
     public void SetMaxHealth()
