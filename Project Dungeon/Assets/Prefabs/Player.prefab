@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 112624278}
   - component: {fileID: 112624279}
   m_Layer: 0
-  m_Name: Sword1
+  m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1362218327}
   m_Father: {fileID: 1561023570}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -119,6 +120,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c6f49506e7791a488937cc5c9e726ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageToDeal: 10
+  damageBurst: {fileID: 2823893128286567286, guid: 9b8a65f711a678a4c96dd9b159d3ae07,
+    type: 3}
+  hitPoint: {fileID: 1362218327}
+--- !u!1 &1362218326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1362218327}
+  m_Layer: 0
+  m_Name: Hit Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1362218327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362218326}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.475, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 112624277}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1561023569
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,6 +163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1561023570}
+  - component: {fileID: 4058904084530057189}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -143,13 +179,28 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1561023569}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.374, y: -0.244, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 112624277}
   m_Father: {fileID: 1055789316353519953}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4058904084530057189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561023569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c6f49506e7791a488937cc5c9e726ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToDeal: 10
+  damageBurst: {fileID: 0}
+  hitPoint: {fileID: 0}
 --- !u!1 &1055789316353519955
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   lastMove: {x: 0, y: 0}
-  attackTime: 0.5
+  attackTime: 0.4
 --- !u!95 &1055789316353519959
 Animator:
   serializedVersion: 3
