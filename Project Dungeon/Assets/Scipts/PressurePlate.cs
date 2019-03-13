@@ -7,7 +7,8 @@ public class PressurePlate : MonoBehaviour
     //[SerializeField] float triggerWaitTime = 1; //in seconds
     //float timeSinceLastTrigger;
 
-    [SerializeField] GameObject objectToDespawn;
+    [SerializeField] GameObject objectToChange;
+    [SerializeField] bool destroyObject = true; //consider for spawning walls
 
     //[SerializeField] bool spawnObject = false; //set to true if an object should be spawned on trigger
     //[SerializeField] GameObject objectPrefabToSpawn;
@@ -37,7 +38,14 @@ public class PressurePlate : MonoBehaviour
                 //}
                 //timeSinceLastTrigger = 0;
             //}
-            Destroy(objectToDespawn);
+            if(destroyObject)
+            {
+                Destroy(objectToChange);
+            }
+            else
+            {
+                //Instantiate(objectToChange, asdf, asdf); //consider for spawning walls
+            }
         }
     }
 }

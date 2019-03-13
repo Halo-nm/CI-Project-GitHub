@@ -9,6 +9,8 @@ public class SlimeController : MonoBehaviour
     [SerializeField] float timeBetweenMove = 2f;
     [SerializeField] float timeToMove = 1f;
 
+    public bool oneHit; //DELETE THIS AFTER PROTOTYPE
+
     [SerializeField] float waitToReload = 1f;
     private bool isReloading;
     private GameObject thePlayer;
@@ -20,11 +22,8 @@ public class SlimeController : MonoBehaviour
     private bool isMoving;
     private Vector3 moveDirection;
 
-    // Start is called before the first frame update
     void Start()
     {
-        //timeBetweenMoveCounter = timeBetweenMove;
-        //timeToMoveCounter = timeToMove;
         myRigidBody = GetComponent<Rigidbody2D>();
         isMoving = false;
         timeBetweenMoveCounter = Random.Range(timeBetweenMove * 0.75f, timeBetweenMove * 1.25f);
@@ -40,7 +39,6 @@ public class SlimeController : MonoBehaviour
             myRigidBody.velocity = moveDirection;
             if (timeToMoveCounter < 0f)
             {
-                //timeBetweenMoveCounter = timeBetweenMove;
                 isMoving = false;
                 timeBetweenMoveCounter = Random.Range(timeBetweenMove * 0.75f, timeBetweenMove * 1.25f);
             }
@@ -51,7 +49,6 @@ public class SlimeController : MonoBehaviour
             myRigidBody.velocity = Vector2.zero; //a Vector2 with a "0" on all axis
             if (timeBetweenMoveCounter < 0f)
             {
-                //timeToMoveCounter = timeToMove;
                 isMoving = true;
                 timeToMoveCounter = Random.Range(timeToMove * 0.75f, timeToMove * 1.25f);
                 moveDirection = new Vector3(Random.Range(-1f, 1f) * moveSpeed, Random.Range(-1f, 1f) * moveSpeed, 0f);
@@ -65,6 +62,16 @@ public class SlimeController : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 thePlayer.SetActive(true);
             }
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D other) //REMOVE AFTER SHOWING PROTOTYPE AND ADD HURTPLAYER SCRIPT BACK ON ENEMIES
+    {
+        if (oneHit && other.gameObject.name == "Player")
+        {
+            other.gameObject.SetActive(false);
+            isReloading = true;
+            thePlayer = other.gameObject;
         }
     }
 }

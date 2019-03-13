@@ -60,3 +60,6 @@ TagManager:
   - name: WorldObjects
     uniqueID: 234899947
     locked: 0
+  - name: AboveWorldObjects
+    uniqueID: 459479013
+    locked: 0
