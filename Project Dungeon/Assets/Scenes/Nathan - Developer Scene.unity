@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074a27add5fc9a14f94767491d11920f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: 
+  levelToLoad: TitleScreen
   selectRandomScene: 1
 --- !u!1 &138338852
 GameObject:
@@ -12775,7 +12775,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2232075207441049739}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.23, y: 0.012, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 647341489}
@@ -12820,17 +12820,17 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 647341489}
     m_Modifications:
     - target: {fileID: 1310778690163995471, guid: 644fc41e6e789944e80ce66ae272d246,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.23
       objectReference: {fileID: 0}
     - target: {fileID: 1310778690163995471, guid: 644fc41e6e789944e80ce66ae272d246,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.012
       objectReference: {fileID: 0}
     - target: {fileID: 1310778690163995471, guid: 644fc41e6e789944e80ce66ae272d246,
         type: 3}
@@ -12887,6 +12887,16 @@ PrefabInstance:
       propertyPath: objectToDespawn
       value: 
       objectReference: {fileID: 767179319}
+    - target: {fileID: 5733274590866987330, guid: 644fc41e6e789944e80ce66ae272d246,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733274590866987330, guid: 644fc41e6e789944e80ce66ae272d246,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 644fc41e6e789944e80ce66ae272d246, type: 3}
 --- !u!61 &5733274590866987330
@@ -12903,7 +12913,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.31942844, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
