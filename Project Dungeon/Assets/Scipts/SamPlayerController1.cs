@@ -6,6 +6,8 @@ public class SamPlayerController1 : MonoBehaviour
 {
 
     [SerializeField] float moveSpeed;
+    [SerializeField] float BloodRushCounter;
+    [SerializeField] bool BloodRushReady = true;
 
     private Animator animator;
     private Rigidbody2D myRigidbody;
@@ -39,6 +41,7 @@ public class SamPlayerController1 : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        HandleBloodRush();
         playerMoving = false;
 
         if (!playerAttacking)
@@ -98,5 +101,24 @@ public class SamPlayerController1 : MonoBehaviour
         click on the transition, uncheck "Has Exit Time," uncheck "Fixed Duration," and set "Transition Duration" to 0. Supposedly, "Transition Duration
         is what causes this the most.*/
     }
-
+    private void HandleBloodRush()
+    {
+        if (Input.GetKeyDown(KeyCode.R) && BloodRushReady)
+        {
+            moveSpeed *= 2;
+            attackTime /= 2;
+            BloodRushReady = false;
+        }
+        if((BloodRushCounter> 0) && !BloodRushReady)
+        {
+            BloodRushCounter -= Time.deltaTime;
+        }
+        if((BloodRushCounter<= 0) && !BloodRushReady)
+        {
+            BloodRushReady = true;
+            moveSpeed /= 2;
+            attackTime *= 2;
+            BloodRushCounter = 10;
+        }
+    }
 }
