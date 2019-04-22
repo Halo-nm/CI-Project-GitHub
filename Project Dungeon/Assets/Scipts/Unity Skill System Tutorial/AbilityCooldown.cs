@@ -9,8 +9,8 @@ public class AbilityCooldown : MonoBehaviour
     public Image darkMask;
     public Text cooldownTextDisplay;
 
-    [SerializeField] private Ability ability; //temp
-    [SerializeField] private GameObject weaponHolder; //what holds the ability scripts to get a reference to the scripts from here (maybe Player?)
+    private Ability ability;
+    private GameObject weaponHolder; //what holds the ability scripts to get a reference to the scripts from here (maybe Player?)
     private Image myButtonImage;
     private AudioSource abilityAudioSource; //the clip gets set by the scriptable object
     private float cooldownDuration; //how long the cooldown takes //set from the base cooldown in "Ability"
@@ -19,7 +19,7 @@ public class AbilityCooldown : MonoBehaviour
 
     void Start()
     {
-        Initialize(ability, weaponHolder); //temp
+        //Initialize(ability, weaponHolder); //temp
     }
 
     void Update()

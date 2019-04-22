@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Bloodrush
   m_EditorClassIdentifier: 
   abilityName: Bloodrush
-  abilitySprite: {fileID: 0}
-  abilitySound: {fileID: 0}
-  abilityBaseCooldown: 1
+  abilitySprite: {fileID: 21300000, guid: 6f649aea2852e3b46a8c4386355a2c53, type: 3}
+  abilitySound: {fileID: 8300000, guid: 2d75080d0851d4613ada1117d91ee417, type: 3}
+  abilityBaseCooldown: 10

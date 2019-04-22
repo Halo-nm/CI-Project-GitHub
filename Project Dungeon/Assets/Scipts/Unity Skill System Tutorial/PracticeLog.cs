@@ -13,7 +13,7 @@ public class PracticeLog : MonoBehaviour
         Debug.Log("Practice Ability Initialized!"); //normally would be done in the Start() function, but doesn't need to be anymore because it's called in "Ability"
     }
 
-    public void DoSomething() //normally would be checked in the Update() function, but now can be called from "PracticeAbility"
+    public void DoSomething() //normally could be checked in the Update() function, but now can be called from "PracticeAbility"
     {
         Debug.Log("I did a thing!");
     }
