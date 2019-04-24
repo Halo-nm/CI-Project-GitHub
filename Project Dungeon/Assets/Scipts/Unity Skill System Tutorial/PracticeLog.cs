@@ -8,9 +8,9 @@ public class PracticeLog : MonoBehaviour
     [HideInInspector] public float pretendRange = 50f; //still accessible from other classes
     [HideInInspector] public float pretendHitForce = 100f;
 
-    public void Initialize()
+    public void Initialize(int d)
     {
-        Debug.Log("Practice Ability Initialized!"); //normally would be done in the Start() function, but doesn't need to be anymore because it's called in "Ability"
+        Debug.Log("Practice Ability Initialized!" + d); //normally would be done in the Start() function, but doesn't need to be anymore because it's called in "Ability"
     }
 
     public void DoSomething() //normally could be checked in the Update() function, but now can be called from "PracticeAbility"

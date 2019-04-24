@@ -13,8 +13,9 @@ public class PracticeAbility : Ability //inherites everything from the abstract 
 
     public override void Initialize(GameObject obj) //overrides the previous implementation called "Initialize" from the abstract "Ability" class/scriptable object
     {
+        //pretendShoot = FindObjectOfType<PracticeLog>();
         pretendShoot = obj.GetComponent<PracticeLog>(); //passed in to get a reference to the script and store it in "pretendShoot"
-        pretendShoot.Initialize();
+        pretendShoot.Initialize(5);
 
         pretendShoot.pretendDamage = pretendDamage; //can set the values of the "PracticeLog" script (hidden in inspector ones) to the ones in this scriptable object
         pretendShoot.pretendRange = pretendRange;
