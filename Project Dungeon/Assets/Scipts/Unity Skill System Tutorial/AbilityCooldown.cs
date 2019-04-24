@@ -35,7 +35,7 @@ public class AbilityCooldown : MonoBehaviour
 
     }
 
-    public void Initialize(Ability selectedAbility, GameObject weaponHolder) //temp
+    public void Initialize(Ability selectedAbility, GameObject weaponHolder)
     {
         ability = selectedAbility;
         myButtonImage = GetComponent<Image>(); //get a component reference to the Image component (that will display the icon)

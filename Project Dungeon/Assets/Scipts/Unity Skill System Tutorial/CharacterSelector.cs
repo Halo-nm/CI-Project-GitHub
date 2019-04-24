@@ -36,7 +36,7 @@ public class CharacterSelector : MonoBehaviour
         return spawnedPlayer;
     }
 
-    public int GetCharacterChoice()
+    public int GetCharacterChoice() //consider use for later
     {
         return storedCharacterChoice;
     }

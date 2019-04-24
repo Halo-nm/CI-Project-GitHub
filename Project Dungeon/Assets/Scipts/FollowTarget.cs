@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FollowTarget : MonoBehaviour {
 
+    public bool newCharacter = true;
     public GameObject followTarget; //can change the target for something like a brief cutscene (to focus on something else)
     public float moveSpeed; //speed of camera movement - Setting to 0 is useful b/c it freezes all camera movement. Could be useful in certain rooms/areas
     private Vector3 targetPos; //position of camera
@@ -28,7 +29,10 @@ public class FollowTarget : MonoBehaviour {
 
 	void Update ()
     {
-        followTarget = characterSelector.GetCharacterObject();
+        if (newCharacter)
+        {
+            followTarget = characterSelector.GetCharacterObject();
+        }
         try
         {
             targetPos = new Vector3(followTarget.transform.position.x, followTarget.transform.position.y, transform.position.z); //using the z position of the camera
