@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Practice Ability One
   m_EditorClassIdentifier: 
   abilityName: Practice Ability One
-  abilitySprite: {fileID: 21300000, guid: ad6931e623929ad47ab9daa61454e000, type: 3}
+  abilitySprite: {fileID: 21300000, guid: 6f649aea2852e3b46a8c4386355a2c53, type: 3}
   abilitySound: {fileID: 8300000, guid: 92fa59babc4d87242b7fdd558293d08f, type: 3}
-  abilityBaseCooldown: 2
+  abilityBaseCooldown: 5
   pretendDamage: 1
   pretendRange: 50
   pretendHitForce: 100

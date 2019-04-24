@@ -12,15 +12,10 @@ public class AbilityCooldown : MonoBehaviour
     private Ability ability;
     private GameObject weaponHolder; //what holds the ability scripts to get a reference to the scripts from here (maybe Player?)
     private Image myButtonImage;
-    private AudioSource abilityAudioSource; //the clip gets set by the scriptable object
+    private AudioSource abilityAudioSource; //the clip gets set by the scriptable object further down the script
     private float cooldownDuration; //how long the cooldown takes //set from the base cooldown in "Ability"
     private float nextReadyTime; //the next time (in seconds) that the object comes off of cooldown
     private float cooldownTimeLeft; //time left (only displayed in the UI)
-
-    void Start()
-    {
-        //Initialize(ability, weaponHolder); //temp
-    }
 
     void Update()
     {
@@ -40,7 +35,7 @@ public class AbilityCooldown : MonoBehaviour
 
     }
 
-    public void Initialize(Ability selectedAbility, GameObject weaponHolder) //temp
+    public void Initialize(Ability selectedAbility, GameObject weaponHolder)
     {
         ability = selectedAbility;
         myButtonImage = GetComponent<Image>(); //get a component reference to the Image component (that will display the icon)

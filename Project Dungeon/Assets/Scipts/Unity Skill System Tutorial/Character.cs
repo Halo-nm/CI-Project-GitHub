@@ -8,6 +8,4 @@ public class Character : ScriptableObject //not a component (not attached to any
     public string characterName = "Default";
     public int startingHP = 100; //types of things maybe put in a character
     public Ability[] characterAbilities; //an array to hold the ability scriptable objects
-
-
 }
