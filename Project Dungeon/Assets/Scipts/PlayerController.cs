@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    [SerializeField] float moveSpeed;
+    public float moveSpeed;
 
     private Animator animator;
     private Rigidbody2D myRigidbody;
@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour {
     public Vector2 lastMove; //Use Vector 2 for (x,y); not Vector 3 b/c it's (x,y,z)
     private bool playerMoving;
 
-    [SerializeField] float attackTime = 0.5f;
+    public float attackTime = 0.5f;
     private float attackTimeCounter;
     private bool playerAttacking;
 
