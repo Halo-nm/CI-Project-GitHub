@@ -819,7 +819,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 841969211}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 68.46, y: -8.5, z: 0}
+  m_LocalPosition: {x: 68.95, y: -8, z: 0}
   m_LocalScale: {x: 24, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4654186164169593210}
@@ -2105,7 +2105,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1693217301}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 57.21, y: -3.5, z: 0}
+  m_LocalPosition: {x: 57.7, y: -3, z: 0}
   m_LocalScale: {x: 1, y: -10.97275, z: 1}
   m_Children: []
   m_Father: {fileID: 4654186164169593210}
@@ -14030,7 +14030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c7cd4cdbdbe014b84edbc7f560bdfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMaxHealth: 10
+  playerMaxHealth: 50
   playerCurrentHealth: 0
 --- !u!61 &9132128456799982128
 BoxCollider2D:
