@@ -2,23 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Abilities/SiroriasBoon")]
-public class SiroriasBoonAbility : Ability
+[CreateAssetMenu(menuName = "Abilities/Charge")]
+public class ChargeAbility : Ability
 {
     [Header("Specific Settings")]
     public float moveSpeedMultiplier = 1.3f;
+    public float superChargeExample = 50f;
 
-    SiroriasBoon siroriasBoon;
+    Charge charge;
 
     public override void Initialize(GameObject obj)
     {
-        siroriasBoon = obj.GetComponent<SiroriasBoon>();
+        charge = obj.GetComponent<Charge>();
 
-        siroriasBoon.Setup();
+        charge.Setup();
     }
 
     public override void TriggerAbility()
     {
-        siroriasBoon.PerformSiroriasBoon();
+        charge.PerformCharge();
     }
 }
