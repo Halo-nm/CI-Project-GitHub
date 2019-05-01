@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Rewired;
 
-public class Projectile-neel : MonoBehaviour
-{
+public class Projectile-neel : MonoBehaviour {
+    public GameObject bullet;
+
     // Start is called before the first frame update
     void Start()
     { 
@@ -12,11 +12,10 @@ public class Projectile-neel : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update(){
+
     if (Input.GetKeyDown(KeyCode.RightArrow)) {
         Instantiate(bullet, transform.position, Quaternion.identity);
-
     }
     else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
     }
