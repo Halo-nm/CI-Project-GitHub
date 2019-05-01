@@ -11958,7 +11958,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4058904084530057189, guid: a9ab31fd6cd3c464e9ba0354c5a2137a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a9ab31fd6cd3c464e9ba0354c5a2137a, type: 3}
 --- !u!1 &1697365981
 GameObject:
@@ -12921,7 +12922,7 @@ PrefabInstance:
     - target: {fileID: 8577537184383494393, guid: 7d3f08b08d5c75d419723821dfb670f4,
         type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2058915070, guid: 7d3f08b08d5c75d419723821dfb670f4, type: 3}
       propertyPath: m_GravityScale
