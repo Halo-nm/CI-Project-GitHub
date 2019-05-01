@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spike : MonoBehaviour
+public class AlternatingSpike : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] public bool Active;
