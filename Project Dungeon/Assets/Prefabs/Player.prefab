@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 112624276}
   - component: {fileID: 112624278}
   - component: {fileID: 112624279}
+  - component: {fileID: 1105805709297012949}
+  - component: {fileID: 7372720095438826458}
+  - component: {fileID: 3422852693339708172}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -27,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112624275}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1362218327}
@@ -124,6 +127,48 @@ MonoBehaviour:
   damageBurst: {fileID: 2823893128286567286, guid: 9b8a65f711a678a4c96dd9b159d3ae07,
     type: 3}
   hitPoint: {fileID: 1362218327}
+--- !u!114 &1105805709297012949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112624275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f55c412bf0209447a20335abfd14786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7372720095438826458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112624275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5345bc67b889b4f935604b770f776a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pretendDamage: 1
+  pretendRange: 20
+  pretendHitForce: 100
+--- !u!114 &3422852693339708172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112624275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68ef89b8d46d2314f928b76388c69da7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeedMultiplier: 0
+  attackTimeDivisor: 0
+  buffDuration: 5
 --- !u!1 &1362218326
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,8 +209,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1561023570}
   - component: {fileID: 4058904084530057189}
-  - component: {fileID: 5421267747932537110}
-  - component: {fileID: 483112266873724564}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -203,33 +246,6 @@ MonoBehaviour:
   damageToDeal: 10
   damageBurst: {fileID: 0}
   hitPoint: {fileID: 0}
---- !u!114 &5421267747932537110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1561023569}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f55c412bf0209447a20335abfd14786, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &483112266873724564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1561023569}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f5345bc67b889b4f935604b770f776a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pretendDamage: 1
-  pretendRange: 20
-  pretendHitForce: 100
 --- !u!1 &1055789316353519955
 GameObject:
   m_ObjectHideFlags: 0
