@@ -12492,8 +12492,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 564337376691794748, guid: 5a8f8996b2bb06947a51c81d6c488ecf,
         type: 3}
-      propertyPath: spike
-      value: 1
+      propertyPath: spikePulsationSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 564337376691794750, guid: 5a8f8996b2bb06947a51c81d6c488ecf,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -900995045
+      objectReference: {fileID: 0}
+    - target: {fileID: 564337376691794750, guid: 5a8f8996b2bb06947a51c81d6c488ecf,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a8f8996b2bb06947a51c81d6c488ecf, type: 3}

@@ -20,6 +20,8 @@ public class PlayerHealthManager : MonoBehaviour
         {
             gameObject.SetActive(false);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            playerCurrentHealth = playerMaxHealth;
+            gameObject.SetActive(true);
         }
     }
 
