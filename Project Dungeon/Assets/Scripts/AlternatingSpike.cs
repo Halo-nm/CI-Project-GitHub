@@ -6,7 +6,7 @@ public class AlternatingSpike : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] public bool Active;
-    [SerializeField] int Damage;
+    [SerializeField] int damageToDeal;
     [SerializeField] int spriteVersion = 0;
     //private SpriteRenderer spriteR;
     private BoxCollider2D boxCollider2D;
@@ -35,12 +35,8 @@ public class AlternatingSpike : MonoBehaviour
             boxCollider2D.enabled = false;
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if ((collision.gameObject.name == "Player" || collision.gameObject.name == "Player(Clone)")&& Active)
-        {
-            collision.gameObject.GetComponent<PlayerHealthManager>().HurtPlayer(Damage); ;
-            
-        }
+        GetComponent<PlayerHealthManager>().HurtPlayer(damageToDeal);
     }
 }

@@ -33,21 +33,17 @@ public class Spikes : MonoBehaviour
             boxCollider2D.enabled = true;
             spike = true;
         }
-
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (spike == true)
         {
-            if (other.gameObject.name == "Player")
+            if (other.gameObject.name == "Player" || other.gameObject.name == "Player(Clone)")
             {
                 other.gameObject.GetComponent<PlayerHealthManager>().HurtPlayer(damageToDeal);
             }
         }
-
     }
-
-
 } 
  
