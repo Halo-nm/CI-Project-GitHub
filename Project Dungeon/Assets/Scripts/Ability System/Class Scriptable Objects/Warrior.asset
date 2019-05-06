@@ -16,4 +16,4 @@ MonoBehaviour:
   startingHP: 100
   characterAbilities:
   - {fileID: 11400000, guid: 2958dd941abe11143ba29e3e73ece4f2, type: 2}
-  - {fileID: 11400000, guid: ac81a68480d3fde4fa28b0734f809edd, type: 2}
+  - {fileID: 11400000, guid: 0b90fdb631e8c814f8b76d49ee8e1882, type: 2}

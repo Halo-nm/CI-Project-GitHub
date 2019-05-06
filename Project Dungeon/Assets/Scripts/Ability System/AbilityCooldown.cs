@@ -32,7 +32,6 @@ public class AbilityCooldown : MonoBehaviour
         {
             Cooldown();
         }
-
     }
 
     public void Initialize(Ability selectedAbility, GameObject weaponHolder)
@@ -56,8 +55,8 @@ public class AbilityCooldown : MonoBehaviour
     private void Cooldown() //called every frame when on cooldown //called ultimately from Update()
     {
         cooldownTimeLeft -= Time.deltaTime; //subtracting the time taken to render the last frame from the total cooldown time left
-        float roundedCooldown = Mathf.Round(cooldownTimeLeft); //don't want long decimals in the UI
-        cooldownTextDisplay.text = roundedCooldown.ToString();
+        float roundedTimeLeft = (float)System.Math.Round(cooldownTimeLeft, 2); //don't want long decimals in the UI, so rounding to two decimal places //casted from a double as a float
+        cooldownTextDisplay.text = roundedTimeLeft.ToString();
         darkMask.fillAmount = cooldownTimeLeft / cooldownDuration; //give a number between 0 and 1, which is the % of cooldown duration that has elapsed
     }
 

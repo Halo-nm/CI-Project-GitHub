@@ -5,7 +5,6 @@ using UnityEngine;
 public class Spikes : MonoBehaviour
 {
     [SerializeField] int damageToDeal;
-    [SerializeField] float spikePulsationSpeed = 0.01f; //the smaller the number, the longer the spike is down for the player
     public float currentTime = 0f;
     public bool spike;
 
@@ -29,7 +28,7 @@ public class Spikes : MonoBehaviour
             boxCollider2D.enabled = false;
             currentTime = 0;
         }
-        else if (currentTime > spikePulsationSpeed) 
+        else if (currentTime > 1) 
         {
             boxCollider2D.enabled = true;
             spike = true;

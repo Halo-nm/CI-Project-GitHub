@@ -30,8 +30,23 @@ public class PlayerHealthManager : MonoBehaviour
         playerCurrentHealth -= damageToDeal;
     }
 
+    public int GetMaxHealth()
+    {
+        return playerMaxHealth;
+    }
+
     public void SetMaxHealth()
     {
         playerCurrentHealth = playerMaxHealth;
+    }
+
+    public int GetCurrentHealth()
+    {
+        return playerCurrentHealth;
+    }
+
+    public void SetCurrentHealth(int updatedCurrentPlayerHealth)
+    {
+        playerCurrentHealth = updatedCurrentPlayerHealth;
     }
 }
