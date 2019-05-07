@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bloodrush
   m_EditorClassIdentifier: 
   abilityName: Bloodrush
-  abilitySprite: {fileID: 21300000, guid: 6f649aea2852e3b46a8c4386355a2c53, type: 3}
+  abilitySprite: {fileID: 21300000, guid: 88c47ee50e9dfe240b499f761f7eda42, type: 3}
   abilitySound: {fileID: 8300000, guid: 4d1d59afda311884a851408ce9dac6a5, type: 3}
   abilityBaseCooldown: 10
   moveSpeedMultiplier: 1.4

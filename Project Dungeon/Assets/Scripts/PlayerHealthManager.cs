@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerHealthManager : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class PlayerHealthManager : MonoBehaviour
         if (playerCurrentHealth <= 0)
         {
             gameObject.SetActive(false);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            playerCurrentHealth = playerMaxHealth;
+            gameObject.SetActive(true);
         }
     }
 
@@ -27,8 +31,23 @@ public class PlayerHealthManager : MonoBehaviour
         playerCurrentHealth -= damageToDeal;
     }
 
+    public int GetMaxHealth()
+    {
+        return playerMaxHealth;
+    }
+
     public void SetMaxHealth()
     {
         playerCurrentHealth = playerMaxHealth;
+    }
+
+    public int GetCurrentHealth()
+    {
+        return playerCurrentHealth;
+    }
+
+    public void SetCurrentHealth(int updatedCurrentPlayerHealth)
+    {
+        playerCurrentHealth = updatedCurrentPlayerHealth;
     }
 }
