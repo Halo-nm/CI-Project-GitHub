@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterSelector : MonoBehaviour
 {
@@ -13,8 +14,13 @@ public class CharacterSelector : MonoBehaviour
     public GameObject characterSelectPanel; //grabbed to be used to turn on and off
     public GameObject abilityPanel;
 
+    //public Slider healthBar;
+    //public Text healthText;
+
     private int storedCharacterChoice;
     //private bool characterChosen = false;
+
+    PlayerHealthManager playerHealthManager;
 
     public void OnCharacterSelect(int characterChoice) //function called when the button is pressed //parameter is passed by the button that was clicked
     {
@@ -29,6 +35,12 @@ public class CharacterSelector : MonoBehaviour
         { //*IMPORTANT* If there are too many abilities, then some will get ignored because there are too many abilities //too few abilities will create blank buttons //need to account for this
             cooldownButtons[i].Initialize(selectedCharacter.characterAbilities[i], weaponMarker.gameObject); //each character has an array of character abilities //the selected ability is the one in character abilities spot i //the weapon holder is the first object that was found that had a weapon marker
         }
+    }
+
+    void Update()
+    {
+        //healthBar.maxValue = playerHealthManager.GetMaxHealth();
+        //healthBar.value = playerHealthManager.GetCurrentHealth();
     }
 
     public GameObject GetCharacterObject()
