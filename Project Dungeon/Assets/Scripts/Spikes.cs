@@ -39,7 +39,7 @@ public class Spikes : MonoBehaviour
     {
         if (spike == true)
         {
-            if (other.gameObject.name == "Player" || other.gameObject.name == "Player(Clone)")
+            if (other.gameObject.tag == "Player")
             {
                 other.gameObject.GetComponent<PlayerHealthManager>().HurtPlayer(damageToDeal);
             }

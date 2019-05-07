@@ -13,7 +13,7 @@ public class SiphonAbility : Ability
     public override void Initialize(GameObject obj)
     {
         siphon = obj.GetComponent<Siphon>();
-
+        siphon.healthToReturn = healthToReturn;
         siphon.Setup();
     }
 

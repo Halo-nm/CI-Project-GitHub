@@ -14,17 +14,34 @@ public class CharacterSelector : MonoBehaviour
     public GameObject characterSelectPanel; //grabbed to be used to turn on and off
     public GameObject abilityPanel;
 
-    //public Slider healthBar;
-    //public Text healthText;
-
     private int storedCharacterChoice;
     //private bool characterChosen = false;
 
+    private static bool UIExists; //static boolean that checks if a UI is present in the current scene
+
     PlayerHealthManager playerHealthManager;
+    PlayerHealthBarManager playerHealthBarManager;
+
+    void Start()
+    {
+        if (!UIExists) //if the UI doesn't in the current scene, don't destroy the UI between scene swapping
+        {
+            UIExists = true;
+            DontDestroyOnLoad(transform.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        playerHealthBarManager = FindObjectOfType<PlayerHealthBarManager>(); //get a reference to the PlayerHealthBarManager script
+    }
 
     public void OnCharacterSelect(int characterChoice) //function called when the button is pressed //parameter is passed by the button that was clicked
     {
         storedCharacterChoice = characterChoice;
+        playerHealthBarManager.healthBar.gameObject.SetActive(true);
+        playerHealthBarManager.healthText.gameObject.SetActive(true);
         characterSelectPanel.SetActive(false); //hidden when first called
         abilityPanel.SetActive(true); //activated when first called
         spawnedPlayer = Instantiate(player, playerSpawnPosition, Quaternion.identity) as GameObject; //casted as a GameObject //Quaternion.identity returns the rotation of the original prefab
@@ -39,8 +56,7 @@ public class CharacterSelector : MonoBehaviour
 
     void Update()
     {
-        //healthBar.maxValue = playerHealthManager.GetMaxHealth();
-        //healthBar.value = playerHealthManager.GetCurrentHealth();
+
     }
 
     public GameObject GetCharacterObject()

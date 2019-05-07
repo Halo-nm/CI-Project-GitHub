@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PrototypeExit.unity
     guid: e6c199a3eaa9d4345a256c5b1103905c
+  - enabled: 1
+    path: Assets/Scenes/Test - Next Level (Nathan).unity
+    guid: bc1b713cbfc52d64386099da6f48b3ae
   m_configObjects: {}

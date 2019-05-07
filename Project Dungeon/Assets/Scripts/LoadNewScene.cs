@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class LoadNewScene : MonoBehaviour
 {
     [SerializeField] string levelToLoad = "";
-    [SerializeField] bool selectRandomScene = false;
+    [SerializeField] bool selectRandomScene = true;
 
     List<string> scenesList = new List<string>(); //string list of levels to randomly select from
 
@@ -20,7 +20,7 @@ public class LoadNewScene : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Player") //checks if the player was the object that collided with the gameobject the script is attached to
+        if (collision.gameObject.tag == "Player") //checks if the player was the object that collided with the gameobject the script is attached to
         {
             if (selectRandomScene) //if the selectRandomScene boolean is active, then the gameobject the script is attached to wants to randomly load levels from a list
             {
