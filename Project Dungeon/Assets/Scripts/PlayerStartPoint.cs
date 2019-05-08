@@ -6,7 +6,7 @@ public class PlayerStartPoint : MonoBehaviour
 {
     [SerializeField] Vector2 startDirection;
 
-    private PlayerController thePlayer; //has the script attached to it; same below //currently set to Nathan's controller
+    private PlayerController thePlayer; //has the script attached to it; same below
     private FollowTarget theCamera;
 
     // Start is called before the first frame update
