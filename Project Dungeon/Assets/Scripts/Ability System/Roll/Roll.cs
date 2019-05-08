@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Charge : MonoBehaviour
+public class Roll : MonoBehaviour
 {
    [HideInInspector] public float dashSpeed;
    [HideInInspector] public float dashTime;
@@ -15,7 +15,7 @@ public class Charge : MonoBehaviour
     }
 
     
-    public void PerformCharge()
+    public void PerformRoll()
     {
         if (dashTime > 0)
         {
