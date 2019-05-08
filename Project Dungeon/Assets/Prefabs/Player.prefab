@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 3422852693339708172}
   - component: {fileID: 1428888873}
   - component: {fileID: 1493607331141610386}
+  - component: {fileID: 8002001123853791997}
+  - component: {fileID: 3844895748895882368}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -183,6 +185,36 @@ MonoBehaviour:
   pretendDamage: 1
   pretendRange: 20
   pretendHitForce: 100
+--- !u!114 &8002001123853791997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112624275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72c4545ec07c3eb428e7fe91d66acad3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 0
+  dashTime: 0
+  startDashTime: 0
+--- !u!114 &3844895748895882368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112624275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 937e1fea12227e045acfac0932f87b04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 0
+  dashTime: 0
+  startDashTime: 0
 --- !u!1 &1362218326
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,6 +374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  myRigidbody: {fileID: 0}
   lastMove: {x: 0, y: 0}
   attackTime: 0.4
 --- !u!95 &1055789316353519959
