@@ -459,7 +459,7 @@ MonoBehaviour:
   moveSpeed: 5
   myRigidbody: {fileID: 0}
   lastMove: {x: 0, y: 0}
-  attackTime: 0.4
+  attackTime: 0.2
 --- !u!95 &6464754903767592433
 Animator:
   serializedVersion: 3
