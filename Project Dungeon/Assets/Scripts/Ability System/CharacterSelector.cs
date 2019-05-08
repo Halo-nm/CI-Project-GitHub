@@ -11,6 +11,8 @@ public class CharacterSelector : MonoBehaviour
 
     public Character[] characters; //character options that are set in the inspector
 
+    public Canvas UICanvas;
+
     public GameObject characterSelectPanel; //grabbed to be used to turn on and off
     public GameObject abilityPanel;
 
@@ -24,6 +26,8 @@ public class CharacterSelector : MonoBehaviour
 
     void Start()
     {
+        playerHealthBarManager = FindObjectOfType<PlayerHealthBarManager>(); //gets a reference to the PlayerHealthBarManager script
+
         if (!UIExists) //if the UI doesn't in the current scene, don't destroy the UI between scene swapping
         {
             UIExists = true;
@@ -33,8 +37,6 @@ public class CharacterSelector : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        playerHealthBarManager = FindObjectOfType<PlayerHealthBarManager>(); //get a reference to the PlayerHealthBarManager script
     }
 
     public void OnCharacterSelect(int characterChoice) //function called when the button is pressed //parameter is passed by the button that was clicked
@@ -54,11 +56,6 @@ public class CharacterSelector : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-
-    }
-
     public GameObject GetCharacterObject()
     {
         return spawnedPlayer;
@@ -67,5 +64,14 @@ public class CharacterSelector : MonoBehaviour
     public int GetCharacterChoice() //consider use for later
     {
         return storedCharacterChoice;
+    }
+
+    public void TurnOffHUDElements() //when called, ensures that all HUD elements are set to inactive/turned off
+    {
+        //playerHealthBarManager.healthBar.gameObject.SetActive(false);
+        //playerHealthBarManager.healthText.gameObject.SetActive(false);
+        //characterSelectPanel.SetActive(false);
+        //abilityPanel.SetActive(false);
+        UICanvas.gameObject.SetActive(false);
     }
 }

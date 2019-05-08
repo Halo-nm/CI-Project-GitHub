@@ -457,3 +457,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMaxHealth: 100
   playerCurrentHealth: 0
+  deathSound: {fileID: 8300000, guid: 4d1d59afda311884a851408ce9dac6a5, type: 3}

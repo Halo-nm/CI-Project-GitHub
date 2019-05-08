@@ -12,10 +12,17 @@ public class AbilityCooldown : MonoBehaviour
     private Ability ability;
     private GameObject weaponHolder; //what holds the ability scripts to get a reference to the scripts from here (maybe Player?)
     private Image myButtonImage;
-    private AudioSource abilityAudioSource; //the clip gets set by the scriptable object further down the script
+    //private AudioSource abilityAudioSource; //the clip gets set by the scriptable object further down the script
     private float cooldownDuration; //how long the cooldown takes //set from the base cooldown in "Ability"
     private float nextReadyTime; //the next time (in seconds) that the object comes off of cooldown
     private float cooldownTimeLeft; //time left (only displayed in the UI)
+
+    AudioManager audioManager;
+
+    void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
 
     void Update()
     {
@@ -38,7 +45,6 @@ public class AbilityCooldown : MonoBehaviour
     {
         ability = selectedAbility;
         myButtonImage = GetComponent<Image>(); //get a component reference to the Image component (that will display the icon)
-        abilityAudioSource = GetComponent<AudioSource>();
         myButtonImage.sprite = ability.abilitySprite; //"ability" is the scriptable object //sets the sprite of the UI element to the sprite stored in the scriptable object
         darkMask.sprite = ability.abilitySprite; //set to the same thing so the mask matches the icon
         cooldownDuration = ability.abilityBaseCooldown;
@@ -66,8 +72,9 @@ public class AbilityCooldown : MonoBehaviour
         cooldownTimeLeft = cooldownDuration;
         cooldownTextDisplay.enabled = true;
         darkMask.enabled = true;
-        abilityAudioSource.clip = ability.abilitySound; //set the audio source clip to the sound clip that is stored in the scriptable object
-        abilityAudioSource.Play(); //sound clip is played
+        //abilityAudioSource.clip = ability.abilitySound; //set the audio source clip to the sound clip that is stored in the scriptable object
+        //abilityAudioSource.Play(); //sound clip is played
+        audioManager.PlayAudio(ability.abilitySound); //calls the Play Audio function from the AudioManager script
         ability.TriggerAbility(); //called from PracticeAbility (the ability standards script that's derived from Ability)
     }
 }
