@@ -6,15 +6,17 @@ using UnityEngine;
 public class ChargeAbility : Ability
 {
     [Header("Specific Settings")]
-    public float moveSpeedMultiplier = 1.3f;
-    public float superChargeExample = 50f;
-
+    public float dashSpeed = 1.3f;
+    public float dashTime;
+    public float startDashTime;
     Charge charge;
 
     public override void Initialize(GameObject obj)
     {
         charge = obj.GetComponent<Charge>();
-
+        charge.dashSpeed = dashSpeed;
+        charge.dashTime = dashTime;
+        charge.startDashTime = startDashTime;
         charge.Setup();
     }
 

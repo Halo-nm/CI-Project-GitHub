@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
     public float moveSpeed;
 
     private Animator animator;
-    private Rigidbody2D myRigidbody;
+    public Rigidbody2D myRigidbody;
 
     public Vector2 lastMove; //Use Vector 2 for (x,y); not Vector 3 b/c it's (x,y,z)
     private bool playerMoving;
