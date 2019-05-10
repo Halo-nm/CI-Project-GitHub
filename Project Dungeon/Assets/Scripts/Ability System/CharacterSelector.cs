@@ -66,7 +66,7 @@ public class CharacterSelector : MonoBehaviour
         return storedCharacterChoice;
     }
 
-    public void TurnOffHUDElements() //when called, ensures that all HUD elements are set to inactive/turned off
+    public void TurnOffCanvas() //when called, ensures that all HUD elements are set to inactive/turned off
     {
         //playerHealthBarManager.healthBar.gameObject.SetActive(false);
         //playerHealthBarManager.healthText.gameObject.SetActive(false);

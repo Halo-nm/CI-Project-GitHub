@@ -7,15 +7,15 @@ public class PlayerHealthManager : MonoBehaviour
 {
     [SerializeField] int playerMaxHealth;
     [SerializeField] int playerCurrentHealth;
-    [SerializeField] AudioClip deathSound;
+    [SerializeField] string endGameScene = "GameOverScreen"; //the scene to load when the player dies
 
     CharacterSelector characterSelector;
-    AudioManager audioManager;
+    LoadNewScene loadNewScene;
 
     void Start()
     {
         characterSelector = FindObjectOfType<CharacterSelector>();
-        audioManager = FindObjectOfType<AudioManager>();
+        loadNewScene = FindObjectOfType<LoadNewScene>();
 
         playerCurrentHealth = playerMaxHealth;
     }
@@ -25,20 +25,11 @@ public class PlayerHealthManager : MonoBehaviour
     {
         if (playerCurrentHealth <= 0)
         {
-            StartCoroutine(DeathTime());
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            //playerCurrentHealth = playerMaxHealth;
-            //gameObject.SetActive(true);
+            characterSelector.TurnOffCanvas();
+            loadNewScene.LoadEndGameScene(endGameScene);
+            gameObject.SetActive(false);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //reload the current scene
         }
-    }
-
-    IEnumerator DeathTime() //has the player wait a few seconds before GAME OVER is displayed in order to give time for any death animations/sounds
-    {
-        audioManager.PlayAudio(deathSound); //NOT playing the audio for some reason
-        gameObject.SetActive(false); //disables the player
-        characterSelector.TurnOffHUDElements(); //turns off all elements of the HUD
-        yield return new WaitForSeconds(3); //plays for the length of the audio clip
-        SceneManager.LoadScene("GameOverScreen"); //loads the GameOverScreen scene
     }
 
     public void HurtPlayer(int damageToDeal)

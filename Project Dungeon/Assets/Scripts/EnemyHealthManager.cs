@@ -26,8 +26,23 @@ public class EnemyHealthManager : MonoBehaviour
         enemyCurrentHealth -= damageToDeal;
     }
 
+    public int GetMaxHealth()
+    {
+        return enemyMaxHealth;
+    }
+
     public void SetMaxHealth()
     {
         enemyCurrentHealth = enemyMaxHealth;
+    }
+
+    public int GetCurrentHealth()
+    {
+        return enemyCurrentHealth;
+    }
+
+    public void SetCurrentHealth(int updatedCurrentEnemyHealth)
+    {
+        enemyCurrentHealth = updatedCurrentEnemyHealth;
     }
 }

@@ -9,7 +9,7 @@ public class SlimeController : MonoBehaviour
     [SerializeField] float timeBetweenMove = 2f;
     [SerializeField] float timeToMove = 1f;
 
-    public bool oneHit; //DELETE THIS AFTER PROTOTYPE
+    private Transform target; //the target that the enemy is trying to pursue (the player)
 
     [SerializeField] float waitToReload = 1f;
     private bool isReloading;
@@ -24,6 +24,8 @@ public class SlimeController : MonoBehaviour
 
     void Start()
     {
+        //target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>(); //the target that the enemy will pursue is the object tagged "Player"
+
         myRigidBody = GetComponent<Rigidbody2D>();
         isMoving = false;
         timeBetweenMoveCounter = Random.Range(timeBetweenMove * 0.75f, timeBetweenMove * 1.25f);
@@ -54,24 +56,15 @@ public class SlimeController : MonoBehaviour
                 moveDirection = new Vector3(Random.Range(-1f, 1f) * moveSpeed, Random.Range(-1f, 1f) * moveSpeed, 0f);
             }
         }
-        if (isReloading)
-        {
-            waitToReload -= Time.deltaTime;
-            if (waitToReload < 0f)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-                thePlayer.SetActive(true);
-            }
-        }
     }
 
-    void OnCollisionEnter2D(Collision2D other) //REMOVE AFTER SHOWING PROTOTYPE AND ADD HURTPLAYER SCRIPT BACK ON ENEMIES
+    private void OnTriggerEnter(Collider other) //need to FINISH AND TEST
     {
-        if (oneHit && other.gameObject.name == "Player")
-        {
-            other.gameObject.SetActive(false);
-            isReloading = true;
-            thePlayer = other.gameObject;
-        }
+        if (other.tag == "Player") target = other.transform; //if within the collider trigger range, the enemy's target is the player
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player") target = null; //if the player leaves the collider trigger range, the enemy will stop pursing the player
     }
 }

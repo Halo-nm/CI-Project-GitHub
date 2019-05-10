@@ -9,10 +9,16 @@ public class LoadNewScene : MonoBehaviour
     [SerializeField] string levelToLoad = "";
     [SerializeField] bool selectRandomScene = true;
 
+    PlayerHealthManager playerHealthManager;
+    AudioManager audioManager;
+
     List<string> scenesList = new List<string>(); //string list of levels to randomly select from
 
     void Start()
     {
+        playerHealthManager = FindObjectOfType<PlayerHealthManager>();
+        audioManager = FindObjectOfType<AudioManager>();
+
         scenesList.Add("TestScene1"); //on start, manually adds a level name to the scenesList list
         scenesList.Add("TestScene2");
         scenesList.Add("TestScene3");
@@ -37,5 +43,17 @@ public class LoadNewScene : MonoBehaviour
                 SceneManager.LoadScene(levelToLoad); //loads a selected scene since random selection is not the desired functionality
             }
         }
+    }
+
+    public void LoadEndGameScene(string sceneToLoad)
+    {
+        StartCoroutine(DeathTime(sceneToLoad));
+    }
+
+    IEnumerator DeathTime(string sceneToLoad) //has the player wait a few seconds before GAME OVER is displayed in order to give time for any death animations/sounds
+    {
+        audioManager.PlayAudio(audioManager.GetDeathSound()); //NOT playing the audio for some reason
+        yield return new WaitForSeconds(3); //plays for the length of the audio clip
+        SceneManager.LoadScene(sceneToLoad);
     }
 }
