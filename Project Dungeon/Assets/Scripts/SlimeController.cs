@@ -11,10 +11,6 @@ public class SlimeController : MonoBehaviour
 
     private Transform target; //the target that the enemy is trying to pursue (the player)
 
-    [SerializeField] float waitToReload = 1f;
-    private bool isReloading;
-    private GameObject thePlayer;
-
     private Rigidbody2D myRigidBody;
 
     private float timeBetweenMoveCounter = 0f;
@@ -38,7 +34,15 @@ public class SlimeController : MonoBehaviour
         if (isMoving)
         {
             timeToMoveCounter -= Time.deltaTime;
-            myRigidBody.velocity = moveDirection;
+            if (target == null)
+            {
+                myRigidBody.velocity = moveDirection; //randomly moves if the enemy doesn't have a target
+            }
+            else
+            {
+                transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime); //moves towards the player otherwise
+            }
+
             if (timeToMoveCounter < 0f)
             {
                 isMoving = false;
@@ -56,15 +60,22 @@ public class SlimeController : MonoBehaviour
                 moveDirection = new Vector3(Random.Range(-1f, 1f) * moveSpeed, Random.Range(-1f, 1f) * moveSpeed, 0f);
             }
         }
+
     }
 
-    private void OnTriggerEnter(Collider other) //need to FINISH AND TEST
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player") target = other.transform; //if within the collider trigger range, the enemy's target is the player
+        if (other.gameObject.tag == "Player")
+        {
+            target = other.gameObject.transform; //if within the collider trigger range, the enemy's target is the player
+        }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Player") target = null; //if the player leaves the collider trigger range, the enemy will stop pursing the player
+        if (other.gameObject.tag == "Player")
+        {
+            target = null; //if the player leaves the collider trigger range, the enemy will stop pursing the player
+        }
     }
 }

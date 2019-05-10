@@ -21,7 +21,6 @@ public class HurtEnemy : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            //Destroy(other.gameObject);
             if (siphon.GetIsSiphonActive()) //checks if siphon was recently triggered
             {
                 successfulHit = true; //the hit was successfully made
