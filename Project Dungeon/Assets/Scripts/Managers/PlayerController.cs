@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour {
         }
 	}
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         playerMoving = false;
@@ -96,5 +95,9 @@ public class PlayerController : MonoBehaviour {
         click on the transition, uncheck "Has Exit Time," uncheck "Fixed Duration," and set "Transition Duration" to 0. Supposedly, "Transition Duration
         is what causes this the most.*/
     }
-  
+
+    public bool GetPlayerAttacking()
+    {
+        return playerAttacking;
+    }
 }

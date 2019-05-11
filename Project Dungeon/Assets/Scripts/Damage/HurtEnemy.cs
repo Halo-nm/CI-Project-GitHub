@@ -8,18 +8,29 @@ public class HurtEnemy : MonoBehaviour
     [SerializeField] GameObject damageBurst;
     [SerializeField] Transform hitPoint;
 
+    PlayerController playerController;
     Siphon siphon;
 
     private bool successfulHit = false;
+    private bool justAttacked = false;
 
     void Start()
     {
+        playerController = FindObjectOfType<PlayerController>();
         siphon = FindObjectOfType<Siphon>();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void Update()
     {
-        if (other.gameObject.tag == "Enemy")
+        if (!playerController.GetPlayerAttacking()) //essentially gets the animation time so the player can attack once the animation is finished
+        {
+            justAttacked = false;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (!justAttacked && playerController.GetPlayerAttacking() && other.gameObject.tag == "Enemy") //if the player didn't just attack, is currently in the attack animation, and the object being attacked is tagged as "Enemy," the HurtEnemy logic is run
         {
             if (siphon.GetIsSiphonActive()) //checks if siphon was recently triggered
             {
@@ -28,6 +39,7 @@ public class HurtEnemy : MonoBehaviour
             other.gameObject.GetComponent<EnemyHealthManager>().HurtEnemy(damageToDeal);
             GameObject tempBurst = Instantiate(damageBurst, other.transform.position, other.transform.rotation);
             Object.Destroy(tempBurst, 1.0f);
+            justAttacked = true;
         }
     }
 
