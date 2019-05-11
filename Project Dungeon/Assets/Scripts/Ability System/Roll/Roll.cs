@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Roll : MonoBehaviour
 {
-   [HideInInspector] public float dashSpeed;
-   [HideInInspector] public float dashTime;
-   [HideInInspector] public float startDashTime;
+    [HideInInspector] public float dashSpeed;
+    [HideInInspector] public float dashTime;
+    [HideInInspector] public float startDashTime;
 
     PlayerController playerController;
 
@@ -14,19 +14,18 @@ public class Roll : MonoBehaviour
         playerController = FindObjectOfType<PlayerController>();
     }
 
-    
+
     public void PerformRoll()
     {
-        if (dashTime > 0)
-        {
-            dashTime -= Time.deltaTime;
-            playerController.myRigidbody.velocity = playerController.lastMove * dashSpeed;
-        }
-        else
-        {
-            playerController.myRigidbody.velocity = new Vector2(0,0);
-        }
-            
-      
+        StartCoroutine(RollTimer());
+    }
+    IEnumerator RollTimer() //coroutine that works as a timer
+    {
+        playerController.myRigidbody.velocity = playerController.lastMove * dashSpeed;
+        System.Console.WriteLine("running");
+
+        yield return new WaitForSeconds(dashTime); //dash duration
+        playerController.myRigidbody.velocity = new Vector2(0, 0);
+
     }
 }

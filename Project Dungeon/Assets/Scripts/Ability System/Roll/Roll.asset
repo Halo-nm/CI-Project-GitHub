@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f628c7afcdb8824459386022770d0057, type: 3}
   m_Name: Roll
   m_EditorClassIdentifier: 
-  abilityName: Charge
-  abilitySprite: {fileID: 0}
-  abilitySound: {fileID: 0}
+  abilityName: Roll
+  abilitySprite: {fileID: 21300000, guid: 53ad6284561e330499aac29d3156e5ba, type: 3}
+  abilitySound: {fileID: 8300000, guid: d036527075d0eb541a5c69fea9f0876b, type: 3}
   abilityBaseCooldown: 10
   dashSpeed: 1.3
   dashTime: 0
