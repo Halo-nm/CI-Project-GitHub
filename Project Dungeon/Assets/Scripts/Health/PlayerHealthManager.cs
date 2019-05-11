@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class PlayerHealthManager : MonoBehaviour
 {
     [SerializeField] int playerMaxHealth;
     [SerializeField] int playerCurrentHealth;
+    [SerializeField] string endGameScene = "GameOverScreen"; //the scene to load when the player dies
+
+    CharacterSelector characterSelector;
+    LoadNewScene loadNewScene;
 
     void Start()
     {
+        characterSelector = FindObjectOfType<CharacterSelector>();
+        loadNewScene = FindObjectOfType<LoadNewScene>();
+
         playerCurrentHealth = playerMaxHealth;
     }
 
@@ -19,16 +25,20 @@ public class PlayerHealthManager : MonoBehaviour
     {
         if (playerCurrentHealth <= 0)
         {
+            characterSelector.TurnOffCanvas();
+            loadNewScene.LoadEndGameScene(endGameScene);
             gameObject.SetActive(false);
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            //playerCurrentHealth = playerMaxHealth;
-            //gameObject.SetActive(true);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //reload the current scene
         }
     }
 
     public void HurtPlayer(int damageToDeal)
     {
         playerCurrentHealth -= damageToDeal;
+        if (playerCurrentHealth < 0)
+        {
+            playerCurrentHealth = 0;
+        }
     }
 
     public int GetMaxHealth()

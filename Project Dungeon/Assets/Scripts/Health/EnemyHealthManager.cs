@@ -6,6 +6,7 @@ public class EnemyHealthManager : MonoBehaviour
 {
     [SerializeField] int enemyMaxHealth;
     [SerializeField] int enemyCurrentHealth;
+    [SerializeField] GameObject enemyToAttachTo; //needs a reference to the enemy, so that it is destroyed (since the health manager was moved to a child object on the enemy)
 
     void Start()
     {
@@ -17,7 +18,7 @@ public class EnemyHealthManager : MonoBehaviour
     {
         if (enemyCurrentHealth <= 0)
         {
-            Destroy(gameObject); //destroys the gameobject the script is attached to
+            Destroy(enemyToAttachTo); //destroys the gameobject the script is attached to
         }
     }
 
@@ -26,8 +27,23 @@ public class EnemyHealthManager : MonoBehaviour
         enemyCurrentHealth -= damageToDeal;
     }
 
+    public int GetMaxHealth()
+    {
+        return enemyMaxHealth;
+    }
+
     public void SetMaxHealth()
     {
         enemyCurrentHealth = enemyMaxHealth;
+    }
+
+    public int GetCurrentHealth()
+    {
+        return enemyCurrentHealth;
+    }
+
+    public void SetCurrentHealth(int updatedCurrentEnemyHealth)
+    {
+        enemyCurrentHealth = updatedCurrentEnemyHealth;
     }
 }

@@ -9,11 +9,7 @@ public class SlimeController : MonoBehaviour
     [SerializeField] float timeBetweenMove = 2f;
     [SerializeField] float timeToMove = 1f;
 
-    public bool oneHit; //DELETE THIS AFTER PROTOTYPE
-
-    [SerializeField] float waitToReload = 1f;
-    private bool isReloading;
-    private GameObject thePlayer;
+    private Transform target; //the target that the enemy is trying to pursue (the player)
 
     private Rigidbody2D myRigidBody;
 
@@ -24,6 +20,8 @@ public class SlimeController : MonoBehaviour
 
     void Start()
     {
+        //target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>(); //the target that the enemy will pursue is the object tagged "Player"
+
         myRigidBody = GetComponent<Rigidbody2D>();
         isMoving = false;
         timeBetweenMoveCounter = Random.Range(timeBetweenMove * 0.75f, timeBetweenMove * 1.25f);
@@ -36,7 +34,15 @@ public class SlimeController : MonoBehaviour
         if (isMoving)
         {
             timeToMoveCounter -= Time.deltaTime;
-            myRigidBody.velocity = moveDirection;
+            if (target == null)
+            {
+                myRigidBody.velocity = moveDirection; //randomly moves if the enemy doesn't have a target
+            }
+            else
+            {
+                transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime); //moves towards the player otherwise
+            }
+
             if (timeToMoveCounter < 0f)
             {
                 isMoving = false;
@@ -54,24 +60,22 @@ public class SlimeController : MonoBehaviour
                 moveDirection = new Vector3(Random.Range(-1f, 1f) * moveSpeed, Random.Range(-1f, 1f) * moveSpeed, 0f);
             }
         }
-        if (isReloading)
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
         {
-            waitToReload -= Time.deltaTime;
-            if (waitToReload < 0f)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-                thePlayer.SetActive(true);
-            }
+            target = other.gameObject.transform; //if within the collider trigger range, the enemy's target is the player
         }
     }
 
-    void OnCollisionEnter2D(Collision2D other) //REMOVE AFTER SHOWING PROTOTYPE AND ADD HURTPLAYER SCRIPT BACK ON ENEMIES
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (oneHit && other.gameObject.name == "Player")
+        if (other.gameObject.tag == "Player")
         {
-            other.gameObject.SetActive(false);
-            isReloading = true;
-            thePlayer = other.gameObject;
+            target = null; //if the player leaves the collider trigger range, the enemy will stop pursing the player
         }
     }
 }
