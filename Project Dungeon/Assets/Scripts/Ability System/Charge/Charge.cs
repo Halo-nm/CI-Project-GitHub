@@ -17,16 +17,15 @@ public class Charge : MonoBehaviour
     
     public void PerformCharge()
     {
-        if (dashTime > 0)
-        {
-            dashTime -= Time.deltaTime;
-            playerController.myRigidbody.velocity = playerController.lastMove * dashSpeed;
-        }
-        else
-        {
-            playerController.myRigidbody.velocity = new Vector2(0,0);
-        }
-            
-      
+        StartCoroutine(ChargeTimer());  
+    }
+    IEnumerator ChargeTimer() //coroutine that works as a timer
+    {
+        playerController.myRigidbody.velocity = playerController.lastMove * dashSpeed;
+
+
+        yield return new WaitForSeconds(dashTime); //dash duration
+        playerController.myRigidbody.velocity = new Vector2(0, 0);
+
     }
 }

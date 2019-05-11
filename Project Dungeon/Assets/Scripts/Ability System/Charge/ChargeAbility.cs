@@ -7,8 +7,8 @@ public class ChargeAbility : Ability
 {
     [Header("Specific Settings")]
     public float dashSpeed = 1.3f;
-    public float dashTime;
-    public float startDashTime;
+    public float dashTime = 1;
+    public float startDashTime = 1;
     Charge charge;
 
     public override void Initialize(GameObject obj)

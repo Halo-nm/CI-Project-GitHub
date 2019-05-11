@@ -6,9 +6,9 @@ using UnityEngine;
 public class ROllAbility : Ability
 {
     [Header("Specific Settings")]
-    public float dashSpeed = 1.3f;
-    public float dashTime;
-    public float startDashTime;
+    public float dashSpeed = 10f;
+    public float dashTime= 2;
+    public float startDashTime = 2;
     Roll roll;
 
     public override void Initialize(GameObject obj)

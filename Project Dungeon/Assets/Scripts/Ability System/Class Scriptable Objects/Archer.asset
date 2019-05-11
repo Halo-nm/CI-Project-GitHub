@@ -15,6 +15,6 @@ MonoBehaviour:
   characterName: Archer
   startingHP: 100
   characterAbilities:
-  - {fileID: 11400000, guid: ac81a68480d3fde4fa28b0734f809edd, type: 2}
+  - {fileID: 11400000, guid: 42513a19ac36c0f4ab4cd111ff95c214, type: 2}
   - {fileID: 11400000, guid: 2958dd941abe11143ba29e3e73ece4f2, type: 2}
   deathSound: {fileID: 8300000, guid: 4d1d59afda311884a851408ce9dac6a5, type: 3}
