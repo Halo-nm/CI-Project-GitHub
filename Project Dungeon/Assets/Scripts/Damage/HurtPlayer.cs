@@ -7,6 +7,7 @@ public class HurtPlayer : MonoBehaviour
     [SerializeField] int damageToDeal;
     [SerializeField] float nextAttackCounter = 1.5f; //the length of time between potential attacks
 
+    private bool invulnerable = false;
     private bool justAttacked = false;
     private float storeAttackCounter;
 
@@ -35,9 +36,21 @@ public class HurtPlayer : MonoBehaviour
         {
             if (!justAttacked) //if the player wasn't just attacked by this enemy, hurt the player
             {
-                other.gameObject.GetComponent<PlayerHealthManager>().HurtPlayer(damageToDeal);
-                justAttacked = true; //the enemy just attacked the player
+                if (!invulnerable)
+                {
+                    other.gameObject.GetComponent<PlayerHealthManager>().HurtPlayer(damageToDeal);
+                    justAttacked = true; //the enemy just attacked the player
+                }
             }
         }
+    }
+
+    public bool GetInvulnerable()
+    {
+        return invulnerable;
+    }
+    public void SetInvulnerable(bool status)
+    {
+        invulnerable = status;
     }
 }

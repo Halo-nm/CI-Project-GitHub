@@ -964,6 +964,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slime (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4865907626810500819, guid: d097401d3b50e3647a04c5826fd21e6c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4865907626810500831, guid: d097401d3b50e3647a04c5826fd21e6c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13131,10 +13136,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1538617982, guid: 6496287f7534a2e4ebe65d7a56607993, type: 3}
-      propertyPath: deathSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 9afb8695ace2fcf499ddf1b876189e91, type: 3}
     - target: {fileID: 598694539078142624, guid: 6496287f7534a2e4ebe65d7a56607993,
         type: 3}
       propertyPath: characters.Array.size
@@ -13170,6 +13171,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1055789316353519955, guid: a9ab31fd6cd3c464e9ba0354c5a2137a,
         type: 3}
+    - target: {fileID: 1538617982, guid: 6496287f7534a2e4ebe65d7a56607993, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9afb8695ace2fcf499ddf1b876189e91, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6496287f7534a2e4ebe65d7a56607993, type: 3}
 --- !u!58 &765750210367718944
@@ -13464,6 +13469,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4865907626810500831, guid: d097401d3b50e3647a04c5826fd21e6c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865907626810500831, guid: d097401d3b50e3647a04c5826fd21e6c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4270215445535656353, guid: d097401d3b50e3647a04c5826fd21e6c,
         type: 3}
       propertyPath: m_Radius
@@ -13651,7 +13666,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!58 &8243147131423779155
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13691,8 +13706,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8243147131423779154}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.92, y: -0.37, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -6.34, y: 5.41, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 1054648769}
   - {fileID: 765750210367719007}

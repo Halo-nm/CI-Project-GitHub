@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Abilities/Roll")]
-public class ROllAbility : Ability
+public class RollAbility : Ability
 {
     [Header("Specific Settings")]
     public float dashSpeed = 10f;
