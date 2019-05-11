@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
     public float attackTime = 0.5f;
     private float attackTimeCounter;
     private bool playerAttacking;
+    private bool abilityActive = false;
 
     private static bool playerExists; //sets the player to true and keeps it true when entering back into the starting scene (this avoids duplicates)
 
@@ -32,14 +33,15 @@ public class PlayerController : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-	}
+        abilityActive = false;
+    }
 
     void FixedUpdate()
     {
         playerMoving = false;
 
-        if (!playerAttacking)
-        {
+        if (!playerAttacking && !abilityActive)
+        {    
             if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f) //GetAxisRaw takes the input of that very second
             {
                 //transform.Translate(new Vector3(Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime, 0f, 0f)); //original movement code, before the rigidbody was implemented
@@ -91,13 +93,23 @@ public class PlayerController : MonoBehaviour {
         animator.SetBool("PlayerMoving", playerMoving);
         animator.SetFloat("LastMoveX", lastMove.x);
         animator.SetFloat("LastMoveY", lastMove.y);
-        /*In order to not make the animations take time to activate (i.e. the player starts moving, but is still in the idle animation for a little while),
-        click on the transition, uncheck "Has Exit Time," uncheck "Fixed Duration," and set "Transition Duration" to 0. Supposedly, "Transition Duration
-        is what causes this the most.*/
+        //In order to not make the animations take time to activate (i.e. the player starts moving, but is still in the idle animation for a little while),
+        //click on the transition, uncheck "Has Exit Time," uncheck "Fixed Duration," and set "Transition Duration" to 0. Supposedly, "Transition Duration
+        //is what causes this the most.
     }
 
     public bool GetPlayerAttacking()
     {
         return playerAttacking;
+    }
+
+    public bool GetAbilityActive()
+    {
+        return abilityActive;
+    }
+
+    public void SetAbilityActive(bool status)
+    {
+        abilityActive = status;
     }
 }

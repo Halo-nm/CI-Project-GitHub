@@ -8,7 +8,7 @@ public class PlayerHealthManager : MonoBehaviour
     [SerializeField] int playerMaxHealth;
     [SerializeField] int playerCurrentHealth;
     [SerializeField] string endGameScene = "GameOverScreen"; //the scene to load when the player dies
-
+    
     CharacterSelector characterSelector;
     LoadNewScene loadNewScene;
 

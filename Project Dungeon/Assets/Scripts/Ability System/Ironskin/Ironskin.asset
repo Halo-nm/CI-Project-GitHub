@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Ironskin
   m_EditorClassIdentifier: 
   abilityName: Ironskin
-  abilitySprite: {fileID: 21300000, guid: 88c47ee50e9dfe240b499f761f7eda42, type: 3}
-  abilitySound: {fileID: 8300000, guid: 4d1d59afda311884a851408ce9dac6a5, type: 3}
+  abilitySprite: {fileID: 21300000, guid: a9b286d9aa8a9fd48b1336ad536ca214, type: 3}
+  abilitySound: {fileID: 8300000, guid: df149b1b167b8264e81c2df8e45395f6, type: 3}
   abilityBaseCooldown: 10
   moveSpeedMultiplier: 1.4
   attackTimeDivisor: 1.3

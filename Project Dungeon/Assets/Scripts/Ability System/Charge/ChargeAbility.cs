@@ -8,7 +8,7 @@ public class ChargeAbility : Ability
     [Header("Specific Settings")]
     public float dashSpeed = 1.3f;
     public float dashTime = 1;
-    public float startDashTime = 1;
+    public float invulnerbleCounter = 1f;
     Charge charge;
 
     public override void Initialize(GameObject obj)
@@ -16,7 +16,7 @@ public class ChargeAbility : Ability
         charge = obj.GetComponent<Charge>();
         charge.dashSpeed = dashSpeed;
         charge.dashTime = dashTime;
-        charge.startDashTime = startDashTime;
+        charge.invulnerbleCounter = invulnerbleCounter;
         charge.Setup();
     }
 
