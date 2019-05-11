@@ -1103,16 +1103,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1295432155539592108, guid: 6b4c2660fec166b48b8509bf7fb19804,
-        type: 3}
-      propertyPath: followTarget
-      value: 
-      objectReference: {fileID: 813331099}
-    - target: {fileID: 1295432155539592108, guid: 6b4c2660fec166b48b8509bf7fb19804,
-        type: 3}
-      propertyPath: newCharacter
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1295432155539592109, guid: 6b4c2660fec166b48b8509bf7fb19804,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
@@ -1132,6 +1122,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BackGroundColor.b
       value: 0.5987451
+      objectReference: {fileID: 0}
+    - target: {fileID: 1295432155539592108, guid: 6b4c2660fec166b48b8509bf7fb19804,
+        type: 3}
+      propertyPath: followTarget
+      value: 
+      objectReference: {fileID: 813331099}
+    - target: {fileID: 1295432155539592108, guid: 6b4c2660fec166b48b8509bf7fb19804,
+        type: 3}
+      propertyPath: newCharacter
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b4c2660fec166b48b8509bf7fb19804, type: 3}
@@ -12857,11 +12857,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 564337376691794748, guid: 5a8f8996b2bb06947a51c81d6c488ecf,
-        type: 3}
-      propertyPath: spikePulsationSpeed
-      value: 0.01
-      objectReference: {fileID: 0}
     - target: {fileID: 564337376691794750, guid: 5a8f8996b2bb06947a51c81d6c488ecf,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -12871,6 +12866,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 564337376691794748, guid: 5a8f8996b2bb06947a51c81d6c488ecf,
+        type: 3}
+      propertyPath: spikePulsationSpeed
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a8f8996b2bb06947a51c81d6c488ecf, type: 3}
