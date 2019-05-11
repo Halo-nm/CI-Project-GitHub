@@ -12320,6 +12320,8 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 13d3f1c072e36fb4cbfcbed9cfe07750, type: 3}
     m_RemovedComponents:
     - {fileID: 974218261002088346, guid: a9ab31fd6cd3c464e9ba0354c5a2137a, type: 3}
+    - {fileID: 1493607331141610386, guid: a9ab31fd6cd3c464e9ba0354c5a2137a, type: 3}
+    - {fileID: 3844895748895882368, guid: a9ab31fd6cd3c464e9ba0354c5a2137a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a9ab31fd6cd3c464e9ba0354c5a2137a, type: 3}
 --- !u!1 &1697365981
 GameObject:
@@ -13133,6 +13135,41 @@ PrefabInstance:
       propertyPath: deathSound
       value: 
       objectReference: {fileID: 8300000, guid: 9afb8695ace2fcf499ddf1b876189e91, type: 3}
+    - target: {fileID: 598694539078142624, guid: 6496287f7534a2e4ebe65d7a56607993,
+        type: 3}
+      propertyPath: characters.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 598694539078142624, guid: 6496287f7534a2e4ebe65d7a56607993,
+        type: 3}
+      propertyPath: warrior
+      value: 
+      objectReference: {fileID: 1055789316353519955, guid: a9ab31fd6cd3c464e9ba0354c5a2137a,
+        type: 3}
+    - target: {fileID: 598694539078142624, guid: 6496287f7534a2e4ebe65d7a56607993,
+        type: 3}
+      propertyPath: archer
+      value: 
+      objectReference: {fileID: 5891827298922384697, guid: 4510836b97f8b144c9027ea03a271ae9,
+        type: 3}
+    - target: {fileID: 598694539078142624, guid: 6496287f7534a2e4ebe65d7a56607993,
+        type: 3}
+      propertyPath: mage
+      value: 
+      objectReference: {fileID: 5891827298922384697, guid: 4510836b97f8b144c9027ea03a271ae9,
+        type: 3}
+    - target: {fileID: 598694539078142624, guid: 6496287f7534a2e4ebe65d7a56607993,
+        type: 3}
+      propertyPath: characters.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4d2b16022bcfc4f41b91d8dc53c76a05,
+        type: 2}
+    - target: {fileID: 598694539078142624, guid: 6496287f7534a2e4ebe65d7a56607993,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1055789316353519955, guid: a9ab31fd6cd3c464e9ba0354c5a2137a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6496287f7534a2e4ebe65d7a56607993, type: 3}
 --- !u!58 &765750210367718944

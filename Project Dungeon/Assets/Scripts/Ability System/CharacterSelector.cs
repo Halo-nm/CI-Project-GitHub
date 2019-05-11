@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class CharacterSelector : MonoBehaviour
 {
-    public GameObject player; //used to spawn the player when the button is selected
+    public GameObject warrior; //used to spawn the warrior when the button is selected
+    public GameObject archer; //used to spawn the archer when the button is selected
+    public GameObject mage; //used to spawn the mage when the button is selected
     public Vector2 playerSpawnPosition = new Vector2(0, 0); //sets the spawn position4
     GameObject spawnedPlayer;
 
@@ -46,7 +48,18 @@ public class CharacterSelector : MonoBehaviour
         playerHealthBarManager.healthText.gameObject.SetActive(true);
         characterSelectPanel.SetActive(false); //hidden when first called
         abilityPanel.SetActive(true); //activated when first called
-        spawnedPlayer = Instantiate(player, playerSpawnPosition, Quaternion.identity) as GameObject; //casted as a GameObject //Quaternion.identity returns the rotation of the original prefab
+        if (characterChoice == 0)
+        {
+            spawnedPlayer = Instantiate(warrior, playerSpawnPosition, Quaternion.identity) as GameObject; //casted as a GameObject //Quaternion.identity returns the rotation of the original prefab
+        }
+        else if (characterChoice == 1)
+        {
+            spawnedPlayer = Instantiate(archer, playerSpawnPosition, Quaternion.identity) as GameObject;
+        }
+        else
+        {
+            spawnedPlayer = Instantiate(mage, playerSpawnPosition, Quaternion.identity) as GameObject;
+        }
         WeaponMarker weaponMarker = spawnedPlayer.GetComponentInChildren<WeaponMarker>(); //search (starting from the spawnedPlayer object) down the heirachy until it finds a weaponMarker component attached to a game object //used to find the weapon marker script in the heirarchy
         AbilityCooldown[] cooldownButtons = GetComponentsInChildren<AbilityCooldown>(); //look through the children attached to the game object this script is attached to and search down the heirachy and store ANY ability cooldown scripts it finds //then stored in this array
         Character selectedCharacter = characters[characterChoice]; //character is selected based on which button the player picked (such as 0) //then gets the index character of the array (spot 0 in that case)
