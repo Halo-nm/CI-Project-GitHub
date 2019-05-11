@@ -457,8 +457,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  myRigidbody: {fileID: 0}
   lastMove: {x: 0, y: 0}
-  attackTime: 0.4
+  attackTime: 0.2
 --- !u!95 &6464754903767592433
 Animator:
   serializedVersion: 3
@@ -520,7 +521,7 @@ GameObject:
   - component: {fileID: 6273943773793642511}
   - component: {fileID: 6273943774175308979}
   m_Layer: 0
-  m_Name: Player (1)
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
