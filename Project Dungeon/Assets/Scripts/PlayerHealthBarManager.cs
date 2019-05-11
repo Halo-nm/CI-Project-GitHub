@@ -9,7 +9,7 @@ public class PlayerHealthBarManager : MonoBehaviour
     public Text healthText;
 
     private float maxHealth;
-    public float currentHealth; //both these variables are set to floats so they don't round to "0" when calculating the player's current health
+    private float currentHealth; //both these variables are set to floats so they don't round to "0" when calculating the player's current health
 
     PlayerHealthManager playerHealthManager;
     CharacterSelector characterSelector;

@@ -7,7 +7,7 @@ public class IronskinAbility : Ability
 {
     [Header("Specific Settings")]
     public float moveSpeedMultiplier = 1.3f;
-    public float shieldHealth = 20f;
+    public int shieldHealth = 20;
     public float buffDuration = 5f;
 
     Ironskin ironskin;

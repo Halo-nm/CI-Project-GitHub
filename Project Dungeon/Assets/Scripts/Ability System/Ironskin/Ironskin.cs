@@ -6,15 +6,22 @@ public class Ironskin : MonoBehaviour
 {
 
     [HideInInspector] public float moveSpeedMultiplier;
-    [HideInInspector] public float shieldHealth;
+    [HideInInspector] public int shieldHealth;
     [HideInInspector] public float buffDuration = 5f;
 
+    private int currentHealth;
+
     PlayerController playerController;
-    PlayerHealthBarManager playerHealthBarManager;
+    PlayerHealthManager playerHealthManager;
     public void Setup() //performs the same actions as MonoBehaviour's Start() function
     {
         playerController = FindObjectOfType<PlayerController>();
-        playerHealthBarManager = FindObjectOfType<PlayerHealthBarManager>();
+        playerHealthManager = FindObjectOfType<PlayerHealthManager>();
+    }
+
+    void Update()
+    {
+        currentHealth = playerHealthManager.GetCurrentHealth();
     }
 
     
@@ -26,16 +33,16 @@ public class Ironskin : MonoBehaviour
     IEnumerator BuffTimer() //coroutine that works as a timer
     {
         float storedMoveSpeed = playerController.moveSpeed; //locally stores the value of the player's current move speed before it gets altered
-        float storedHealth = playerHealthBarManager.currentHealth; //locally stores the value of the player's health before it gets altered
+        int storedHealth = currentHealth; //locally stores the value of the player's health before it gets altered
 
         playerController.moveSpeed *= moveSpeedMultiplier; //increases the move speed in the PlayerController script
-        playerHealthBarManager.currentHealth += shieldHealth;
+        playerHealthManager.SetCurrentHealth(currentHealth + shieldHealth);
         yield return new WaitForSeconds(buffDuration); //keeps buffs active for as long as the buff duration time
 
         playerController.moveSpeed = storedMoveSpeed; //sets the move speed of the player back to normal
-        if (playerHealthBarManager.currentHealth > storedHealth)
+        if (currentHealth > storedHealth)
         {
-            playerHealthBarManager.currentHealth = storedHealth; 
+            currentHealth = storedHealth; 
         }
     }
 }
