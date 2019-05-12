@@ -43,6 +43,16 @@ public class HurtEnemy : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other) //used specifically for an ability
+    {
+        if (FindObjectOfType<Charge>().GetDashing())
+        {
+            other.gameObject.GetComponent<EnemyHealthManager>().HurtEnemy(FindObjectOfType<Charge>().GetDashDamage());
+            GameObject tempBurst = Instantiate(damageBurst, other.transform.position, other.transform.rotation);
+            Object.Destroy(tempBurst, 1.0f);
+        }
+    }
+
     public bool GetSuccessfulHit() //returns whether the hit was successful or not
     {
         return successfulHit;

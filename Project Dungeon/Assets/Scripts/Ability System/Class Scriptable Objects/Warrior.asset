@@ -15,5 +15,6 @@ MonoBehaviour:
   characterName: Warrior
   startingHP: 100
   characterAbilities:
-  - {fileID: 11400000, guid: f9e343bdc8da1654fac9747ae5b10718, type: 2}
+  - {fileID: 11400000, guid: 2958dd941abe11143ba29e3e73ece4f2, type: 2}
   - {fileID: 11400000, guid: 0b90fdb631e8c814f8b76d49ee8e1882, type: 2}
+  - {fileID: 11400000, guid: f9e343bdc8da1654fac9747ae5b10718, type: 2}
