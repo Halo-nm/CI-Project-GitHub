@@ -65,7 +65,14 @@ public class CharacterSelector : MonoBehaviour
         Character selectedCharacter = characters[characterChoice]; //character is selected based on which button the player picked (such as 0) //then gets the index character of the array (spot 0 in that case)
         for (int i = 0; i < cooldownButtons.Length; i++) //loops through the array until all have been initialzed
         { //*IMPORTANT* If there are too many abilities, then some will get ignored because there are too many abilities //too few abilities will create blank buttons //need to account for this
-            cooldownButtons[i].Initialize(selectedCharacter.characterAbilities[i], weaponMarker.gameObject); //each character has an array of character abilities //the selected ability is the one in character abilities spot i //the weapon holder is the first object that was found that had a weapon marker
+            try //set up just in case there are too many abilities or ability icons and an error is thrown
+            {
+                cooldownButtons[i].Initialize(selectedCharacter.characterAbilities[i], weaponMarker.gameObject); //each character has an array of character abilities //the selected ability is the one in character abilities spot i //the weapon holder is the first object that was found that had a weapon marker
+            }
+            catch
+            {
+                //pass because abilities or ability icons are out of range
+            }
         }
     }
 
