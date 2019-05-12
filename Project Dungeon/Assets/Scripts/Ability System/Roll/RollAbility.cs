@@ -2,26 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Abilities/Roll")]
+[CreateAssetMenu(menuName = "Abilities/Charge")]
 public class RollAbility : Ability
 {
     [Header("Specific Settings")]
-    public float dashSpeed = 10f;
-    public float dashTime= 2;
-    public float startDashTime = 2;
-    Roll roll;
+    public float dashSpeed = 1.3f;
+    public float dashTime = 1;
+    public float invulnerbleCounter = 1f;
+    Charge charge;
 
     public override void Initialize(GameObject obj)
     {
-        roll = obj.GetComponent<Roll>();
-        roll.dashSpeed = dashSpeed;
-        roll.dashTime = dashTime;
-        roll.startDashTime = startDashTime;
-        roll.Setup();
+        charge = obj.GetComponent<Charge>();
+        charge.dashSpeed = dashSpeed;
+        charge.dashTime = dashTime;
+        charge.invulnerbleCounter = invulnerbleCounter;
+        charge.Setup();
     }
 
     public override void TriggerAbility()
-    { 
-        roll.PerformRoll();
+    {
+        charge.PerformCharge();
     }
 }
