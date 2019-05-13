@@ -54,10 +54,10 @@ TagManager:
   - name: AboveGround
     uniqueID: 3393972251
     locked: 0
-  - name: WorldObjects
+  - name: Player
     uniqueID: 234899947
     locked: 0
-  - name: Player
+  - name: WorldObjects
     uniqueID: 3150994213
     locked: 0
   - name: AboveWorldObjects
