@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Charge : MonoBehaviour
 {
+   [HideInInspector] public int dashDamage = 5;
    [HideInInspector] public float dashSpeed;
    [HideInInspector] public float dashTime;
-   [HideInInspector] public float invulnerbleCounter = 1f;
+   [HideInInspector] public float invulnerableCounter = 1f;
 
     PlayerController playerController;
     HurtPlayer hurtPlayer;
@@ -43,7 +44,7 @@ public class Charge : MonoBehaviour
     IEnumerator InvulnerbleTimer()
     {
         hurtPlayer.SetInvulnerable(true);
-        yield return new WaitForSeconds(invulnerbleCounter);
+        yield return new WaitForSeconds(invulnerableCounter);
         hurtPlayer.SetInvulnerable(false);
     }
 
@@ -52,4 +53,8 @@ public class Charge : MonoBehaviour
         return dashing;
     }
 
+    public int GetDashDamage()
+    {
+        return dashDamage;
+    }
 }

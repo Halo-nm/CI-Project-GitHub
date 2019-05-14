@@ -8,6 +8,7 @@ public class AbilityCooldown : MonoBehaviour
     public string abilityButtonAxisName = "1"; //what button is going to be triggering the ability from the input manager
     public Image darkMask;
     public Text cooldownTextDisplay;
+    public Text keyTextDisplay;
 
     private Ability ability;
     private GameObject weaponHolder; //what holds the ability scripts to get a reference to the scripts from here (maybe Player?)
@@ -71,6 +72,7 @@ public class AbilityCooldown : MonoBehaviour
         nextReadyTime = cooldownDuration + Time.time; //next time allowed to activate
         cooldownTimeLeft = cooldownDuration;
         cooldownTextDisplay.enabled = true;
+        keyTextDisplay.enabled = true;
         darkMask.enabled = true;
         //abilityAudioSource.clip = ability.abilitySound; //set the audio source clip to the sound clip that is stored in the scriptable object
         //abilityAudioSource.Play(); //sound clip is played
