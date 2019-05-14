@@ -16,7 +16,7 @@ public class RollAbility : Ability
         charge = obj.GetComponent<Charge>();
         charge.dashSpeed = dashSpeed;
         charge.dashTime = dashTime;
-        charge.invulnerbleCounter = invulnerbleCounter;
+        charge.invulnerableCounter = invulnerbleCounter;
         charge.Setup();
     }
 
