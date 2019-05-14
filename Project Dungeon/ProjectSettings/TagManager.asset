@@ -4,10 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Food
   - Exit
   - Enemy
-  - Soda
+  - Enemy (Base)
   layers:
   - Default
   - TransparentFX

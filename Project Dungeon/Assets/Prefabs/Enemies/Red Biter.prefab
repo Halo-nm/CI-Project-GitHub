@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 649574649}
   m_Layer: 0
   m_Name: Red Biter
-  m_TagString: Untagged
+  m_TagString: Enemy (Base)
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 048201634f4a7b64ba110f16d2f7b029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1.5
+  moveSpeed: 2.5
   timeBetweenMove: 2
   timeToMove: 1
   moveRandomly: 0
@@ -242,6 +242,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 743ccb36fd0935d4b9c065a268645a15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMaxHealth: 50
+  enemyMaxHealth: 35
   enemyCurrentHealth: 0
   enemyToAttachTo: {fileID: 121141533674124223}
