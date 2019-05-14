@@ -5,27 +5,51 @@ public class Roll : MonoBehaviour
 {
     [HideInInspector] public float dashSpeed;
     [HideInInspector] public float dashTime;
-    [HideInInspector] public float startDashTime;
+    [HideInInspector] public float invulnerbleCounter = 1f;
 
     PlayerController playerController;
+    HurtPlayer hurtPlayer;
+    CharacterSelector characterSelector;
+
+    private bool dashing = false;
 
     public void Setup() //performs the same actions as MonoBehaviour's Start() function
     {
         playerController = FindObjectOfType<PlayerController>();
+        hurtPlayer = FindObjectOfType<HurtPlayer>();
+        characterSelector = FindObjectOfType<CharacterSelector>();
+
     }
 
 
-    public void PerformRoll()
+    public void PerformCharge()
     {
-        StartCoroutine(RollTimer());
+        StartCoroutine(DashTimer());
+        StartCoroutine(InvulnerbleTimer());
     }
-    IEnumerator RollTimer() //coroutine that works as a timer
+
+    IEnumerator DashTimer()
     {
+        dashing = true;
+        float storeDashTime = dashTime;
+        hurtPlayer.SetInvulnerable(true);
+        playerController.SetAbilityActive(true);
         playerController.myRigidbody.velocity = playerController.lastMove * dashSpeed;
-        System.Console.WriteLine("running");
-
-        yield return new WaitForSeconds(dashTime); //dash duration
-        playerController.myRigidbody.velocity = new Vector2(0, 0);
-
+        yield return new WaitForSeconds(dashTime);
+        playerController.SetAbilityActive(false);
+        dashTime = storeDashTime;
+        dashing = false;
     }
+    IEnumerator InvulnerbleTimer()
+    {
+        hurtPlayer.SetInvulnerable(true);
+        yield return new WaitForSeconds(invulnerbleCounter);
+        hurtPlayer.SetInvulnerable(false);
+    }
+
+    public bool GetDashing()
+    {
+        return dashing;
+    }
+
 }
