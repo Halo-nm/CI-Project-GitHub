@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI; //used to access buttons
 using UnityEngine.SceneManagement;
 
-
 public class MainMenuController : MonoBehaviour
 {
 

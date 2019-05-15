@@ -11,6 +11,7 @@ public class LoadNewScene : MonoBehaviour
     [SerializeField] bool fillPlayerHealth = true;
 
     PlayerHealthManager playerHealthManager;
+    CharacterSelector characterSelector;
     AudioManager audioManager;
 
     public List<string> scenesList = new List<string>(); //string list of levels to randomly select from
@@ -18,6 +19,7 @@ public class LoadNewScene : MonoBehaviour
     void Start()
     {
         playerHealthManager = FindObjectOfType<PlayerHealthManager>();
+        characterSelector = FindObjectOfType<CharacterSelector>();
         audioManager = FindObjectOfType<AudioManager>();
 
         //scenesList.Add("TestScene1"); //on start, manually adds a level name to the scenesList list
@@ -49,6 +51,10 @@ public class LoadNewScene : MonoBehaviour
             }
             else
             {
+                if (levelToLoad == "GameOverScreen")
+                {
+                    characterSelector.TurnOffCanvas();
+                }
                 SceneManager.LoadScene(levelToLoad); //loads a selected scene since random selection is not the desired functionality
             }
         }

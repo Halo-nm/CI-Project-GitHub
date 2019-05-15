@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 564337376691794736}
   - component: {fileID: 564337376691794748}
   m_Layer: 0
-  m_Name: Spikes
+  m_Name: Pulsing Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07655fe4e348bf84e953d429a26e5fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageToDeal: 10
+  damageToDeal: 5
   currentTime: 0
   spike: 1
+  hurtEnemy: 0

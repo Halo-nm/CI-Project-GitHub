@@ -7,20 +7,29 @@ public class HealthCollectable : MonoBehaviour
     [SerializeField] int healthToReturn = 10;
 
     PlayerHealthManager playerHealthManager;
+    CharacterSelector characterSelector;
 
     private int maxHealth;
     private int currentHealth;
 
     void Start()
     {
-        playerHealthManager = FindObjectOfType<PlayerHealthManager>();
-
-        maxHealth = playerHealthManager.GetMaxHealth();
+        
+        characterSelector = FindObjectOfType<CharacterSelector>();
     }
 
     void Update()
     {
-        currentHealth = playerHealthManager.GetCurrentHealth();
+        try
+        {
+            playerHealthManager = characterSelector.GetCharacterObject().GetComponent<PlayerHealthManager>(); //gets the current player instance's health manager
+            maxHealth = playerHealthManager.GetMaxHealth();
+            currentHealth = playerHealthManager.GetCurrentHealth();
+        }
+        catch
+        {
+            //pass
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
