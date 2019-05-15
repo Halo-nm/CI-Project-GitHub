@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0cdaa48c3db11e478cfc6e2f8f84bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageToDeal: 10
+  damageToDeal: 5
   nextAttackCounter: 1.5
 --- !u!114 &6911981419888032014
 MonoBehaviour:
@@ -233,5 +233,5 @@ MonoBehaviour:
   moveSpeed: 3
   timeBetweenMove: 1.3
   timeToMove: 1
-  moveRandomly: 1
-  followOnceSeen: 1
+  moveRandomly: 0
+  followOnceSeen: 0

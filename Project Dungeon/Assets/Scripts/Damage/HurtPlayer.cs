@@ -7,12 +7,19 @@ public class HurtPlayer : MonoBehaviour
     [SerializeField] int damageToDeal;
     [SerializeField] float nextAttackCounter = 1.5f; //the length of time between potential attacks
 
-    private bool invulnerable = false;
     private bool justAttacked = false;
     private float storeAttackCounter;
+    private bool chargeInvulnerable;
+    private bool rollInvulnerable;
+
+    CharacterSelector characterSelector;
+    Charge charge; //specific references to these abilities are needed for them to work (for now at least)
+    Roll roll;
 
     void Start()
     {
+        characterSelector = FindObjectOfType<CharacterSelector>();
+
         storeAttackCounter = nextAttackCounter;
     }
 
@@ -28,6 +35,18 @@ public class HurtPlayer : MonoBehaviour
             justAttacked = false;
             nextAttackCounter = storeAttackCounter;
         }
+
+        try //since it can't check until the player is instantiated, errors will be thrown if a try, catch isn't set up
+        {
+            charge = characterSelector.GetCharacterObject().GetComponentInChildren<Charge>(); //retrieved from the player's weapon
+            roll = characterSelector.GetCharacterObject().GetComponentInChildren<Roll>();
+            chargeInvulnerable = charge.GetInvulnerable();
+            rollInvulnerable = roll.GetInvulnerable();
+        }
+        catch
+        {
+            //pass
+        }
     }
 
     private void OnCollisionStay2D(Collision2D other) //if the player collides with the enemy, damage may be dealed to the player (CollisionStay just in case the player stays next to the enemy)
@@ -36,21 +55,12 @@ public class HurtPlayer : MonoBehaviour
         {
             if (!justAttacked) //if the player wasn't just attacked by this enemy, hurt the player
             {
-                if (!invulnerable)
+                if (!chargeInvulnerable && !rollInvulnerable)
                 {
                     other.gameObject.GetComponent<PlayerHealthManager>().HurtPlayer(damageToDeal);
                     justAttacked = true; //the enemy just attacked the player
                 }
             }
         }
-    }
-
-    public bool GetInvulnerable()
-    {
-        return invulnerable;
-    }
-    public void SetInvulnerable(bool status)
-    {
-        invulnerable = status;
     }
 }
