@@ -5,8 +5,10 @@ using UnityEngine;
 public class Spikes : MonoBehaviour
 {
     [SerializeField] int damageToDeal;
-    public float currentTime = 0f;
-    public bool spike;
+    [SerializeField] float currentTime = 0f;
+    [SerializeField] bool spike;
+
+    public bool hurtEnemy = false;
 
     private BoxCollider2D boxCollider2D;
     // Start is called before the first frame update
@@ -42,6 +44,10 @@ public class Spikes : MonoBehaviour
             if (other.gameObject.tag == "Player")
             {
                 other.gameObject.GetComponent<PlayerHealthManager>().HurtPlayer(damageToDeal);
+            }
+            if (other.gameObject.tag == "Enemy (Base)" && hurtEnemy) //only reading the first tag the pops up, so the base (core) portion of the enemy is tagged as "Enemy (Base)" so that the spike collision can find the component in its (damage, health, etc...) child
+            {
+                other.gameObject.GetComponentInChildren<EnemyHealthManager>().HurtEnemy(damageToDeal);
             }
         }
     }

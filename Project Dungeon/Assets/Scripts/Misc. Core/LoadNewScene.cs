@@ -8,20 +8,23 @@ public class LoadNewScene : MonoBehaviour
 {
     [SerializeField] string levelToLoad = "";
     [SerializeField] bool selectRandomScene = true;
+    [SerializeField] bool fillPlayerHealth = true;
 
     PlayerHealthManager playerHealthManager;
+    CharacterSelector characterSelector;
     AudioManager audioManager;
 
-    List<string> scenesList = new List<string>(); //string list of levels to randomly select from
+    public List<string> scenesList = new List<string>(); //string list of levels to randomly select from
 
     void Start()
     {
         playerHealthManager = FindObjectOfType<PlayerHealthManager>();
+        characterSelector = FindObjectOfType<CharacterSelector>();
         audioManager = FindObjectOfType<AudioManager>();
 
-        scenesList.Add("TestScene1"); //on start, manually adds a level name to the scenesList list
-        scenesList.Add("TestScene2");
-        scenesList.Add("TestScene3");
+        //scenesList.Add("TestScene1"); //on start, manually adds a level name to the scenesList list
+        //scenesList.Add("TestScene2");
+        //scenesList.Add("TestScene3");
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -33,13 +36,25 @@ public class LoadNewScene : MonoBehaviour
                 if (scenesList.Count > 0) //if the array doesn't have any levels to select from, the code will not be run to avoid any errors
                 {
                     int randomSceneNum = Random.Range(0, scenesList.Count); //randomly selects a number to use to select from the list
-                    //SceneManager.LoadScene(scenesList[randomSceneNum]); //actually loads a scene
-                    Debug.Log("Load " + scenesList[randomSceneNum]); //logs that the level swap would have been successful
+                    SceneManager.LoadScene(scenesList[randomSceneNum]); //actually loads a scene
                     scenesList.Remove(scenesList[randomSceneNum]);
+                    //Debug.Log("Load " + scenesList[randomSceneNum]); //logs that the level swap would have been successful
+                    if (fillPlayerHealth)
+                    {
+                        playerHealthManager.SetCurrentHealth(playerHealthManager.GetMaxHealth()); //resets the player's health to full if the fillPlayerHealth boolean is selected
+                    }
+                }
+                else
+                {
+                    //end of "floor"
                 }
             }
             else
             {
+                if (levelToLoad == "GameOverScreen")
+                {
+                    characterSelector.TurnOffCanvas();
+                }
                 SceneManager.LoadScene(levelToLoad); //loads a selected scene since random selection is not the desired functionality
             }
         }
