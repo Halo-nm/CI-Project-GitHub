@@ -1688,15 +1688,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074a27add5fc9a14f94767491d11920f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: GameOverScreen
-  selectRandomScene: 0
+  levelToLoad: Nathan - Developer Scene
+  selectRandomScene: 1
   fillPlayerHealth: 1
   scenesList:
-  - Neel_Level
-  - Max - Developer Scene
-  - Neel - Develop
-  - Neel - Develop
-  - Mage
+  - Nathan - Developer Scene
+  - Nathan - Developer Scene
+  - Nathan - Developer Scene
+  - Nathan - Developer Scene
+  - Nathan - Developer Scene
 --- !u!61 &666191048
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3398,6 +3398,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8595470533635888911, guid: 58841cce4a6477446913f4586fb5ad43,
+        type: 3}
+      propertyPath: damageToDeal
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3728446954184817525, guid: 58841cce4a6477446913f4586fb5ad43,
         type: 3}
       propertyPath: m_Radius
@@ -3434,11 +3439,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 0.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 8595470533635888911, guid: 58841cce4a6477446913f4586fb5ad43,
-        type: 3}
-      propertyPath: damageToDeal
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58841cce4a6477446913f4586fb5ad43, type: 3}
@@ -4948,11 +4948,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 598694539078142652, guid: 6496287f7534a2e4ebe65d7a56607993,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 598694539078142625, guid: 6496287f7534a2e4ebe65d7a56607993,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5112,7 +5107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1875398720}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.46000004, y: -9.56, z: 0}
+  m_LocalPosition: {x: -1.571, y: -9.084, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 318704309}
@@ -6056,6 +6051,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8595470533635888911, guid: 58841cce4a6477446913f4586fb5ad43,
+        type: 3}
+      propertyPath: damageToDeal
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3728446954184817525, guid: 58841cce4a6477446913f4586fb5ad43,
         type: 3}
       propertyPath: m_Radius
@@ -6092,11 +6092,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 0.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 8595470533635888911, guid: 58841cce4a6477446913f4586fb5ad43,
-        type: 3}
-      propertyPath: damageToDeal
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58841cce4a6477446913f4586fb5ad43, type: 3}
@@ -132999,7 +132994,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashSpeed: 0
   dashTime: 0
-  invulnerbleCounter: 1
+  invulnerableCounter: 1
 --- !u!50 &5911842927996216169
 Rigidbody2D:
   serializedVersion: 4

@@ -27,6 +27,18 @@ public class LoadNewScene : MonoBehaviour
         //scenesList.Add("TestScene3");
     }
 
+    void Update()
+    {
+        try
+        {
+            playerHealthManager = characterSelector.GetCharacterObject().GetComponent<PlayerHealthManager>(); //gets the current player instance's health manager
+        }
+        catch
+        {
+            //pass
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player") //checks if the player was the object that collided with the gameobject the script is attached to
@@ -60,15 +72,15 @@ public class LoadNewScene : MonoBehaviour
         }
     }
 
-    public void LoadEndGameScene(string sceneToLoad)
+    /*public void LoadEndGameScene(string sceneToLoad) //was throwing an error when the player died so the coroutine was moved to the PlayerHealthManager script
     {
         StartCoroutine(DeathTime(sceneToLoad));
     }
 
     IEnumerator DeathTime(string sceneToLoad) //has the player wait a few seconds before GAME OVER is displayed in order to give time for any death animations/sounds
     {
-        audioManager.PlayAudio(audioManager.GetDeathSound()); //NOT playing the audio for some reason
+        audioManager.PlaySoundFXAudio(audioManager.GetDeathSound()); //NOT playing the audio for some reason
         yield return new WaitForSeconds(3); //plays for the length of the audio clip
         SceneManager.LoadScene(sceneToLoad);
-    }
+    }*/
 }

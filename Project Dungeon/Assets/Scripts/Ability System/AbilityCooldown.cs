@@ -76,7 +76,7 @@ public class AbilityCooldown : MonoBehaviour
         darkMask.enabled = true;
         //abilityAudioSource.clip = ability.abilitySound; //set the audio source clip to the sound clip that is stored in the scriptable object
         //abilityAudioSource.Play(); //sound clip is played
-        audioManager.PlayAudio(ability.abilitySound); //calls the Play Audio function from the AudioManager script
+        audioManager.PlaySoundFXAudio(ability.abilitySound); //calls the Play Audio function from the AudioManager script
         ability.TriggerAbility(); //called from PracticeAbility (the ability standards script that's derived from Ability)
     }
 }

@@ -10,12 +10,14 @@ public class PlayerHealthManager : MonoBehaviour
     [SerializeField] string endGameScene = "GameOverScreen"; //the scene to load when the player dies
     
     CharacterSelector characterSelector;
+    AudioManager audioManager;
     LoadNewScene loadNewScene;
 
     void Start()
     {
         characterSelector = FindObjectOfType<CharacterSelector>();
-        loadNewScene = FindObjectOfType<LoadNewScene>();
+        audioManager = FindObjectOfType<AudioManager>();
+        //loadNewScene = FindObjectOfType<LoadNewScene>();
 
         playerCurrentHealth = playerMaxHealth;
     }
@@ -26,9 +28,13 @@ public class PlayerHealthManager : MonoBehaviour
         if (playerCurrentHealth <= 0)
         {
             characterSelector.TurnOffCanvas();
-            loadNewScene.LoadEndGameScene(endGameScene);
-            gameObject.SetActive(false);
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //reload the current scene
+            //loadNewScene.LoadEndGameScene(endGameScene);
+            //gameObject.SetActive(false);
+            gameObject.GetComponent<PlayerController>().enabled = false; //not a clean way of disabling the player once dead, but works for now
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            transform.Find("Weapon").gameObject.SetActive(false);
+            StartCoroutine(DeathTime(endGameScene));
         }
     }
 
@@ -39,6 +45,13 @@ public class PlayerHealthManager : MonoBehaviour
         {
             playerCurrentHealth = 0;
         }
+    }
+
+    IEnumerator DeathTime(string sceneToLoad) //has the player wait a few seconds before GAME OVER is displayed in order to give time for any death animations/sounds
+    {
+        audioManager.PlaySoundFXAudio(audioManager.GetDeathSound()); //NOT playing the audio for some reason
+        yield return new WaitForSeconds(3); //plays for the length of the audio clip
+        SceneManager.LoadScene(sceneToLoad);
     }
 
     public int GetMaxHealth()
