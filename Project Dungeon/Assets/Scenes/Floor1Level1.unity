@@ -3398,11 +3398,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8595470533635888911, guid: 58841cce4a6477446913f4586fb5ad43,
-        type: 3}
-      propertyPath: damageToDeal
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3728446954184817525, guid: 58841cce4a6477446913f4586fb5ad43,
         type: 3}
       propertyPath: m_Radius
@@ -3439,6 +3434,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8595470533635888911, guid: 58841cce4a6477446913f4586fb5ad43,
+        type: 3}
+      propertyPath: damageToDeal
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58841cce4a6477446913f4586fb5ad43, type: 3}
@@ -6056,11 +6056,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8595470533635888911, guid: 58841cce4a6477446913f4586fb5ad43,
-        type: 3}
-      propertyPath: damageToDeal
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3728446954184817525, guid: 58841cce4a6477446913f4586fb5ad43,
         type: 3}
       propertyPath: m_Radius
@@ -6097,6 +6092,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8595470533635888911, guid: 58841cce4a6477446913f4586fb5ad43,
+        type: 3}
+      propertyPath: damageToDeal
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58841cce4a6477446913f4586fb5ad43, type: 3}
