@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 3200588324950400626}
   m_Layer: 0
   m_Name: Bow
-  m_TagString: Untagged
+  m_TagString: Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -466,7 +466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashSpeed: 0
   dashTime: 0
-  invulnerbleCounter: 1
+  invulnerableCounter: 1
 --- !u!114 &3200588324950400626
 MonoBehaviour:
   m_ObjectHideFlags: 0

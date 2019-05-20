@@ -20,10 +20,11 @@ public class StandardEnemyController : MonoBehaviour
     private bool isMoving;
     private Vector3 moveDirection;
 
+    CharacterSelector characterSelector;
+
     void Start()
     {
-        //target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>(); //the target that the enemy will pursue is the object tagged "Player"
-
+        characterSelector = FindObjectOfType<CharacterSelector>();
         myRigidBody = GetComponent<Rigidbody2D>();
         isMoving = false;
         timeBetweenMoveCounter = Random.Range(timeBetweenMove * 0.75f, timeBetweenMove * 1.25f);
@@ -89,5 +90,15 @@ public class StandardEnemyController : MonoBehaviour
         {
             target = null; //if the player leaves the collider trigger range, the enemy will stop pursing the player
         }
+    }
+
+    public void SetTarget() //sets the target to be the player
+    {
+        target = characterSelector.GetCharacterObject().transform;
+    }
+
+    public void SetFollowOnceSeen()
+    {
+        followOnceSeen = true;
     }
 }

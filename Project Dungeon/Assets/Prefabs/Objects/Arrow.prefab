@@ -143,7 +143,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  rb: {fileID: 707355919443538811}
 --- !u!114 &3288932000750192738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,5 +156,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageToDeal: 10
-  damageBurst: {fileID: 0}
+  damageBurst: {fileID: 2823893128286567286, guid: 9b8a65f711a678a4c96dd9b159d3ae07,
+    type: 3}
   hitPoint: {fileID: 0}

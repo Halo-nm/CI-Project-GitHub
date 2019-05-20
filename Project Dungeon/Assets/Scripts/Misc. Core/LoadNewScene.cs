@@ -18,19 +18,14 @@ public class LoadNewScene : MonoBehaviour
 
     void Start()
     {
-        playerHealthManager = FindObjectOfType<PlayerHealthManager>();
-        characterSelector = FindObjectOfType<CharacterSelector>();
         audioManager = FindObjectOfType<AudioManager>();
-
-        //scenesList.Add("TestScene1"); //on start, manually adds a level name to the scenesList list
-        //scenesList.Add("TestScene2");
-        //scenesList.Add("TestScene3");
     }
 
     void Update()
     {
         try
         {
+            characterSelector = FindObjectOfType<CharacterSelector>(); //needed for playerHealthManager
             playerHealthManager = characterSelector.GetCharacterObject().GetComponent<PlayerHealthManager>(); //gets the current player instance's health manager
         }
         catch
@@ -71,16 +66,4 @@ public class LoadNewScene : MonoBehaviour
             }
         }
     }
-
-    /*public void LoadEndGameScene(string sceneToLoad) //was throwing an error when the player died so the coroutine was moved to the PlayerHealthManager script
-    {
-        StartCoroutine(DeathTime(sceneToLoad));
-    }
-
-    IEnumerator DeathTime(string sceneToLoad) //has the player wait a few seconds before GAME OVER is displayed in order to give time for any death animations/sounds
-    {
-        audioManager.PlaySoundFXAudio(audioManager.GetDeathSound()); //NOT playing the audio for some reason
-        yield return new WaitForSeconds(3); //plays for the length of the audio clip
-        SceneManager.LoadScene(sceneToLoad);
-    }*/
 }
