@@ -41,10 +41,9 @@ public class PlayerController : MonoBehaviour {
         playerMoving = false;
 
         if (!playerAttacking && !abilityActive)
-        {    
+        {
             if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f) //GetAxisRaw takes the input of that very second
             {
-                //transform.Translate(new Vector3(Input.GetAxisRaw("Horizontal") * moveSpeed * Time.deltaTime, 0f, 0f)); //original movement code, before the rigidbody was implemented
                 myRigidbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, myRigidbody.velocity.y); //In this case, Time.deltaTime made the player move a LOT slower
                 playerMoving = true;
                 lastMove = new Vector2(Input.GetAxisRaw("Horizontal"), 0);
@@ -52,7 +51,6 @@ public class PlayerController : MonoBehaviour {
 
             if (Input.GetAxisRaw("Vertical") > 0.5f || Input.GetAxisRaw("Vertical") < -0.5f) //GetAxisRaw takes the input of that very second
             {
-                //transform.Translate(new Vector3(0f, Input.GetAxisRaw("Vertical") * moveSpeed * Time.deltaTime, 0f));
                 myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, Input.GetAxisRaw("Vertical") * moveSpeed);
                 playerMoving = true;
                 lastMove = new Vector2(0, Input.GetAxisRaw("Vertical"));
@@ -67,14 +65,11 @@ public class PlayerController : MonoBehaviour {
             {
                 myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, 0f);
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            attackTimeCounter = attackTime;
-            playerAttacking = true;
-            myRigidbody.velocity = Vector2.zero; //x and y value of 0
-            animator.SetBool("PlayerAttacking", true);
+            if (Input.GetKeyDown(KeyCode.F)) //inside the !playerAttacking so that the player isn't able to spam their light attack and make the character look like it's attack is "frozen"
+            {
+                LightAttack();
+            }
         }
 
         if (attackTimeCounter > 0)
@@ -98,6 +93,14 @@ public class PlayerController : MonoBehaviour {
         //is what causes this the most.
     }
 
+    public void LightAttack()
+    {
+        attackTimeCounter = attackTime;
+        playerAttacking = true;
+        myRigidbody.velocity = Vector2.zero; //x and y value of 0 //prevents the player from sliding while attacking
+        animator.SetBool("PlayerAttacking", true); //what dictates whether the attack is done and animated
+    }
+
     public bool GetPlayerAttacking()
     {
         return playerAttacking;
@@ -111,5 +114,10 @@ public class PlayerController : MonoBehaviour {
     public void SetAbilityActive(bool status)
     {
         abilityActive = status;
+    }
+
+    public Vector2 GetLastMove()
+    {
+        return lastMove;
     }
 }

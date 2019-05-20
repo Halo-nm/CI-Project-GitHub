@@ -38,7 +38,7 @@ public class HurtEnemy : MonoBehaviour
             }
             other.gameObject.GetComponent<EnemyHealthManager>().HurtEnemy(damageToDeal);
             GameObject tempBurst = Instantiate(damageBurst, other.transform.position, other.transform.rotation);
-            Object.Destroy(tempBurst, 1.0f);
+            Destroy(tempBurst, 1.0f);
             justAttacked = true;
         }
     }
