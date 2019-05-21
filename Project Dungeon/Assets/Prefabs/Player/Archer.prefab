@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5975663607657201704}
   - component: {fileID: 5975663607657201705}
   - component: {fileID: 5975663607657201710}
-  - component: {fileID: 5975663607657201707}
+  - component: {fileID: 4487951551899576385}
   m_Layer: 0
   m_Name: Archer
   m_TagString: Player
@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1649de51a42df974a8c3ff4152e61339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightAttackSound: {fileID: 8300000, guid: 8fd2d73dfe9e846679cfdf508258512f, type: 3}
   moveSpeed: 5
   lastMove: {x: 0, y: 0}
   attackTime: 0.667
@@ -184,7 +183,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5975663607657201707
+--- !u!114 &4487951551899576385
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
