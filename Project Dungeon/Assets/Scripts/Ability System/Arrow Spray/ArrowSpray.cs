@@ -14,22 +14,22 @@ public class ArrowSpray : MonoBehaviour
     private Transform firePoint2;
     private Transform firePoint3;
 
-    arrow arrow;
-    projectileSam projectile;
+    Arrow arrow;
+    Projectile projectile;
     CharacterSelector characterSelector;
     PlayerController playerController;
 
     public void Setup()
     {
-        arrow = FindObjectOfType<arrow>();
-        projectile = FindObjectOfType<projectileSam>();
+        arrow = FindObjectOfType<Arrow>();
+        projectile = FindObjectOfType<Projectile>();
     }
 
     public void PerformArrowSpray() //called when the player calls the ability
     {
         characterSelector = FindObjectOfType<CharacterSelector>();
         playerController = characterSelector.GetCharacterObject().GetComponent<PlayerController>();
-        projectile = arrowPrefab.GetComponent<projectileSam>();
+        projectile = arrowPrefab.GetComponent<Projectile>();
 
         int storeDamageToDeal = projectile.GetDamageToDeal(); //stores the initial damage of the arrows prior to the change
         projectile.SetDamageToDeal(damagePerArrow); //changes the damage of the arrows temporarily
