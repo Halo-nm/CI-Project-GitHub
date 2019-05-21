@@ -98,10 +98,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1649de51a42df974a8c3ff4152e61339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightAttackSound: {fileID: 8300000, guid: 8fd2d73dfe9e846679cfdf508258512f, type: 3}
   moveSpeed: 5
-  myRigidbody: {fileID: 0}
   lastMove: {x: 0, y: 0}
   attackTime: 0.667
+  myRigidbody: {fileID: 0}
 --- !u!61 &5975663607657201711
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -496,7 +497,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 0}
+  damagePerArrow: 5
   arrowSpeed: 25
+  degreeBetweenSplit: 30
 --- !u!1 &8075064659744790810
 GameObject:
   m_ObjectHideFlags: 0

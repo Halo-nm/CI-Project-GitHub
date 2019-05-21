@@ -238,7 +238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashSpeed: 0
   dashTime: 0
-  startDashTime: 0
+  invulnerableCounter: 1
 --- !u!114 &3379352780833657448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,6 +412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1649de51a42df974a8c3ff4152e61339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightAttackSound: {fileID: 8300000, guid: f3645d7388d9f4efc88a56c59b3a70d4, type: 3}
   moveSpeed: 5
   myRigidbody: {fileID: 0}
   lastMove: {x: 0, y: 0}
