@@ -31,12 +31,33 @@ public class Charge : MonoBehaviour
 
     IEnumerator DashTimer()
     {
+        BoxCollider2D[] playerColliders = characterSelector.GetCharacterObject().GetComponentsInChildren<BoxCollider2D>();
+        Vector2 storeSwordColliderSize = new Vector2();
         dashing = true;
         float storeDashTime = dashTime;
         hurtPlayer.SetInvulnerable(true);
         playerController.SetAbilityActive(true);
         playerController.myRigidbody.velocity = playerController.lastMove * dashSpeed;
+
+        for (int i = 0; i < playerColliders.Length; i++)
+        {
+            if (i == 1) //finds the second collider available which is the sword's //ugly way to do this since it's hardcoded
+            {
+                storeSwordColliderSize = playerColliders[i].size;
+                playerColliders[i].size = new Vector2(1, 1);
+            }
+        }
+
         yield return new WaitForSeconds(dashTime);
+
+        for (int i = 0; i < playerColliders.Length; i++) //reverses what was done
+        {
+            if (i == 1)
+            {
+                playerColliders[i].size = storeSwordColliderSize;
+            }
+        }
+
         playerController.SetAbilityActive(false);
         dashTime = storeDashTime;
         dashing = false;
