@@ -12,6 +12,7 @@ public class Charge : MonoBehaviour
     HurtPlayer hurtPlayer;
     CharacterSelector characterSelector;
 
+    private bool invulnerable;
     private bool dashing = false;
 
     public void Setup() //performs the same actions as MonoBehaviour's Start() function
@@ -35,7 +36,6 @@ public class Charge : MonoBehaviour
         Vector2 storeSwordColliderSize = new Vector2();
         dashing = true;
         float storeDashTime = dashTime;
-        hurtPlayer.SetInvulnerable(true);
         playerController.SetAbilityActive(true);
         playerController.myRigidbody.velocity = playerController.lastMove * dashSpeed;
 
@@ -64,9 +64,9 @@ public class Charge : MonoBehaviour
     }
     IEnumerator InvulnerbleTimer()
     {
-        hurtPlayer.SetInvulnerable(true);
+        invulnerable = true;
         yield return new WaitForSeconds(invulnerableCounter);
-        hurtPlayer.SetInvulnerable(false);
+        invulnerable = false;
     }
 
     public bool GetDashing()
@@ -77,5 +77,10 @@ public class Charge : MonoBehaviour
     public int GetDashDamage()
     {
         return dashDamage;
+    }
+
+    public bool GetInvulnerable()
+    {
+        return invulnerable;
     }
 }

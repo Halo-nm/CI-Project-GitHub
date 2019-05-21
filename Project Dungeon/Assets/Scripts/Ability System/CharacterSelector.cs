@@ -30,7 +30,7 @@ public class CharacterSelector : MonoBehaviour
     {
         playerHealthBarManager = FindObjectOfType<PlayerHealthBarManager>(); //gets a reference to the PlayerHealthBarManager script
 
-        if (!UIExists) //if the UI doesn't in the current scene, don't destroy the UI between scene swapping
+        if (!UIExists) //if the UI doesn't exist in the current scene, don't destroy the UI between scene swapping
         {
             UIExists = true;
             DontDestroyOnLoad(transform.gameObject);

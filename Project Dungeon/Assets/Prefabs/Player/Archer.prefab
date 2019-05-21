@@ -98,10 +98,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1649de51a42df974a8c3ff4152e61339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightAttackSound: {fileID: 8300000, guid: 8fd2d73dfe9e846679cfdf508258512f, type: 3}
   moveSpeed: 5
-  myRigidbody: {fileID: 0}
   lastMove: {x: 0, y: 0}
   attackTime: 0.667
+  myRigidbody: {fileID: 0}
 --- !u!61 &5975663607657201711
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -195,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824509cf6901784498c6acd28e47e903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FirePoint: {fileID: 7080545342189581935}
+  firePoint: {fileID: 7080545342189581935}
   arrowPrefab: {fileID: 3787808448451824149, guid: 1754720d593901b45af191839f00b331,
     type: 3}
 --- !u!1 &6723215488565605065
@@ -248,9 +249,10 @@ GameObject:
   - component: {fileID: 181160665139978784}
   - component: {fileID: 6969373580197517750}
   - component: {fileID: 3200588324950400626}
+  - component: {fileID: 6610260210539478229}
   m_Layer: 0
   m_Name: Bow
-  m_TagString: Untagged
+  m_TagString: Ignore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -466,7 +468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashSpeed: 0
   dashTime: 0
-  invulnerbleCounter: 1
+  invulnerableCounter: 1
 --- !u!114 &3200588324950400626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,6 +484,22 @@ MonoBehaviour:
   moveSpeedMultiplier: 0
   shieldHealth: 0
   buffDuration: 5
+--- !u!114 &6610260210539478229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6893611078687270148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3468ebc4f13fb54fb936dab83f247fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowPrefab: {fileID: 0}
+  damagePerArrow: 5
+  arrowSpeed: 25
+  degreeBetweenSplit: 30
 --- !u!1 &8075064659744790810
 GameObject:
   m_ObjectHideFlags: 0
