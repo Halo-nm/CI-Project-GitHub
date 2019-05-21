@@ -13398,7 +13398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a372300208ca52d4890d42a11efb6633, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 346266610}
+  localScale: {x: 0, y: 0, z: 0}
 --- !u!4 &1310778690163995471
 Transform:
   m_ObjectHideFlags: 0
@@ -13598,21 +13598,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4865907626810500831, guid: d097401d3b50e3647a04c5826fd21e6c,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4865907626810500831, guid: d097401d3b50e3647a04c5826fd21e6c,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4270215445535656353, guid: d097401d3b50e3647a04c5826fd21e6c,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d097401d3b50e3647a04c5826fd21e6c, type: 3}
