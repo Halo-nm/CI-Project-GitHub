@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    [SerializeField] AudioClip lightAttackSound;
     public float moveSpeed;
 
     public Vector2 lastMove; //Use Vector 2 for (x,y); not Vector 3 b/c it's (x,y,z)
@@ -19,13 +18,11 @@ public class PlayerController : MonoBehaviour {
 
     public Rigidbody2D myRigidbody; //keep this public
     Animator animator;
-    AudioManager audioManager;
 
     // Use this for initialization
     void Start () {
         myRigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        audioManager = FindObjectOfType<AudioManager>();
 
         if (!playerExists)
         {
@@ -98,7 +95,6 @@ public class PlayerController : MonoBehaviour {
 
     public void LightAttack()
     {
-        audioManager.PlaySoundFXAudio(lightAttackSound);
         attackTimeCounter = attackTime;
         playerAttacking = true;
         myRigidbody.velocity = Vector2.zero; //x and y value of 0 //prevents the player from sliding while attacking
