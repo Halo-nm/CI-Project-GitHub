@@ -32,9 +32,16 @@ public class HurtEnemy : MonoBehaviour
     {
         if (!justAttacked && playerController.GetPlayerAttacking() && other.gameObject.tag == "Enemy") //if the player didn't just attack, is currently in the attack animation, and the object being attacked is tagged as "Enemy," the HurtEnemy logic is run
         {
-            if (siphon.GetIsSiphonActive()) //checks if siphon was recently triggered
+            try //sloppily done just in case siphon isn't active on that specific character
             {
-                successfulHit = true; //the hit was successfully made
+                if (siphon.GetIsSiphonActive()) //checks if siphon was recently triggered
+                {
+                    successfulHit = true; //the hit was successfully made
+                }
+            }
+            catch
+            {
+                //pass
             }
             other.gameObject.GetComponent<EnemyHealthManager>().HurtEnemy(damageToDeal);
             GameObject tempBurst = Instantiate(damageBurst, other.transform.position, other.transform.rotation);

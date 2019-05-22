@@ -92,6 +92,16 @@ public class StandardEnemyController : MonoBehaviour
         }
     }
 
+    public float GetMoveSpeed()
+    {
+        return moveSpeed;
+    }
+
+    public void SetMoveSpeed(float speed)
+    {
+        moveSpeed = speed;
+    }
+
     public void SetTarget() //sets the target to be the player
     {
         target = characterSelector.GetCharacterObject().transform;

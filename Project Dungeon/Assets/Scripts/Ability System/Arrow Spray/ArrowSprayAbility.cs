@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//The standards for the ability
+
 [CreateAssetMenu(menuName = "Abilities/ArrowSpray")]
 public class ArrowSprayAbility : Ability
 { 
