@@ -271,7 +271,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.06}
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 2.22
 --- !u!50 &3728446954184817530
 Rigidbody2D:
   serializedVersion: 4
@@ -327,5 +327,5 @@ MonoBehaviour:
   moveSpeed: 3
   timeBetweenMove: 1.3
   timeToMove: 1
-  moveRandomly: 0
-  followOnceSeen: 0
+  moveRandomly: 1
+  followOnceSeen: 1

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//The actual ability
+
 public class ArrowSpray : MonoBehaviour
 {
     [HideInInspector] public GameObject arrowPrefab;
@@ -47,6 +47,9 @@ public class ArrowSpray : MonoBehaviour
         GameObject newArrow2 = Instantiate(arrowPrefab, firePoint2.position, firePoint2.rotation);
         CheckLastMove(3);
         GameObject newArrow3 = Instantiate(arrowPrefab, firePoint3.position, firePoint3.rotation);
+        Destroy(newArrow, 5f); //set just in case the arrow doesn't collide with anything
+        Destroy(newArrow2, 5f);
+        Destroy(newArrow3, 5f);
 
         projectile.SetDamageToDeal(storeDamageToDeal); //set the arrow damage back to what it was set to before
     }
