@@ -15,10 +15,6 @@ public class PlayerController : MonoBehaviour
     private bool playerAttacking;
     private bool abilityActive = false;
 
-    public float abilityTime;
-    private float abilityTimeCounter;
-    private bool PlayerAbility1 = false;
-
     private static bool playerExists; //sets the player to true and keeps it true when entering back into the starting scene (this avoids duplicates)
 
     public Rigidbody2D myRigidbody; //keep this public
@@ -77,17 +73,17 @@ public class PlayerController : MonoBehaviour
                 LightAttack();
             }
 
-            if (Input.GetKeyDown(KeyCode.Alpha1)) //inside the !playerAttacking so that the player isn't able to spam their light attack and make the character look like it's attack is "frozen"
+            /*if (Input.GetKeyDown(KeyCode.Alpha1)) //inside the !playerAttacking so that the player isn't able to spam their light attack and make the character look like it's attack is "frozen"
             {
                 abilityTimeCounter = abilityTime;
-                abilityActive = true;
+                //abilityActive = true;
                 PlayerAbility1 = true;
                 animator.SetBool("Ability", true);
                 myRigidbody.velocity = Vector2.zero; //x and y value of 0 //prevents the player from sliding while attacking
-            }
+            }*/
         }
 
-        if (abilityTimeCounter > 0)
+        /*if (abilityTimeCounter > 0)
         {
             abilityTimeCounter -= Time.deltaTime; //ticks the timer down over time
         }
@@ -95,9 +91,9 @@ public class PlayerController : MonoBehaviour
         if (abilityTimeCounter <= 0)
         {
             PlayerAbility1 = false;
-            abilityActive = false;
+            //abilityActive = false;
             animator.SetBool("Ability", false);
-        }
+        }*/
 
 
         if (attackTimeCounter > 0)

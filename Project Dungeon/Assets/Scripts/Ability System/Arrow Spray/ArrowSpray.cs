@@ -9,6 +9,11 @@ public class ArrowSpray : MonoBehaviour
     [HideInInspector] public float arrowSpeed = 25f;
     [HideInInspector] public float degreeBetweenSplit = 30f;
 
+    private bool playerAbility;
+    private float abilityTime = 0.3f; //hard coded for now
+    private float abilityTimeCounter;
+    private bool playerFound = false;
+
     private Rigidbody2D myRigidbody;
     private Transform firePoint;
     private Transform firePoint2;
@@ -18,6 +23,7 @@ public class ArrowSpray : MonoBehaviour
     Projectile projectile;
     CharacterSelector characterSelector;
     PlayerController playerController;
+    Animator animator;
 
     public void Setup()
     {
@@ -25,11 +31,31 @@ public class ArrowSpray : MonoBehaviour
         projectile = FindObjectOfType<Projectile>();
     }
 
+    public void Update()
+    {
+        if (playerFound)
+        {
+            if (abilityTimeCounter > 0) //set up instead of using coroutines becauses of previous code (consider using coroutine instead)
+            {
+                abilityTimeCounter -= Time.deltaTime; //ticks the timer down over time
+            }
+
+            if (abilityTimeCounter <= 0)
+            {
+                playerAbility = false;
+                animator.SetBool("Ability", false);
+            }
+        }
+    }
+
     public void PerformArrowSpray() //called when the player calls the ability
     {
         characterSelector = FindObjectOfType<CharacterSelector>();
         playerController = characterSelector.GetCharacterObject().GetComponent<PlayerController>();
         projectile = arrowPrefab.GetComponent<Projectile>();
+        animator = characterSelector.GetCharacterObject().GetComponent<Animator>();
+
+        playerFound = true;
 
         int storeDamageToDeal = projectile.GetDamageToDeal(); //stores the initial damage of the arrows prior to the change
         projectile.SetDamageToDeal(damagePerArrow); //changes the damage of the arrows temporarily
@@ -40,6 +66,10 @@ public class ArrowSpray : MonoBehaviour
 
         myRigidbody = arrowPrefab.GetComponent<Rigidbody2D>();
         myRigidbody.velocity = Vector2.zero; //prevents the player from sliding while attacking (stops the player)
+
+        abilityTimeCounter = abilityTime;
+        playerAbility = true;
+        animator.SetBool("Ability", true);
 
         CheckLastMove(1); //checks the direction of the player for the first arrow
         GameObject newArrow = Instantiate(arrowPrefab, firePoint.position, firePoint.rotation); //fires the first arrow
