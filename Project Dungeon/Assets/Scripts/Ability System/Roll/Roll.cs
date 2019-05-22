@@ -6,7 +6,8 @@ public class Roll : MonoBehaviour
     [HideInInspector] public float dashSpeed;
     [HideInInspector] public float dashTime;
     [HideInInspector] public float invulnerableCounter = 1f;
-
+    [HideInInspector] public float speedBuffTimer = 3;
+    [HideInInspector] public float speedAmount = 1.5f;
     PlayerController playerController;
     HurtPlayer hurtPlayer;
     CharacterSelector characterSelector;
@@ -23,7 +24,7 @@ public class Roll : MonoBehaviour
     }
 
 
-    public void PerformCharge()
+    public void PerformRoll()
     {
         StartCoroutine(DashTimer());
         StartCoroutine(InvulnerbleTimer());
@@ -36,7 +37,7 @@ public class Roll : MonoBehaviour
         dashing = true;
         float storeDashTime = dashTime;
         playerController.SetAbilityActive(true);
-        playerController.myRigidbody.velocity = playerController.lastMove * dashSpeed;
+        playerController.myRigidbody.velocity = playerController.lastMove * dashSpeed*(-1); //reverse position
 
         for (int i = 0; i < playerColliders.Length; i++)
         {
@@ -60,6 +61,7 @@ public class Roll : MonoBehaviour
         playerController.SetAbilityActive(false);
         dashTime = storeDashTime;
         dashing = false;
+        StartCoroutine(SpeedBoost());
     }
     IEnumerator InvulnerbleTimer()
     {
@@ -67,9 +69,18 @@ public class Roll : MonoBehaviour
         yield return new WaitForSeconds(invulnerableCounter);
         invulnerable = false;
     }
+    IEnumerator SpeedBoost()
+    {
 
+        float storedMoveSpeed = playerController.moveSpeed; //locally stores the value of the player's current move speed before it gets altered
+
+        playerController.moveSpeed *= speedAmount;
+        yield return new WaitForSeconds(speedBuffTimer);
+        playerController.moveSpeed = storedMoveSpeed;
+    }
     public bool GetDashing()
     {
+
         return dashing;
     }
 
