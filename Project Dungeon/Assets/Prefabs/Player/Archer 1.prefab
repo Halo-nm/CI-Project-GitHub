@@ -10,14 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 5975663607657201683}
   - component: {fileID: 5975663607657201708}
-  - component: {fileID: 5975663607657201709}
   - component: {fileID: 5975663607657201711}
   - component: {fileID: 5975663607657201704}
   - component: {fileID: 5975663607657201705}
   - component: {fileID: 5975663607657201710}
   - component: {fileID: 4487951551899576385}
+  - component: {fileID: 433590750330607074}
   m_Layer: 0
-  m_Name: Archer
+  m_Name: Archer 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,22 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5975663607657201709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5975663607657201706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1649de51a42df974a8c3ff4152e61339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  lastMove: {x: 0, y: 0}
-  attackTime: 0.667
-  myRigidbody: {fileID: 0}
 --- !u!61 &5975663607657201711
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -198,6 +182,23 @@ MonoBehaviour:
   firePoint: {fileID: 7080545342189581935}
   arrowPrefab: {fileID: 3787808448451824149, guid: 1754720d593901b45af191839f00b331,
     type: 3}
+--- !u!114 &433590750330607074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5975663607657201706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1649de51a42df974a8c3ff4152e61339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  lastMove: {x: 0, y: 0}
+  attackTime: 0.667
+  abilityTime: 0.2
+  myRigidbody: {fileID: 0}
 --- !u!1 &6723215488565605065
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,10 +243,13 @@ GameObject:
   - component: {fileID: 6998045284417141824}
   - component: {fileID: 7138243683364818827}
   - component: {fileID: 8285853360065469370}
+  - component: {fileID: 5904679532938083840}
+  - component: {fileID: 1840677655753998833}
+  - component: {fileID: 4410197420131411541}
   - component: {fileID: 181160665139978784}
   - component: {fileID: 6969373580197517750}
+  - component: {fileID: 3200588324950400626}
   - component: {fileID: 6610260210539478229}
-  - component: {fileID: 3795768385081726265}
   m_Layer: 0
   m_Name: Bow
   m_TagString: Ignore
@@ -391,6 +395,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f55c412bf0209447a20335abfd14786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5904679532938083840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6893611078687270148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68ef89b8d46d2314f928b76388c69da7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeedMultiplier: 0
+  attackTimeDivisor: 0
+  buffDuration: 5
+--- !u!114 &1840677655753998833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6893611078687270148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01d9be847061e0742a98379b5358a69e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthToReturn: 0
+--- !u!114 &4410197420131411541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6893611078687270148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5345bc67b889b4f935604b770f776a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pretendDamage: 1
+  pretendRange: 20
+  pretendHitForce: 100
 --- !u!114 &181160665139978784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,6 +469,21 @@ MonoBehaviour:
   dashSpeed: 0
   dashTime: 0
   invulnerableCounter: 1
+--- !u!114 &3200588324950400626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6893611078687270148}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0103d20c57c5fd54aa02bf25fe3e7e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeedMultiplier: 0
+  shieldHealth: 0
+  buffDuration: 5
 --- !u!114 &6610260210539478229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,19 +500,6 @@ MonoBehaviour:
   damagePerArrow: 5
   arrowSpeed: 25
   degreeBetweenSplit: 30
---- !u!114 &3795768385081726265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6893611078687270148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de97c3bd05771234a96d8f041f15d2c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthToReturn: 0
 --- !u!1 &8075064659744790810
 GameObject:
   m_ObjectHideFlags: 0
