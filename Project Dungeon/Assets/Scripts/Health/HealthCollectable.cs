@@ -20,15 +20,12 @@ public class HealthCollectable : MonoBehaviour
 
     void Update()
     {
-        try
+        if (characterSelector.GetCharacterActive()) //checks if the character is active
         {
             playerHealthManager = characterSelector.GetCharacterObject().GetComponent<PlayerHealthManager>(); //gets the current player instance's health manager
             maxHealth = playerHealthManager.GetMaxHealth();
             currentHealth = playerHealthManager.GetCurrentHealth();
-        }
-        catch
-        {
-            //pass
+
         }
     }
 

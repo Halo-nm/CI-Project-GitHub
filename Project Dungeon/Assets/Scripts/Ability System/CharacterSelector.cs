@@ -8,8 +8,11 @@ public class CharacterSelector : MonoBehaviour
     public GameObject warrior; //used to spawn the warrior when the button is selected
     public GameObject archer; //used to spawn the archer when the button is selected
     public GameObject mage; //used to spawn the mage when the button is selected
-    public Vector2 playerSpawnPosition = new Vector2(0, 0); //sets the spawn position4
-    GameObject spawnedPlayer;
+
+    private Vector2 playerSpawnPosition = new Vector2(0, 0); //sets the spawn position4
+
+    private GameObject spawnedPlayer;
+    private bool characterActive = false;
 
     public Character[] characters; //character options that are set in the inspector
 
@@ -18,17 +21,21 @@ public class CharacterSelector : MonoBehaviour
     public GameObject characterSelectPanel; //grabbed to be used to turn on and off
     public GameObject abilityPanel;
 
-    private int storedCharacterChoice;
-    //private bool characterChosen = false;
-
     private static bool UIExists; //static boolean that checks if a UI is present in the current scene
 
-    PlayerHealthManager playerHealthManager;
     PlayerHealthBarManager playerHealthBarManager;
+    PlayerStartPoint playerStartPoint;
+    LoadNewScene loadNewScene;
 
     void Start()
     {
         playerHealthBarManager = FindObjectOfType<PlayerHealthBarManager>(); //gets a reference to the PlayerHealthBarManager script
+        playerStartPoint = FindObjectOfType<PlayerStartPoint>();
+
+        if (playerStartPoint != null) //if there is a player start point present, change the player's starting position to its values
+        {
+            playerSpawnPosition = playerStartPoint.GetStartPosition(); //sets the player's spawn position to the position of the player start point game object to prevent camera drag on character spawn
+        }
 
         if (!UIExists) //if the UI doesn't exist in the current scene, don't destroy the UI between scene swapping
         {
@@ -41,9 +48,14 @@ public class CharacterSelector : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        loadNewScene = FindObjectOfType<LoadNewScene>();
+    }
+
     public void OnCharacterSelect(int characterChoice) //function called when the button is pressed //parameter is passed by the button that was clicked
     {
-        storedCharacterChoice = characterChoice;
+        characterActive = true;
         playerHealthBarManager.healthBar.gameObject.SetActive(true);
         playerHealthBarManager.healthText.gameObject.SetActive(true);
         characterSelectPanel.SetActive(false); //hidden when first called
@@ -76,22 +88,34 @@ public class CharacterSelector : MonoBehaviour
         }
     }
 
+    public void StartHidePlayerTimer()
+    {
+        StartCoroutine(HidePlayerTimer());
+    }
+
+    public IEnumerator HidePlayerTimer() //set up so that the player doesn't spawn right before the level swap //made public so it can be activated outside this specific script
+    {
+        yield return new WaitForSeconds(loadNewScene.GetSwapLevelTime()); //needs to be slightly longer than SwapLevelTimer()'s counter so the player doesn't appear before the level swap is complete
+        GetCharacterObject().SetActive(true);
+    }
+
     public GameObject GetCharacterObject()
     {
         return spawnedPlayer;
     }
 
-    public int GetCharacterChoice() //consider use for later
+    public bool GetCharacterActive() //used to check if the character is active
     {
-        return storedCharacterChoice;
+        return characterActive;
+    }
+
+    public void SetCharacterActive(bool status)
+    {
+        characterActive = status;
     }
 
     public void TurnOffCanvas() //when called, ensures that all HUD elements are set to inactive/turned off
     {
-        //playerHealthBarManager.healthBar.gameObject.SetActive(false);
-        //playerHealthBarManager.healthText.gameObject.SetActive(false);
-        //characterSelectPanel.SetActive(false);
-        //abilityPanel.SetActive(false);
         UICanvas.gameObject.SetActive(false);
     }
 }

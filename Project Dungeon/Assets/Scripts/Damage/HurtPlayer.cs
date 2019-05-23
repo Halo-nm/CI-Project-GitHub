@@ -36,16 +36,12 @@ public class HurtPlayer : MonoBehaviour
             nextAttackCounter = storeAttackCounter;
         }
 
-        try //since it can't check until the player is instantiated, errors will be thrown if a try, catch isn't set up
+        if (characterSelector.GetCharacterActive()) //checks if the character is active
         {
             charge = characterSelector.GetCharacterObject().GetComponentInChildren<Charge>(); //retrieved from the player's weapon
             roll = characterSelector.GetCharacterObject().GetComponentInChildren<Roll>();
             chargeInvulnerable = charge.GetInvulnerable();
             rollInvulnerable = roll.GetInvulnerable();
-        }
-        catch
-        {
-            //pass
         }
     }
 

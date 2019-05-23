@@ -22,7 +22,7 @@ public class PlayerHealthBarManager : MonoBehaviour
 
     void Update()
     {
-        try //put in a try, catch so an error isn't thrown during character selection
+        if (characterSelector.GetCharacterActive()) //checks if the character is active
         {
             playerHealthManager = characterSelector.GetCharacterObject().GetComponent<PlayerHealthManager>(); //get the instantiated (or active) player's PlayerHealthManager script
             maxHealth = playerHealthManager.GetMaxHealth(); //sets a variable to teh value of the character's max health
@@ -30,12 +30,6 @@ public class PlayerHealthBarManager : MonoBehaviour
             healthBar.maxValue = maxHealth;
             healthBar.value = currentHealth;
             healthText.text = "HP: " + ((currentHealth / maxHealth) * 100).ToString() + "%"; //sets the health text to the player's current health as a percentage
-
-        }
-        catch
-        {
-            //pass
-        }
-        
+        }  
     }
 }

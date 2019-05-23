@@ -72,29 +72,7 @@ public class PlayerController : MonoBehaviour
             {
                 LightAttack();
             }
-
-            /*if (Input.GetKeyDown(KeyCode.Alpha1)) //inside the !playerAttacking so that the player isn't able to spam their light attack and make the character look like it's attack is "frozen"
-            {
-                abilityTimeCounter = abilityTime;
-                //abilityActive = true;
-                PlayerAbility1 = true;
-                animator.SetBool("Ability", true);
-                myRigidbody.velocity = Vector2.zero; //x and y value of 0 //prevents the player from sliding while attacking
-            }*/
         }
-
-        /*if (abilityTimeCounter > 0)
-        {
-            abilityTimeCounter -= Time.deltaTime; //ticks the timer down over time
-        }
-
-        if (abilityTimeCounter <= 0)
-        {
-            PlayerAbility1 = false;
-            //abilityActive = false;
-            animator.SetBool("Ability", false);
-        }*/
-
 
         if (attackTimeCounter > 0)
         {

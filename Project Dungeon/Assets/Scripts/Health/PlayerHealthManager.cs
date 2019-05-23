@@ -11,13 +11,12 @@ public class PlayerHealthManager : MonoBehaviour
     
     CharacterSelector characterSelector;
     AudioManager audioManager;
-    LoadNewScene loadNewScene;
+    //LoadNewScene loadNewScene;
 
     void Start()
     {
         characterSelector = FindObjectOfType<CharacterSelector>();
         audioManager = FindObjectOfType<AudioManager>();
-        //loadNewScene = FindObjectOfType<LoadNewScene>();
 
         playerCurrentHealth = playerMaxHealth;
     }
@@ -27,6 +26,7 @@ public class PlayerHealthManager : MonoBehaviour
     {
         if (playerCurrentHealth <= 0)
         {
+            characterSelector.SetCharacterActive(false);
             characterSelector.TurnOffCanvas();
             //loadNewScene.LoadEndGameScene(endGameScene);
             //gameObject.SetActive(false);

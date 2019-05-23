@@ -12,10 +12,13 @@ public class FollowTarget : MonoBehaviour {
     private static bool cameraExists;
 
     CharacterSelector characterSelector;
+    PlayerStartPoint playerStartPoint;
 
     void Start ()
     {
         characterSelector = FindObjectOfType<CharacterSelector>(); //Needed to "properly" access the methods of the CharacterSelector script... for some reason
+        playerStartPoint = FindObjectOfType<PlayerStartPoint>();
+
         if (!cameraExists)
         {
             cameraExists = true;
@@ -33,13 +36,23 @@ public class FollowTarget : MonoBehaviour {
         {
             followTarget = characterSelector.GetCharacterObject();
         }
-        try
+        if (characterSelector != null)
         {
-            targetPos = new Vector3(followTarget.transform.position.x, followTarget.transform.position.y, transform.position.z); //using the z position of the camera
-        }
-        catch
-        {
-            targetPos = new Vector3(0, 0, -10);
+            if (characterSelector.GetCharacterActive()) //checks if the character is active
+            {
+                targetPos = new Vector3(followTarget.transform.position.x, followTarget.transform.position.y, transform.position.z); //using the z position of the camera
+            }
+            else
+            {
+                if (playerStartPoint != null)
+                {
+                    targetPos = new Vector3(playerStartPoint.GetStartPosition().x, playerStartPoint.GetStartPosition().y, -10);  //sets the camera's default position to the position of the player start point game object to prevent camera drag on character spawn
+                }
+                else
+                {
+                    targetPos = new Vector3(0, 0, -10); //if there is no player start point present, default the camera to these values
+                }
+            }
         }
         transform.position = Vector3.Lerp(transform.position, targetPos, moveSpeed * Time.deltaTime); //current position, new position (target position), amount of movement per frame - Using Time.deltaTime to adjust to computer framerates
     }
