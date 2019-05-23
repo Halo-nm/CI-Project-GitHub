@@ -2009,7 +2009,6 @@ MonoBehaviour:
   warrior: {fileID: 1055789316353519955, guid: a9ab31fd6cd3c464e9ba0354c5a2137a, type: 3}
   archer: {fileID: 5975663607657201706, guid: 4510836b97f8b144c9027ea03a271ae9, type: 3}
   mage: {fileID: 5975663607657201706, guid: 4510836b97f8b144c9027ea03a271ae9, type: 3}
-  playerSpawnPosition: {x: 0, y: 0}
   characters:
   - {fileID: 11400000, guid: 6be1b8ed32cca7b4d92bad0205c62809, type: 2}
   - {fileID: 11400000, guid: e353d6e4b5c1c234da17f0f3ce8af239, type: 2}

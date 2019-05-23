@@ -9,12 +9,10 @@ public class Arrow : MonoBehaviour
 
     GameObject newArrow;
 
-    // Start is called before the first frame update
-    // Update is called once per frame
-
     public void Shoot()
     {
         newArrow = Instantiate(arrowPrefab, firePoint.position, firePoint.rotation);
+        newArrow.GetComponent<Projectile>().test();
         Destroy(newArrow, 3.0f); //in case the instantiated arrow prefab doesn't make contact with another object and destroy itself in the projectile script
     }
 
