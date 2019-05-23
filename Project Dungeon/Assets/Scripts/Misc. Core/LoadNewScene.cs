@@ -11,9 +11,9 @@ public class LoadNewScene : MonoBehaviour
     [SerializeField] bool fillPlayerHealth = true;
     [SerializeField] float swapLevelTime = 2f;
 
-    private int storeLevelToLoad;
     private int scenesListLength;
     private int chosenScenesListLength;
+    private bool gameOver = false;
 
     PlayerHealthManager playerHealthManager;
     CharacterSelector characterSelector;
@@ -39,29 +39,31 @@ public class LoadNewScene : MonoBehaviour
                 playerHealthManager = characterSelector.GetCharacterObject().GetComponent<PlayerHealthManager>(); //gets the current player instance's health manager
             }
         }
+
+        scenesListLength = levelTransitionManager.GetScenesList().Count;
+        chosenScenesListLength = levelTransitionManager.GetChosenScenesList().Count;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player") //checks if the player was the object that collided with the gameobject the script is attached to
         {
-            characterSelector.StartHidePlayerTimer();
+            if (gameOver == false) //if the game is over, then the UI would be disabled, so the the below function wouldn't be able to be run
+            {
+                characterSelector.StartHidePlayerTimer();
+            }
             StartCoroutine(SwapLevelTimer());
         }
     }
 
     IEnumerator SwapLevelTimer()
     {
-
         characterSelector.GetCharacterObject().SetActive(false);
 
         yield return new WaitForSeconds(swapLevelTime);
 
         if (selectRandomScene) //if the selectRandomScene boolean is active, then the gameobject the script is attached to wants to randomly load levels from a list
         {
-            int scenesListLength = levelTransitionManager.GetScenesList().Count;
-            int chosenScenesListLength = levelTransitionManager.GetChosenScenesList().Count;
-
             if (scenesListLength > 0 && (scenesListLength != chosenScenesListLength)) //if the array doesn't have any levels to select from, the code will not be run to avoid any errors
             {
                 int randomSceneNum;
@@ -69,7 +71,6 @@ public class LoadNewScene : MonoBehaviour
                 while (!available) //if the specific random number that was chosen isn't in the list of levels (that holds the build indexes), then keep randomly choosing
                 {
                     randomSceneNum = Random.Range(0, scenesListLength);
-                    Debug.Log("Num chosen " + randomSceneNum); //THIS IS STILL AN ISSUE NOT LOADING CORRECT THING
                     if (chosenScenesListLength > 0)
                     {
                         if (CheckChosenNum(randomSceneNum))
@@ -94,7 +95,9 @@ public class LoadNewScene : MonoBehaviour
             }
             else
             {
-                levelTransitionManager.SetLevelIndex(SceneManager.sceneCountInBuildSettings);
+                gameOver = true;
+                levelTransitionManager.SetLevelIndex(SceneManager.sceneCountInBuildSettings - 1); //since the build index starts at 0, need to -1
+                characterSelector.TurnOffCanvas();
                 levelTransitionManager.FadeToLevel();
             }
         }
@@ -102,6 +105,7 @@ public class LoadNewScene : MonoBehaviour
         {
             if (levelToLoad == "GameOverScreen")
             {
+                gameOver = true;
                 characterSelector.TurnOffCanvas();
             }
             SceneManager.LoadScene(levelToLoad); //loads a selected scene since random selection is not the desired functionality

@@ -95,7 +95,7 @@ public class CharacterSelector : MonoBehaviour
 
     public IEnumerator HidePlayerTimer() //set up so that the player doesn't spawn right before the level swap //made public so it can be activated outside this specific script
     {
-        yield return new WaitForSeconds(loadNewScene.GetSwapLevelTime()); //needs to be slightly longer than SwapLevelTimer()'s counter so the player doesn't appear before the level swap is complete
+        yield return new WaitForSeconds(loadNewScene.GetSwapLevelTime() + 0.85f); //needs to be slightly longer than SwapLevelTimer()'s counter so the player doesn't appear before the level swap is complete ("flashing occurs")
         GetCharacterObject().SetActive(true);
     }
 
