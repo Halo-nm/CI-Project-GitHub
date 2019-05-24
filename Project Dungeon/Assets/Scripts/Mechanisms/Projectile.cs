@@ -80,9 +80,4 @@ public class Projectile : MonoBehaviour
     {
         damagePlayer = status;
     }
-
-    public void test()
-    {
-        Debug.Log(damagePlayer);
-    }
 }
