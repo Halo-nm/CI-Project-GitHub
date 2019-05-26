@@ -11,6 +11,8 @@ public class Projectile : MonoBehaviour
     [SerializeField] GameObject damageBurst;
     [SerializeField] bool damagePlayer = false;
 
+    private bool enemyHit = false;
+
     void Start()
     {
         ChangeVelocity();
@@ -30,18 +32,22 @@ public class Projectile : MonoBehaviour
             {
                 if (collider.gameObject.tag == "Enemy") //if the projectile makes contact with an enemy, destroy it after a small time //destroying it immediately will prevent any damage from registering
                 {
-                    collider.GetComponent<EnemyHealthManager>().HurtEnemy(damageToDeal);
-                    Destroy(gameObject, 0.05f); //destroyed after a really small amount of time to ensure damage was dealt before being destroyed
-                    GameObject tempBurst = Instantiate(damageBurst, collider.transform.position, collider.transform.rotation);
-                    Destroy(tempBurst, 1.0f);
-                    try //temporarily using a try, catch just in case the specific enemy uses a different controller
+                    if (!enemyHit)
                     {
-                        collider.GetComponentInParent<StandardEnemyController>().SetTarget(); //sets the player as the target once the enemy is hit //the enemy controller is in the parent object
-                        collider.GetComponentInParent<StandardEnemyController>().SetFollowOnceSeen(); //sets the enemy to follow the player
-                    }
-                    catch
-                    {
-                        //pass
+                        enemyHit = true;
+                        collider.GetComponent<EnemyHealthManager>().HurtEnemy(damageToDeal);
+                        Destroy(gameObject, 0.05f); //destroyed after a really small amount of time to ensure damage was dealt before being destroyed
+                        GameObject tempBurst = Instantiate(damageBurst, collider.transform.position, collider.transform.rotation);
+                        Destroy(tempBurst, 1.0f);
+                        try //temporarily using a try, catch just in case the specific enemy uses a different controller
+                        {
+                            collider.GetComponentInParent<StandardEnemyController>().SetTarget(); //sets the player as the target once the enemy is hit //the enemy controller is in the parent object
+                            collider.GetComponentInParent<StandardEnemyController>().SetFollowOnceSeen(); //sets the enemy to follow the player
+                        }
+                        catch
+                        {
+                            //pass
+                        }
                     }
                 }
                 else
@@ -50,7 +56,7 @@ public class Projectile : MonoBehaviour
                 }
             }
         }
-        else if (collider.gameObject.tag != "Ignore")
+        else if (collider.gameObject.tag != "Ignore" && collider.gameObject.tag != "Enemy (Base)")
         {
             if (collider.gameObject.tag == "Player")
             {

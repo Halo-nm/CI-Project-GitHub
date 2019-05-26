@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Roll
   abilitySprite: {fileID: 21300000, guid: 53ad6284561e330499aac29d3156e5ba, type: 3}
-  abilitySound: {fileID: 8300000, guid: d036527075d0eb541a5c69fea9f0876b, type: 3}
+  abilitySound: {fileID: 8300000, guid: a7e375eea184f444a9221400e9411685, type: 3}
   abilityBaseCooldown: 5
   dashSpeed: 12
   dashTime: 0.2

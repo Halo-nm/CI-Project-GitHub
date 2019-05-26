@@ -8,7 +8,7 @@ public class LoadNewScene : MonoBehaviour
 {
     [SerializeField] string levelToLoad = "";
     [SerializeField] bool selectRandomScene = true;
-    [SerializeField] bool fillPlayerHealth = true;
+    [SerializeField] bool returnPlayerHealth = true;
     [SerializeField] float swapLevelTime = 2f;
 
     private int scenesListLength;
@@ -25,12 +25,12 @@ public class LoadNewScene : MonoBehaviour
     {
         audioManager = FindObjectOfType<AudioManager>();
         playerStartPoint = FindObjectOfType<PlayerStartPoint>();
-        levelTransitionManager = FindObjectOfType<LevelTransitionManager>();
     }
 
     void Update()
     {
         characterSelector = FindObjectOfType<CharacterSelector>();
+        levelTransitionManager = FindObjectOfType<LevelTransitionManager>();
 
         if (characterSelector != null) //checks if characterSelector is active/not destroyed
         {
@@ -87,9 +87,10 @@ public class LoadNewScene : MonoBehaviour
                         available = true;
                     }
                 }
-                if (fillPlayerHealth)
+                if (returnPlayerHealth)
                 {
-                    playerHealthManager.SetCurrentHealth(playerHealthManager.GetMaxHealth()); //resets the player's health to full if the fillPlayerHealth boolean is selected
+                    playerHealthManager.SetCurrentHealth(playerHealthManager.GetCurrentHealth() + 50); //returns the player's health to the specified value if the fillPlayerHealth boolean is selected
+                    //playerHealthManager.SetCurrentHealth(playerHealthManager.GetMaxHealth()); //returns the player's health to full if the fillPlayerHealth boolean is selected
                 }
                 levelTransitionManager.FadeToLevel(); //loads the randomly selected level
             }

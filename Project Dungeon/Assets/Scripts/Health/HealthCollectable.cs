@@ -12,14 +12,9 @@ public class HealthCollectable : MonoBehaviour
     private int maxHealth;
     private int currentHealth;
 
-    void Start()
-    {
-        
-        characterSelector = FindObjectOfType<CharacterSelector>();
-    }
-
     void Update()
     {
+        characterSelector = FindObjectOfType<CharacterSelector>();
         if (characterSelector.GetCharacterActive()) //checks if the character is active
         {
             playerHealthManager = characterSelector.GetCharacterObject().GetComponent<PlayerHealthManager>(); //gets the current player instance's health manager
@@ -33,14 +28,7 @@ public class HealthCollectable : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (currentHealth + healthToReturn >= maxHealth) //if returning health would make the players health greater than 100, set the current health to 100
-            {
-                playerHealthManager.SetCurrentHealth(maxHealth);
-            }
-            else
-            {
-                playerHealthManager.SetCurrentHealth(currentHealth + healthToReturn);
-            }
+            playerHealthManager.SetCurrentHealth(currentHealth + healthToReturn); //health is checked in PlayerHealthManager to ensure the value isn't larger than it's max health
             Destroy(gameObject);
         }
     }

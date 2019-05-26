@@ -71,6 +71,13 @@ public class PlayerHealthManager : MonoBehaviour
 
     public void SetCurrentHealth(int updatedCurrentPlayerHealth)
     {
-        playerCurrentHealth = updatedCurrentPlayerHealth;
+        if (updatedCurrentPlayerHealth > 100) //if updating the player's health would make the players health greater than 100, set the current health to 100
+        {
+            playerCurrentHealth = playerMaxHealth;
+        }
+        else
+        {
+            playerCurrentHealth = updatedCurrentPlayerHealth;
+        }
     }
 }

@@ -22,6 +22,10 @@ public class LevelTransitionManager : MonoBehaviour
             levelTransitionManagerExists = true;
             DontDestroyOnLoad(transform.gameObject);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
 
         SelectRandomLevel();
     }

@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level1.unity
     guid: bbe990e9cd57af545a0083be334f23d0
   - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 4b4cb6855e6b1b84d8c325c8f52093c3
+  - enabled: 1
     path: Assets/Scenes/Nathan - Developer Scene.unity
     guid: cc9b72307d1137946be09b66beaf202c
   - enabled: 1

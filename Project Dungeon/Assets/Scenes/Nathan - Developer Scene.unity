@@ -758,11 +758,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2816640711296938859, guid: ce6f1f47c345067498cc0796cd312b3b,
-        type: 3}
-      propertyPath: moveSpeed
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce6f1f47c345067498cc0796cd312b3b, type: 3}
 --- !u!1 &501065084
@@ -1948,16 +1943,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1295432155539592108, guid: 6b4c2660fec166b48b8509bf7fb19804,
-        type: 3}
-      propertyPath: followTarget
-      value: 
-      objectReference: {fileID: 813331099}
-    - target: {fileID: 1295432155539592108, guid: 6b4c2660fec166b48b8509bf7fb19804,
-        type: 3}
-      propertyPath: newCharacter
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1295432155539592109, guid: 6b4c2660fec166b48b8509bf7fb19804,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
@@ -1977,6 +1962,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BackGroundColor.b
       value: 0.5987451
+      objectReference: {fileID: 0}
+    - target: {fileID: 1295432155539592108, guid: 6b4c2660fec166b48b8509bf7fb19804,
+        type: 3}
+      propertyPath: followTarget
+      value: 
+      objectReference: {fileID: 813331099}
+    - target: {fileID: 1295432155539592108, guid: 6b4c2660fec166b48b8509bf7fb19804,
+        type: 3}
+      propertyPath: newCharacter
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b4c2660fec166b48b8509bf7fb19804, type: 3}
@@ -54755,7 +54750,7 @@ PrefabInstance:
     - target: {fileID: 6427383486124277360, guid: c546878f65322b34ba6a3ed171c330c6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6427383486124277360, guid: c546878f65322b34ba6a3ed171c330c6,
         type: 3}

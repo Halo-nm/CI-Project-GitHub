@@ -6,12 +6,19 @@ public class Key : MonoBehaviour
 {
     [SerializeField] GameObject entryToDestroy; //optional
     [SerializeField] bool multipleKeysRequired = false;
+    [SerializeField] AudioClip soundToPlay;
 
+    AudioManager audioManager;
     MultiKeyLock multiKeyLock;
 
     void Start()
     {
         multiKeyLock = FindObjectOfType<MultiKeyLock>();
+    }
+
+    void Update()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -20,6 +27,10 @@ public class Key : MonoBehaviour
         {
             if (!multipleKeysRequired && entryToDestroy != null) //if multiple keys aren't required to destroy the entry, then simply destroy the entry now
             {
+                if (soundToPlay != null)
+                {
+                    audioManager.PlaySoundFXAudio(soundToPlay);
+                }
                 Destroy(entryToDestroy);
                 Destroy(gameObject); //destroy this key
             }
