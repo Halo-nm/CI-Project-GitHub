@@ -20,6 +20,9 @@ public class CharacterSelector : MonoBehaviour
 
     public GameObject characterSelectPanel; //grabbed to be used to turn on and off
     public GameObject abilityPanel;
+    public Text timerText;
+
+    private float currentTime = 0f;
 
     private static bool UIExists; //static boolean that checks if a UI is present in the current scene
 
@@ -51,6 +54,12 @@ public class CharacterSelector : MonoBehaviour
     void Update()
     {
         loadNewScene = FindObjectOfType<LoadNewScene>();
+
+        if (characterActive)
+        {
+            currentTime += Time.deltaTime;
+            timerText.text = FormatTime();
+        }
     }
 
     public void OnCharacterSelect(int characterChoice) //function called when the button is pressed //parameter is passed by the button that was clicked
@@ -60,6 +69,8 @@ public class CharacterSelector : MonoBehaviour
         playerHealthBarManager.healthText.gameObject.SetActive(true);
         characterSelectPanel.SetActive(false); //hidden when first called
         abilityPanel.SetActive(true); //activated when first called
+        timerText.gameObject.SetActive(true);
+
         if (characterChoice == 0)
         {
             spawnedPlayer = Instantiate(warrior, playerSpawnPosition, Quaternion.identity) as GameObject; //casted as a GameObject //Quaternion.identity returns the rotation of the original prefab
@@ -86,6 +97,17 @@ public class CharacterSelector : MonoBehaviour
                 //pass because abilities or ability icons are out of range
             }
         }
+    }
+
+    private string FormatTime() //Sets the current time into a minutes/seconds/milliseconds format //returned as a string value that can represented as text
+    {
+        int intTime = (int)currentTime;
+        int minutes = intTime / 60;
+        int seconds = intTime % 60;
+        float milliseconds = (currentTime * 100) % 100;
+        string timeText = string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds); //found because of unused format (never have used in this fashion before)
+
+        return timeText;
     }
 
     public void StartHidePlayerTimer()
@@ -117,5 +139,10 @@ public class CharacterSelector : MonoBehaviour
     public void TurnOffCanvas() //when called, ensures that all HUD elements are set to inactive/turned off
     {
         UICanvas.gameObject.SetActive(false);
+    }
+
+    public string GetCurrentTime()
+    {
+        return FormatTime();
     }
 }

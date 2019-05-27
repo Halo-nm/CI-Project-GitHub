@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioClip deathSound;
+    [SerializeField] AudioClip deathSound;
+    [SerializeField] AudioClip[] musicOptions;
+
+    private List<int> musicChoices = new List<int>();
 
     AudioSource musicAudioSource;
     AudioSource soundFXAudioSource;
@@ -16,6 +19,31 @@ public class AudioManager : MonoBehaviour
         allAudioSources = GetComponents<AudioSource>();
         musicAudioSource = allAudioSources[0]; //the first spot in the audio source array is for music
         soundFXAudioSource = allAudioSources[1]; //the second spot is for sound effects
+
+        /*if (!musicAudioSource.playOnAwake)
+        {
+
+        }*/
+    }
+
+    void Update()
+    {
+        if (!musicAudioSource.isPlaying)
+        {
+            int randomSongChoice = Random.Range(0, musicOptions.Length);
+            for (int i = 0; i < musicOptions.Length; i++)
+            {
+                if (CheckMusicChosen(randomSongChoice))
+                {
+                    musicChoices.Add(randomSongChoice);
+                    PlayMusicAudio(musicOptions[randomSongChoice]);
+                }
+                else if (musicOptions.Length == musicChoices.Count)
+                {
+                    musicChoices.Clear();
+                }
+            }
+        }
     }
 
     public void PlayMusicAudio(AudioClip audioClip)
@@ -28,6 +56,18 @@ public class AudioManager : MonoBehaviour
     {
         allAudioSources[1].clip = audioClip; //set the audio source clip
         allAudioSources[1].Play(); //the sound clip is played
+    }
+
+    private bool CheckMusicChosen(int chosenNum)
+    {
+        for (int i = 0; i < musicChoices.Count; i++)
+        {
+            if (musicChoices[i] == chosenNum)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     public AudioClip GetDeathSound()

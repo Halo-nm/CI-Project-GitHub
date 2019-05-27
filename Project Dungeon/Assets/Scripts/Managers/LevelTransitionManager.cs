@@ -7,11 +7,15 @@ public class LevelTransitionManager : MonoBehaviour
 {
     [SerializeField] Animator animator;
 
+    CharacterSelector characterSelector;
+
     private static bool levelTransitionManagerExists;
 
     private List<int> scenesList = new List<int>(); //int list of levels to randomly select from
     private List<int> chosenScenesList = new List<int>(); //list of scenes already chosen
     private int levelIndex;
+
+    private string endTime;
 
     LoadNewScene loadNewScene;
 
@@ -33,6 +37,16 @@ public class LevelTransitionManager : MonoBehaviour
     void Update()
     {
         loadNewScene = FindObjectOfType<LoadNewScene>();
+
+        try //set up so the last instance of characterSelector can be found without throwing an error
+        {
+            characterSelector = FindObjectOfType<CharacterSelector>();
+            endTime = characterSelector.GetCurrentTime(); //time is retrieved so it can be send the the end-of-the-game screen
+        }
+        catch
+        {
+            //pass
+        }
     }
 
     private void SelectRandomLevel()
@@ -73,5 +87,10 @@ public class LevelTransitionManager : MonoBehaviour
     public void SetLevelIndex(int index)
     {
         levelIndex = index;
+    }
+
+    public string GetEndTime()
+    {
+        return endTime;
     }
 }
