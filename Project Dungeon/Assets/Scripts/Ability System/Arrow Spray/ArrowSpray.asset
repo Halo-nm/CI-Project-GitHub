@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ArrowSpray
   m_EditorClassIdentifier: 
   abilityName: Arrow Spray
-  abilitySprite: {fileID: 21300000, guid: 9f922002032136c4687b8dced9bc624c, type: 3}
+  abilitySprite: {fileID: 21300000, guid: 06616729ca06403418dce7d8c81416ec, type: 3}
   abilitySound: {fileID: 8300000, guid: c0ac0614aa7b64de7ba2f569a0793a16, type: 3}
   abilityBaseCooldown: 2
   arrowPrefab: {fileID: 3787808448451824149, guid: 1754720d593901b45af191839f00b331,
