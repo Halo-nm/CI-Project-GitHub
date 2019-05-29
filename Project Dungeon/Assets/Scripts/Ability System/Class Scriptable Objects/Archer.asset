@@ -17,4 +17,4 @@ MonoBehaviour:
   characterAbilities:
   - {fileID: 11400000, guid: 7046b320af27c144aa530b362cf59cb9, type: 2}
   - {fileID: 11400000, guid: ccf565e60c1765f449e36375923ac961, type: 2}
-  - {fileID: 11400000, guid: f9e343bdc8da1654fac9747ae5b10718, type: 2}
+  - {fileID: 11400000, guid: bdcb5e5e74f903042a96ee97be351322, type: 2}

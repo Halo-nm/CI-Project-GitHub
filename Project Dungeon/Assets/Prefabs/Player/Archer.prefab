@@ -422,6 +422,8 @@ MonoBehaviour:
   dashSpeed: 0
   dashTime: 0
   invulnerableCounter: 1
+  speedBuffTimer: 3
+  speedAmount: 1.5
 --- !u!114 &6610260210539478229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,7 +452,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de97c3bd05771234a96d8f041f15d2c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthToReturn: 0
+  crippleTrap: {fileID: 0}
+  damageToDeal: 5
+  speedDivisor: 2
+  slowedDuration: 3
+  maxTrapLifetime: 10
 --- !u!1 &8075064659744790810
 GameObject:
   m_ObjectHideFlags: 0

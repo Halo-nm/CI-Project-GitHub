@@ -5,11 +5,19 @@ using UnityEngine;
 public class MultiKeyLock : MonoBehaviour
 {
     [SerializeField] List<GameObject> keysRequired = new List<GameObject>();
+    [SerializeField] AudioClip soundToPlay;
+
+    AudioManager audioManager;
 
     void Update()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         if (keysRequired.Count <= 0) //destroys this object if all required keys are retrieved
         {
+            if (soundToPlay != null)
+            {
+                audioManager.PlaySoundFXAudio(soundToPlay);
+            }
             Destroy(gameObject);
         }
     }

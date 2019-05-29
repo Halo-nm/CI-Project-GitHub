@@ -16,7 +16,7 @@ MonoBehaviour:
   abilitySprite: {fileID: 21300000, guid: 9f922002032136c4687b8dced9bc624c, type: 3}
   abilitySound: {fileID: 8300000, guid: c0ac0614aa7b64de7ba2f569a0793a16, type: 3}
   abilityBaseCooldown: 2
-  arrowPrefab: {fileID: 3787808448451824149, guid: 1754720d593901b45af191839f00b331,
+  arrowPrefab: {fileID: 3787808448451824149, guid: a60e9aa7c4c75c1478b6633311a26f4f,
     type: 3}
   damagePerArrow: 5
   arrowSpeed: 25

@@ -9,9 +9,6 @@ public class Arrow : MonoBehaviour
 
     GameObject newArrow;
 
-    // Start is called before the first frame update
-    // Update is called once per frame
-
     public void Shoot()
     {
         newArrow = Instantiate(arrowPrefab, firePoint.position, firePoint.rotation);

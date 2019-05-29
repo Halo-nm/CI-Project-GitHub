@@ -20,11 +20,12 @@ public class StandardEnemyController : MonoBehaviour
     private bool isMoving;
     private Vector3 moveDirection;
 
+    private GameObject player;
+
     CharacterSelector characterSelector;
 
     void Start()
     {
-        characterSelector = FindObjectOfType<CharacterSelector>();
         myRigidBody = GetComponent<Rigidbody2D>();
         isMoving = false;
         timeBetweenMoveCounter = Random.Range(timeBetweenMove * 0.75f, timeBetweenMove * 1.25f);
@@ -34,6 +35,8 @@ public class StandardEnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        characterSelector = FindObjectOfType<CharacterSelector>(); //has to be in Update() so the reference is grabbed between scene swaps
+
         if (moveRandomly && target == null) //if the enemy is supposed to randomly move and doesn't have the player in its sights
         {
             if (isMoving)

@@ -6,10 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
+    [SerializeField] string levelToLoad = "Level1";
+    [SerializeField] bool chooseSpecificLevel = true;
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (chooseSpecificLevel)
+        {
+            SceneManager.LoadScene(levelToLoad);
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     public void ExitGame ()
