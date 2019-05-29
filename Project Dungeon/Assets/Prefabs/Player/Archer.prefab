@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5975663607657201704}
   - component: {fileID: 5975663607657201705}
   - component: {fileID: 5975663607657201710}
-  - component: {fileID: 9105130472280978872}
+  - component: {fileID: 6411907365555060026}
   m_Layer: 0
   m_Name: Archer
   m_TagString: Player
@@ -183,7 +183,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &9105130472280978872
+--- !u!114 &6411907365555060026
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
