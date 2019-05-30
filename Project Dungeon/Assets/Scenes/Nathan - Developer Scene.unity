@@ -222,7 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelToLoad: 
   selectRandomScene: 1
-  fillPlayerHealth: 1
+  returnPlayerHealth: 1
   swapLevelTime: 2
 --- !u!1 &22695562
 GameObject:
@@ -464,7 +464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelToLoad: GameOverScreen
   selectRandomScene: 0
-  fillPlayerHealth: 0
+  returnPlayerHealth: 1
   swapLevelTime: 2
 --- !u!1001 &268031459
 PrefabInstance:
@@ -633,6 +633,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Level Transition
+      objectReference: {fileID: 0}
+    - target: {fileID: 4711638610368260636, guid: 33c043b926afd5a4ab83f0fff9b2c573,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4711638610368260638, guid: 33c043b926afd5a4ab83f0fff9b2c573,
         type: 3}
@@ -1943,6 +1948,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1295432155539592108, guid: 6b4c2660fec166b48b8509bf7fb19804,
+        type: 3}
+      propertyPath: followTarget
+      value: 
+      objectReference: {fileID: 813331099}
+    - target: {fileID: 1295432155539592108, guid: 6b4c2660fec166b48b8509bf7fb19804,
+        type: 3}
+      propertyPath: newCharacter
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1295432155539592109, guid: 6b4c2660fec166b48b8509bf7fb19804,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
@@ -1962,16 +1977,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BackGroundColor.b
       value: 0.5987451
-      objectReference: {fileID: 0}
-    - target: {fileID: 1295432155539592108, guid: 6b4c2660fec166b48b8509bf7fb19804,
-        type: 3}
-      propertyPath: followTarget
-      value: 
-      objectReference: {fileID: 813331099}
-    - target: {fileID: 1295432155539592108, guid: 6b4c2660fec166b48b8509bf7fb19804,
-        type: 3}
-      propertyPath: newCharacter
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b4c2660fec166b48b8509bf7fb19804, type: 3}
@@ -53958,11 +53963,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 598694539078142652, guid: 6496287f7534a2e4ebe65d7a56607993,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 598694539078142625, guid: 6496287f7534a2e4ebe65d7a56607993,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -54410,6 +54410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToChange: {fileID: 767179319}
   destroyObject: 1
+  soundToPlay: {fileID: 0}
 --- !u!1001 &3855377089131220485
 PrefabInstance:
   m_ObjectHideFlags: 0
