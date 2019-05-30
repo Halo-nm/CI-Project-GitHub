@@ -11,7 +11,6 @@ public class PlayerHealthManager : MonoBehaviour
     
     CharacterSelector characterSelector;
     AudioManager audioManager;
-    //LoadNewScene loadNewScene;
 
     void Start()
     {
@@ -21,15 +20,12 @@ public class PlayerHealthManager : MonoBehaviour
         playerCurrentHealth = playerMaxHealth;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (playerCurrentHealth <= 0)
         {
             characterSelector.SetCharacterActive(false);
             characterSelector.TurnOffCanvas();
-            //loadNewScene.LoadEndGameScene(endGameScene);
-            //gameObject.SetActive(false);
             gameObject.GetComponent<PlayerController>().enabled = false; //not a clean way of disabling the player once dead, but works for now
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
@@ -71,7 +67,7 @@ public class PlayerHealthManager : MonoBehaviour
 
     public void SetCurrentHealth(int updatedCurrentPlayerHealth)
     {
-        if (updatedCurrentPlayerHealth > 100) //if updating the player's health would make the players health greater than 100, set the current health to 100
+        if (updatedCurrentPlayerHealth > playerMaxHealth) //if updating the player's health would make the players health greater than 100, set the current health to 100
         {
             playerCurrentHealth = playerMaxHealth;
         }

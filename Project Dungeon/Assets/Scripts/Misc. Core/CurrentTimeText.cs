@@ -10,7 +10,7 @@ public class CurrentTimeText : MonoBehaviour
 
     LevelTransitionManager levelTransitionManager;
 
-    void Start()
+    void Update()
     {
         levelTransitionManager = FindObjectOfType<LevelTransitionManager>();
 

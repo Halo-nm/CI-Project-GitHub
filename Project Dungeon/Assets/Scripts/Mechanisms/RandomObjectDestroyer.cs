@@ -11,7 +11,7 @@ public class RandomObjectDestroyer : MonoBehaviour
 
     AudioManager audioManager;
 
-    void Start()
+    void Update()
     {
         audioManager = FindObjectOfType<AudioManager>();
     }

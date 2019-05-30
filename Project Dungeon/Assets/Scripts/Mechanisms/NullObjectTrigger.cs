@@ -9,13 +9,10 @@ public class NullObjectTrigger : MonoBehaviour
 
     AudioManager audioManager;
 
-    void Start()
-    {
-        audioManager = FindObjectOfType<AudioManager>();
-    }
-
     void Update()
     {
+        audioManager = FindObjectOfType<AudioManager>();
+
         if (CheckObjects()) //checks to make sure all the objects are null //if they are, then destroy the object the script is attached to
         {
             if (soundToPlay != null)

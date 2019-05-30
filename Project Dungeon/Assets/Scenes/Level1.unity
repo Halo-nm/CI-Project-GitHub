@@ -7057,6 +7057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToChange: {fileID: 14109949}
   destroyObject: 1
+  soundToPlay: {fileID: 8300000, guid: a826bc3d758db43d6ae9caf415b63d1d, type: 3}
 --- !u!212 &121141532904716428
 SpriteRenderer:
   m_ObjectHideFlags: 0
