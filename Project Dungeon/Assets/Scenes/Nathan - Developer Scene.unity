@@ -634,11 +634,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level Transition
       objectReference: {fileID: 0}
-    - target: {fileID: 4711638610368260636, guid: 33c043b926afd5a4ab83f0fff9b2c573,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4711638610368260638, guid: 33c043b926afd5a4ab83f0fff9b2c573,
         type: 3}
       propertyPath: m_LocalPosition.x

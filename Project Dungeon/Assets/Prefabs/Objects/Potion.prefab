@@ -120,3 +120,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthToReturn: 10
+  soundToPlay: {fileID: 8300000, guid: b95147a4c31cc23428d33533a5d8c449, type: 3}

@@ -19,13 +19,11 @@ public class LoadNewScene : MonoBehaviour
 
     PlayerHealthManager playerHealthManager;
     CharacterSelector characterSelector;
-    AudioManager audioManager;
     PlayerStartPoint playerStartPoint;
     LevelTransitionManager levelTransitionManager;
 
     void Start()
     {
-        audioManager = FindObjectOfType<AudioManager>();
         playerStartPoint = FindObjectOfType<PlayerStartPoint>();
     }
 
