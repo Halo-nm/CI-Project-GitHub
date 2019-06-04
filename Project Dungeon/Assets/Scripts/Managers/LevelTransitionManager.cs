@@ -52,8 +52,8 @@ public class LevelTransitionManager : MonoBehaviour
     private void SelectRandomLevel()
     {
         int sceneCountLength = SceneManager.sceneCountInBuildSettings; //temporary storge of how many scenes are in the build settings (discounts the first and last scene, which should be the title and game over screen)
-        for (int i = 0; i < sceneCountLength - 2; i++) //IMPORTANT: set to -3 so that it excludes the Title Screen, Victory Screen, and Game Over Screen in the build settings
-        {
+        for (int i = 1; i < sceneCountLength - 2; i++) //IMPORTANT: set to -2 so that it excludes the Title Screen, Victory Screen, and Game Over Screen in the build settings
+        { //starts at index 1 because that's where the Title Screen is
             scenesList.Add(i);
         }
     }

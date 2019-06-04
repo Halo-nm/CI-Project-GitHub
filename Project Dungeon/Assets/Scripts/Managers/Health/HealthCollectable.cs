@@ -5,9 +5,11 @@ using UnityEngine;
 public class HealthCollectable : MonoBehaviour
 {
     [SerializeField] int healthToReturn = 10;
+    [SerializeField] AudioClip soundToPlay;
 
     PlayerHealthManager playerHealthManager;
     CharacterSelector characterSelector;
+    AudioManager audioManager;
 
     private int maxHealth;
     private int currentHealth;
@@ -15,12 +17,12 @@ public class HealthCollectable : MonoBehaviour
     void Update()
     {
         characterSelector = FindObjectOfType<CharacterSelector>();
+        audioManager = FindObjectOfType<AudioManager>();
         if (characterSelector.GetCharacterActive()) //checks if the character is active
         {
             playerHealthManager = characterSelector.GetCharacterObject().GetComponent<PlayerHealthManager>(); //gets the current player instance's health manager
             maxHealth = playerHealthManager.GetMaxHealth();
             currentHealth = playerHealthManager.GetCurrentHealth();
-
         }
     }
 
@@ -28,6 +30,10 @@ public class HealthCollectable : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            if (soundToPlay != null)
+            {
+                audioManager.PlaySoundFXAudio(soundToPlay);
+            }
             playerHealthManager.SetCurrentHealth(currentHealth + healthToReturn); //health is checked in PlayerHealthManager to ensure the value isn't larger than it's max health
             Destroy(gameObject);
         }

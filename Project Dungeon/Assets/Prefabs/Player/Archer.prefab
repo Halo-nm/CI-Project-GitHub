@@ -161,8 +161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c7cd4cdbdbe014b84edbc7f560bdfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMaxHealth: 100
-  playerCurrentHealth: 100
+  playerMaxHealth: 80
+  playerCurrentHealth: 80
   endGameScene: GameOverScreen
 --- !u!95 &5975663607657201710
 Animator:
