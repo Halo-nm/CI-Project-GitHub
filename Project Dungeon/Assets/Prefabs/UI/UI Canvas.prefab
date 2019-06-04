@@ -2804,7 +2804,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathSound: {fileID: 8300000, guid: 9afb8695ace2fcf499ddf1b876189e91, type: 3}
   musicOptions:
-  - {fileID: 8300000, guid: 56638f17928dc2842b35b0d607a52c9b, type: 3}
+  - {fileID: 8300000, guid: d825e01c990671840909359bc1832021, type: 3}
+  - {fileID: 8300000, guid: 3294dc79ab517a54b94cc1eedb8285ac, type: 3}
+  - {fileID: 8300000, guid: 2d75080d0851d4613ada1117d91ee417, type: 3}
   - {fileID: 8300000, guid: e6ee71813e1303e4cb8254dd48304712, type: 3}
 --- !u!114 &674677893
 MonoBehaviour:
