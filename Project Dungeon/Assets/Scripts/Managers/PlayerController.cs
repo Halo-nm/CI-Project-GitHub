@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
         abilityActive = false;
     }
 
-    void FixedUpdate()
+    void Update() //don't do fixed update because it's not checked every frame
     {
         playerMoving = false;
 
