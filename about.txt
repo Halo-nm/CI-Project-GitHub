@@ -1,0 +1,27 @@
+List of Memebers
+Rayan Shrestha:	
+	ID:14287745
+	Grad Year: 2023
+
+Nathan Malenfant:
+	ID:14291705
+	Grad Year: 2023
+
+Neel Mayur:
+	ID:14286652
+	Grad Year: 2023
+
+Samuel Tsui:
+	ID:14289156
+	Grad Year: 2023
+
+Maxwell Sullivan:
+	ID: 14287291
+	Grad Year: 2023
+
+Abstract:
+	Project Dungeon is a 2D top down RPG Dungeon crawler
+	The player can pick one of 2 classes warrior and archer and
+	progress through a series of random levels.
+	The player has ablties as well as basic attack to assit them in fighting
+	monsters so they can conquer the dungeon. 
