@@ -18,11 +18,18 @@ public class HealthCollectable : MonoBehaviour
     {
         characterSelector = FindObjectOfType<CharacterSelector>();
         audioManager = FindObjectOfType<AudioManager>();
-        if (characterSelector.GetCharacterActive()) //checks if the character is active
+        try //hastily done because a non-gamebreaking error was being thrown once the player is killed
         {
-            playerHealthManager = characterSelector.GetCharacterObject().GetComponent<PlayerHealthManager>(); //gets the current player instance's health manager
-            maxHealth = playerHealthManager.GetMaxHealth();
-            currentHealth = playerHealthManager.GetCurrentHealth();
+            if (characterSelector.GetCharacterActive()) //checks if the character is active
+            {
+                playerHealthManager = characterSelector.GetCharacterObject().GetComponent<PlayerHealthManager>(); //gets the current player instance's health manager
+                maxHealth = playerHealthManager.GetMaxHealth();
+                currentHealth = playerHealthManager.GetCurrentHealth();
+            }
+        }
+        catch
+        {
+            //pass
         }
     }
 

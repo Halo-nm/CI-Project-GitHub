@@ -140,6 +140,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageToDeal: 5
-  currentTime: 0
-  spike: 1
+  damageBurst: {fileID: 2823893128286567286, guid: 9b8a65f711a678a4c96dd9b159d3ae07,
+    type: 3}
   hurtEnemy: 0

@@ -5,26 +5,31 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public float moveSpeed;
+    [SerializeField] float moveSpeed;
 
     public Vector2 lastMove; //Use Vector 2 for (x,y); not Vector 3 b/c it's (x,y,z)
     private bool playerMoving;
 
-    public float attackTime = 0.5f;
+    [SerializeField] float attackTime = 0.5f;
     private float attackTimeCounter;
     private bool playerAttacking;
     private bool abilityActive = false;
+
+    private float storeMoveSpeed;
+    private float storeAttackTime;
 
     private static bool playerExists; //sets the player to true and keeps it true when entering back into the starting scene (this avoids duplicates)
 
     public Rigidbody2D myRigidbody; //keep this public
     Animator animator;
 
-    // Use this for initialization
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        storeMoveSpeed = moveSpeed;
+        storeAttackTime = attackTime;
 
         if (!playerExists)
         {
@@ -103,6 +108,26 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("PlayerAttacking", true); //what dictates whether the attack is done and animated
     }
 
+    public float GetMoveSpeed()
+    {
+        return moveSpeed;
+    }
+
+    public void SetMoveSpeed(float speed)
+    {
+        moveSpeed = speed;
+    }
+
+    public float GetAttackTime()
+    {
+        return attackTime;
+    }
+
+    public void SetAttackTime(float time)
+    {
+        attackTime = time;
+    }
+
     public bool GetPlayerAttacking()
     {
         return playerAttacking;
@@ -121,5 +146,11 @@ public class PlayerController : MonoBehaviour
     public Vector2 GetLastMove()
     {
         return lastMove;
+    }
+
+    public void ResetMoveSpeedAndAttackTime() //was specifically made because abilities would glitch (save changed values) between scene loads
+    {
+        moveSpeed = storeMoveSpeed;
+        attackTime = storeAttackTime;
     }
 }

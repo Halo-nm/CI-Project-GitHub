@@ -7,10 +7,12 @@ public class PlayerHealthManager : MonoBehaviour
 {
     [SerializeField] int playerMaxHealth;
     [SerializeField] int playerCurrentHealth;
-    [SerializeField] string endGameScene = "GameOverScreen"; //the scene to load when the player dies
-    
+
+    private bool gameOverScreenLoaded;
+
     CharacterSelector characterSelector;
     AudioManager audioManager;
+    LevelTransitionManager levelTransitionManager;
 
     void Start()
     {
@@ -22,15 +24,17 @@ public class PlayerHealthManager : MonoBehaviour
 
     void Update()
     {
-        if (playerCurrentHealth <= 0)
+        levelTransitionManager = FindObjectOfType<LevelTransitionManager>();
+        if (playerCurrentHealth <= 0 && !gameOverScreenLoaded)
         {
+            gameOverScreenLoaded = true;
             characterSelector.SetCharacterActive(false);
             characterSelector.TurnOffCanvas();
             gameObject.GetComponent<PlayerController>().enabled = false; //not a clean way of disabling the player once dead, but works for now
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             transform.Find("Weapon").gameObject.SetActive(false);
-            StartCoroutine(DeathTime(endGameScene));
+            StartCoroutine(DeathTime());
         }
     }
 
@@ -43,11 +47,12 @@ public class PlayerHealthManager : MonoBehaviour
         }
     }
 
-    IEnumerator DeathTime(string sceneToLoad) //has the player wait a few seconds before GAME OVER is displayed in order to give time for any death animations/sounds
+    IEnumerator DeathTime() //has the player wait a few seconds before GAME OVER is displayed in order to give time for any death animations/sounds
     {
         audioManager.PlaySoundFXAudio(audioManager.GetDeathSound()); //NOT playing the audio for some reason
         yield return new WaitForSeconds(3); //plays for the length of the audio clip
-        SceneManager.LoadScene(sceneToLoad);
+        levelTransitionManager.SetLevelIndex(SceneManager.sceneCountInBuildSettings - 1);  //the Game Over screen is the last scene in the scene index but needs to be -1 because the index starts at 1
+        levelTransitionManager.FadeToLevel();
     }
 
     public int GetMaxHealth()

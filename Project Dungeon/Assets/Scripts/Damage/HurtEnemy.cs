@@ -54,11 +54,18 @@ public class HurtEnemy : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            if (FindObjectOfType<Charge>().GetDashing())
+            try //hastily done to fix an issue where an error was being thrown during level swaps when the ability is on cooldown
             {
-                other.gameObject.GetComponent<EnemyHealthManager>().HurtEnemy(FindObjectOfType<Charge>().GetDashDamage());
-                GameObject tempBurst = Instantiate(damageBurst, other.transform.position, other.transform.rotation);
-                Object.Destroy(tempBurst, 1.0f);
+                if (FindObjectOfType<Charge>().GetDashing())
+                {
+                    other.gameObject.GetComponent<EnemyHealthManager>().HurtEnemy(FindObjectOfType<Charge>().GetDashDamage());
+                    GameObject tempBurst = Instantiate(damageBurst, other.transform.position, other.transform.rotation);
+                    Destroy(tempBurst, 1.0f);
+                }
+            }
+            catch
+            {
+                //pass
             }
         }
     }

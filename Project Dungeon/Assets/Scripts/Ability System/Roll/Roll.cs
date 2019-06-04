@@ -15,12 +15,15 @@ public class Roll : MonoBehaviour
     private bool invulnerable;
     private bool dashing = false;
 
+    private float storedMoveSpeed;
+
     public void Setup() //performs the same actions as MonoBehaviour's Start() function
     {
         playerController = FindObjectOfType<PlayerController>();
         hurtPlayer = FindObjectOfType<HurtPlayer>();
         characterSelector = FindObjectOfType<CharacterSelector>();
 
+        storedMoveSpeed = playerController.GetMoveSpeed(); //locally stores the value of the player's current move speed before it gets altered
     }
 
 
@@ -71,16 +74,13 @@ public class Roll : MonoBehaviour
     }
     IEnumerator SpeedBoost()
     {
-
-        float storedMoveSpeed = playerController.moveSpeed; //locally stores the value of the player's current move speed before it gets altered
-
-        playerController.moveSpeed *= speedAmount;
+        playerController.SetMoveSpeed(storedMoveSpeed * speedAmount);
         yield return new WaitForSeconds(speedBuffTimer);
-        playerController.moveSpeed = storedMoveSpeed;
+        playerController.SetMoveSpeed(storedMoveSpeed);
     }
+
     public bool GetDashing()
     {
-
         return dashing;
     }
 

@@ -5,8 +5,10 @@ using UnityEngine;
 public class Spikes : MonoBehaviour
 {
     [SerializeField] int damageToDeal;
-    [SerializeField] float currentTime = 0f;
-    [SerializeField] bool spike;
+    [SerializeField] GameObject damageBurst;
+
+    private float currentTime = 0f;
+    private bool spike;
 
     public bool hurtEnemy = false;
 
@@ -37,17 +39,27 @@ public class Spikes : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (spike == true)
         {
-            if (other.gameObject.tag == "Player")
+            if (collision.gameObject.tag == "Player")
             {
-                other.gameObject.GetComponent<PlayerHealthManager>().HurtPlayer(damageToDeal);
+                if (damageBurst != null) //consider centralizing the damage burst spawning (it's in multiple scripts now)
+                {
+                    GameObject tempBurst = Instantiate(damageBurst, collision.transform.position, collision.transform.rotation);
+                    Destroy(tempBurst, 1.0f);
+                }
+                collision.gameObject.GetComponent<PlayerHealthManager>().HurtPlayer(damageToDeal);
             }
-            if (other.gameObject.tag == "Enemy (Base)" && hurtEnemy) //only reading the first tag the pops up, so the base (core) portion of the enemy is tagged as "Enemy (Base)" so that the spike collision can find the component in its (damage, health, etc...) child
+            if (collision.gameObject.tag == "Enemy (Base)" && hurtEnemy) //only reading the first tag the pops up, so the base (core) portion of the enemy is tagged as "Enemy (Base)" so that the spike collision can find the component in its (damage, health, etc...) child
             {
-                other.gameObject.GetComponentInChildren<EnemyHealthManager>().HurtEnemy(damageToDeal);
+                if (damageBurst != null) //consider centralizing the damage burst spawning (it's in multiple scripts now)
+                {
+                    GameObject tempBurst = Instantiate(damageBurst, collision.transform.position, collision.transform.rotation);
+                    Destroy(tempBurst, 1.0f);
+                }
+                collision.gameObject.GetComponentInChildren<EnemyHealthManager>().HurtEnemy(damageToDeal);
             }
         }
     }

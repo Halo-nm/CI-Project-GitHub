@@ -35,8 +35,8 @@ public class AlternatingSpike : MonoBehaviour
             boxCollider2D.enabled = false;
         }
     }
-    private void OnCollisionEnter2D(Collision2D other)
+    /*private void OnCollisionEnter2D(Collision2D other)
     {
-        GetComponent<PlayerHealthManager>().HurtPlayer(damageToDeal);
-    }
+        other.gameObject.GetComponent<PlayerHealthManager>().HurtPlayer(damageToDeal);
+    }*/
 }
