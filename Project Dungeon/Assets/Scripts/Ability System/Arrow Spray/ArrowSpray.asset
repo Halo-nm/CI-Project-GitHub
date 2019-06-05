@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 515d900a4a92d5641bf217f520adb198, type: 3}
+  m_Name: ArrowSpray
+  m_EditorClassIdentifier: 
+  abilityName: Arrow Spray
+  abilitySprite: {fileID: 21300000, guid: 06616729ca06403418dce7d8c81416ec, type: 3}
+  abilitySound: {fileID: 8300000, guid: c0ac0614aa7b64de7ba2f569a0793a16, type: 3}
+  abilityBaseCooldown: 2
+  arrowPrefab: {fileID: 3787808448451824149, guid: a60e9aa7c4c75c1478b6633311a26f4f,
+    type: 3}
+  damagePerArrow: 5
+  arrowSpeed: 25
+  degreeBetweenSplit: 30

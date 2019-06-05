@@ -1,0 +1,15 @@
+Creating:
+Select "New File."
+In the text field for the file name, write the name of the folder you want to create, then type "/" directly have the name.
+Another text field will be created for you to name a file inside of the new folder, like this one.
+Simply name the file and selected "Commit" at the bottom of the page.
+Done.
+
+After typing in the folder name, a file name is needed because GitHub doesn't store empty folders. A file must be created simultaneously.
+
+Renaming:
+Selected a file's naming textfield while in said file.
+Type "Backspace" until the textfield of the folder name can be edited.
+Rename the folder and type "/" once again.
+Rename the file to whatever previous name or new name you had before.
+Done.

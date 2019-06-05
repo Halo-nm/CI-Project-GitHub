@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e77c5f88b4cfecb48b4124da9825f314, type: 3}
+  m_Name: Cripple
+  m_EditorClassIdentifier: 
+  abilityName: Cripple
+  abilitySprite: {fileID: 21300000, guid: 16277b92541737643bb8e1acea699333, type: 3}
+  abilitySound: {fileID: 8300000, guid: ce23e1ccbd2e4674489520061406d53c, type: 3}
+  abilityBaseCooldown: 8
+  crippleTrap: {fileID: 4711009787905047535, guid: 3d9bac5296dcad3499789a4e85bfd1e7,
+    type: 3}
+  damageToDeal: 5
+  speedDivisor: 2
+  slowedDuration: 3
+  maxTrapLifetime: 10
