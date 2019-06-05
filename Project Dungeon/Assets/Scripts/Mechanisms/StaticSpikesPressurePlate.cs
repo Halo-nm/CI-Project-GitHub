@@ -8,7 +8,7 @@ public class StaticSpikesPressurePlate : MonoBehaviour
     //float timeSinceLastTrigger;
 
     [SerializeField] List<AlternatingSpike> spikes= new List<AlternatingSpike>();
-    
+    [SerializeField] AudioClip soundToPlay;
 
     //[SerializeField] bool spawnObject = false; //set to true if an object should be spawned on trigger
     //[SerializeField] GameObject objectPrefabToSpawn;
@@ -16,8 +16,11 @@ public class StaticSpikesPressurePlate : MonoBehaviour
     //[SerializeField] Transform startMarker;
     //[SerializeField] Transform endMarker;
 
+    AudioManager audioManager;
+
     void Update()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         //timeSinceLastTrigger += Time.deltaTime;
     }
 
@@ -25,6 +28,10 @@ public class StaticSpikesPressurePlate : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            if (soundToPlay != null)
+            {
+                audioManager.PlaySoundFXAudio(soundToPlay);
+            }
             for(int i = 0; i < spikes.Count; i++)
             {
                 spikes[i].Active = !spikes[i].Active;

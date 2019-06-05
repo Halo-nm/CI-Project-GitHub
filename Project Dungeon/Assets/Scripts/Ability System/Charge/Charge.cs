@@ -17,10 +17,13 @@ public class Charge : MonoBehaviour
 
     public void Setup() //performs the same actions as MonoBehaviour's Start() function
     {
-        playerController = FindObjectOfType<PlayerController>();
         hurtPlayer = FindObjectOfType<HurtPlayer>();
         characterSelector = FindObjectOfType<CharacterSelector>();
+    }
 
+    void Update()
+    {
+        playerController = FindObjectOfType<PlayerController>(); //appeared to not be making the player invicible during the dash when this line is in Setup()
     }
 
 

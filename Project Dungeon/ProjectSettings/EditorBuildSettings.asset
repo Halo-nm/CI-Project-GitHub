@@ -12,15 +12,21 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScreen.unity
     guid: fdbf0cd709fff0c42856b1a9793857aa
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
+    path: Assets/Scenes/Key Quest.unity
     guid: bbe990e9cd57af545a0083be334f23d0
   - enabled: 1
-    path: Assets/Scenes/Level2.unity
+    path: Assets/Scenes/Pressure Plate Peril.unity
     guid: 4b4cb6855e6b1b84d8c325c8f52093c3
   - enabled: 1
-    path: Assets/Scenes/GameOverScreen.unity
-    guid: e6c199a3eaa9d4345a256c5b1103905c
+    path: Assets/Scenes/Spooky Spikes.unity
+    guid: bba2379db1aeae242aed9755a0aa820a
+  - enabled: 1
+    path: Assets/Scenes/The Long Hall.unity
+    guid: bd21ed5a599154f4f8bfb3dc0c41ddeb
   - enabled: 1
     path: Assets/Scenes/VictoryScreen.unity
     guid: 05db53d9b13bf422a936ebfc12888fc0
+  - enabled: 1
+    path: Assets/Scenes/GameOverScreen.unity
+    guid: e6c199a3eaa9d4345a256c5b1103905c
   m_configObjects: {}

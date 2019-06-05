@@ -14,9 +14,11 @@ public class LoadNewScene : MonoBehaviour
     private int scenesListLength;
     private int chosenScenesListLength;
     private bool gameOver = false;
+    private bool loadingNewScene = false;
 
     private bool titleScreen = false;
 
+    PlayerController playerController;
     PlayerHealthManager playerHealthManager;
     CharacterSelector characterSelector;
     PlayerStartPoint playerStartPoint;
@@ -29,6 +31,7 @@ public class LoadNewScene : MonoBehaviour
 
     void Update()
     {
+        playerController = FindObjectOfType<PlayerController>();
         characterSelector = FindObjectOfType<CharacterSelector>();
         levelTransitionManager = FindObjectOfType<LevelTransitionManager>();
 
@@ -60,6 +63,14 @@ public class LoadNewScene : MonoBehaviour
     {
         if (!titleScreen)
         {
+            try //chose to do this because an error that wasn't affecting the flow of the game was coming up
+            {
+                playerController.ResetMoveSpeedAndAttackTime();
+            }
+            catch
+            {
+                //pass
+            }
             characterSelector.GetCharacterObject().SetActive(false);
         }
 
@@ -102,7 +113,7 @@ public class LoadNewScene : MonoBehaviour
             {
                 gameOver = true;
                 characterSelector.TurnOffCanvas();
-                levelTransitionManager.SetLevelIndex(SceneManager.sceneCountInBuildSettings - 1); //since the build index starts at 0, need to -1 to access the last spot of the build list
+                levelTransitionManager.SetLevelIndex(SceneManager.sceneCountInBuildSettings - 2); //the penultimate level index is the Victory Screen but needs to be -2 because the index starts at 1
                 levelTransitionManager.FadeToLevel();
             }
         }
